@@ -1,0 +1,8 @@
+dummy,52:54:0046:b7:57,controller-1,10.0.9.11
+dummy,52:54:00cd:56:ce,controller-2,10.0.9.12
+dummy,52:54:0096:ba:3e,controller-3,10.0.9.13
+dummy,52:54:0033:03:4f,compute-1,10.0.9.21
+dummy,52:54:0045:cf:66,compute-2,10.0.9.22
+dummy,52:54:00eb:af:d1,storage-1,10.0.9.31
+dummy,52:54:0029:e4:85,storage-2,10.0.9.32
+dummy,52:54:00a7:13:ca,storage-3,10.0.9.33

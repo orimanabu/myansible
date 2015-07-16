@@ -1,0 +1,13 @@
+<network>
+  <name>foreman</name>
+  <forward mode='nat'/>
+  <bridge name='virbr-foreman' stp='off' delay='0' />
+  <domain name='osp-foreman.local'/>
+  <dns>
+    <!-- Libvirt host aliases: -->
+    <host ip='10.0.9.254'><hostname>gw.osp-foreman.local</hostname></host>
+    <host ip='10.0.9.254'><hostname>ks.osp-foreman.local</hostname></host>
+  </dns>
+  <ip address='10.0.9.254' netmask='255.255.255.0'>
+  </ip>
+</network>

@@ -1,0 +1,39 @@
+- name: nic
+  lineinfile: >-
+    dest="/etc/sysconfig/network-scripts/ifcfg-{{ item.int }}"
+    state=absent
+    regexp="{{ item.regexp }}"
+  with_items:
+    - int: "eth1"
+      regexp: "NETMASK=.*"
+- name: nic
+  lineinfile: >-
+    dest="/etc/sysconfig/network-scripts/ifcfg-{{ item.int }}"
+    state=present
+    regexp="{{ item.regexp }}"
+    line="{{ item.line }}"
+  with_items:
+    - int: "eth1"
+      regexp: "BOOTPROTO=.*"
+      line: "BOOTPROTO=none"
+    - int: "eth1"
+      regexp: "IPADDR=.*"
+      line: "IPADDR={{ ipv4_addr }}"
+    - int: "eth1"
+      regexp: "PREFIX=.*"
+      line: "PREFIX={{ ipv4_prefixlen }}"
+    - int: "eth1"
+      regexp: "GATEWAY=.*"
+      line: "GATEWAY={{ ipv4_gateway }}"
+    - int: "eth1"
+      regexp: "NM_CONTROLLED=.*"
+      line: "NM_CONTROLLED=no"
+
+- name: hostname
+  shell: hostnamectl set-hostname {{ hostname }}
+
+- name: stop NetworkManager
+  service: name=NetworkManager enabled=no state=stopped
+
+#- name: restart network
+#  service: name=network state=restarted

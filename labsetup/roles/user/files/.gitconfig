@@ -1,0 +1,24 @@
+[user]
+	name = Manabu Ori
+	email = manabu.ori+github@gmail.com
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
+	pager = true
+[core]
+	pager = less -FRSX
+;	excludesfile = /Users/ori/.gitignore_global
+	excludesfile = ~/.gitignore_global
+	whitespace = -trailing-space,-space-before-tab
+[alias]
+	shorten = !"sh -c 'curl -i http://git.io/ -F url=$1 `[ -n \"$2\" ] && echo -F code=$2`' -"
+[push]
+	default = simple
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

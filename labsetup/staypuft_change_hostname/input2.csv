@@ -1,0 +1,5 @@
+ospha-compute-1,52:54:00:40:a6:dc,compute-1,10.0.9.21
+ospha-compute-2,52:54:00:4d:ae:fb,compute-2,10.0.9.22
+ospha-controller-1,52:54:00:96:ad:1a,controller-1,10.0.9.11
+ospha-controller-2,52:54:00:59:6a:c1,controller-2,10.0.9.12
+ospha-controller-3,52:54:00:39:4d:25,controller-3,10.0.9.13

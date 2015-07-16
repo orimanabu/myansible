@@ -1,0 +1,37 @@
+---
+
+- name: user ori
+  user: name=ori comment="Manabu Ori" groups=wheel
+
+- name: sudoers
+  copy: src=ori dest=/etc/sudoers.d/ori mode=440 owner=root group=root
+
+- name: .ssh
+  file: path={{ item['homedir'] }}/.ssh state=directory owner={{ item['user'] }} group={{ item['user'] }} mode=700
+  with_items:
+    - "{{ users }}"
+
+- name: .ssh chcon
+  shell: chcon -R -t ssh_home_t {{ item['homedir'] }}
+  changed_when: false
+  with_items:
+    - "{{ users }}"
+
+- name: ssh related files
+  copy: src={{ item[0]['file'] }} dest={{ item[1]['homedir'] }}/.ssh/{{ item[0]['file'] }} owner={{ item[1]['user'] }} group={{ item[1]['user'] }} mode={{ item[0]['mode'] }}
+  with_nested:
+    - "{{ ssh_related_files}}"
+    - "{{ users }}"
+
+- name: dotfiles
+  copy: src={{ item[0] }} dest={{ item[1]['homedir'] }}
+  with_nested:
+    - "{{ dotfiles }}"
+    - "{{ users }}"
+
+- name: .bashrc
+  lineinfile: >-
+    dest="/root/.bashrc"
+    state=present
+    line="export LANG=C"
+

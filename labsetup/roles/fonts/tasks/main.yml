@@ -1,0 +1,17 @@
+- name: group install font related packages
+  yum: name="{{ item }}" state=installed
+  with_items:
+    - "@fonts"
+
+- name: install font related packages
+  yum: name={{ item }} state=installed
+  with_items:
+    - google-noto-sans-fonts
+    - google-noto-sans-cjk-fonts
+    - google-noto-serif-fonts
+    - ipa-ex-gothic-fonts
+    - ipa-ex-mincho-fonts
+    - ipa-gothic-fonts
+    - ipa-mincho-fonts
+    - ipa-pgothic-fonts
+    - ipa-pmincho-fonts

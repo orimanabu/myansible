@@ -1,0 +1,52 @@
+---
+
+- name: hosts
+  copy: src=hosts dest=/etc/hosts
+
+- name: gather /etc/hosts
+#  shell: grep -v '^#' /etc/hosts | grep 'ceph\.local'
+  shell: grep -v '^#' /etc/hosts | grep 'ceph\.local' | grep osd
+  always_run: yes
+  changed_when: false
+  register: ceph_etc_hosts
+
+- name: gather ip addr of ceph hosts
+  shell: grep -v '^#' /etc/hosts | awk '/ceph\.local/ {print $1}'
+  always_run: yes
+  changed_when: false
+  register: ceph_hosts_addr
+
+- name: gather hosts to propagate
+#  shell: grep -v '^#' /etc/hosts | awk '/osp6test\.local/ {print $2}' | grep -E -v 'foreman|calamari'
+  shell: grep -v '^#' /etc/hosts | awk '/osp6test\.local/ {print $2}' | grep -E 'foreman'
+  always_run: yes
+  changed_when: false
+  register: propagate_hosts
+
+#- name: debug ceph_hosts
+#  shell: echo {{ item }}
+#  with_items: ceph_hosts_addr.stdout_lines
+#
+#- name: debug propagate_hosts
+#  shell: echo {{ item }}
+#  with_items: propagate_hosts.stdout_lines
+
+- name: xxx
+#  shell: echo "a={{ item[0] }}, b={{ item[1] }}"
+#  shell: ssh {{ item[0] }} grep {{ item[1] }} /etc/hosts || ssh {{ item[0] }} "echo {{ item[1] }} >> /etc/hosts"
+#  debug: msg="ssh {{ item[0] }} uptime"
+#  local_action: command ssh "{{ item[0] }}" uptime
+#  local_action: command ssh {{ item[0] }} grep {{ item[1] }} /etc/hosts || grep {{ item[1] }} /etc/hosts | grep -v '^#' | ssh {{ item[0] }} "cat | sudo tee -a /etc/hosts"
+  local_action: shell /root/work/labsetup/add_etc_hosts.sh {{ item[0] }} {{ item[1] }} $(grep -v '^#' /etc/hosts | grep {{ item[1] }})
+  with_nested:
+    - propagate_hosts.stdout_lines
+    - ceph_hosts_addr.stdout_lines
+
+#- name: stop firewalld
+#  service: name=firewalld enabled=no state=stopped
+#- name: install iptables-services
+#  yum: name=iptables-services state=installed
+#- name: iptables conf
+#  copy: src=iptables dest=/etc/sysconfig/iptables
+#- name: iptables restart
+#  service: name=iptables enabled=yes state=restarted

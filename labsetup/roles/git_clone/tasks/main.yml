@@ -1,0 +1,4 @@
+---
+
+- name: setup_openstack
+  git: repo=git@github.com:orimanabu/setup_openstack.git dest=/root/setup_openstack accept_hostkey=yes

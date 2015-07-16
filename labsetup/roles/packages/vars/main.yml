@@ -1,0 +1,34 @@
+---
+
+system_packages:
+  - zsh
+  - sudo
+  - patch
+  - psmisc
+  - openssh-clients
+  - vim-enhanced
+  - git
+  - strace
+  - tcpdump
+  - wireshark
+  - traceroute
+  - mtr
+  - bind-utils
+  - nfs-utils
+  - telnet
+  - lftp
+  - curl
+  - wget
+  - rsync
+  - ntp
+  - ntpdate
+  - man
+  - man-pages
+  - ipmitool
+  - net-tools
+  - screen
+  - sysstat
+  - dstat
+  - xterm
+  - perl-XML-XPath
+  - yum-plugin-priorities

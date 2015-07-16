@@ -1,0 +1,9 @@
+dotfiles:
+  - .gitconfig
+  - .vimrc
+  - .inputrc
+  - .pythonstartup
+
+users:
+  - {user: root, homedir: /root}
+  - {user: ori, homedir: /home/ori}

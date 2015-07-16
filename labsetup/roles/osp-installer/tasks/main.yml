@@ -1,0 +1,34 @@
+---
+
+- name: PEERDNS=no
+  lineinfile: >-
+    dest="/etc/sysconfig/network-scripts/ifcfg-{{ item }}"
+    state=present
+    regexp="PEERDNS=.*"
+    line="PEERDNS=no"
+  when: item != "lo" and item != foreman_interface
+  with_items: "{{ ansible_interfaces }}"
+
+- name: remove dnsmasq
+  yum: name=dnsmasq state=absent
+
+- name: sysctl conf
+  copy: src=ip_forward.conf dest=/etc/sysctl.d/ip_forward.conf
+- name: sysctl
+  shell: sysctl -p
+  changed_when: false
+
+- name: stop firewalld
+  service: name=firewalld enabled=no state=stopped
+- name: install iptables-services
+  yum: name=iptables-services state=installed
+- name: iptables conf
+  copy: src=iptables dest=/etc/sysconfig/iptables
+- name: iptables restart
+  service: name=iptables enabled=yes state=restarted
+
+- name: restart network service
+  service: name=network state=restarted
+
+- name: install rhel-osp-installer
+  yum: name=rhel-osp-installer state=installed

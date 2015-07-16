@@ -1,0 +1,9 @@
+---
+
+- hosts: calamari
+  roles:
+#    - packages
+#    - user
+##    - nic
+#    - ntp
+    - calamari

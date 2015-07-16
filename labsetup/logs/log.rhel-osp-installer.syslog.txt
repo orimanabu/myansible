@@ -1,0 +1,762 @@
+May 22 18:52:24 foreman.osp6test.local dbus-daemon[579]: dbus[579]: [system] Activating via systemd: service name='org.freedesktop.timedate1' unit='dbus-org.freedesktop.timedate1.service'
+May 22 18:52:24 foreman.osp6test.local dbus[579]: [system] Activating via systemd: service name='org.freedesktop.timedate1' unit='dbus-org.freedesktop.timedate1.service'
+May 22 18:52:24 foreman.osp6test.local systemd[1]: Starting Time & Date Service...
+May 22 18:52:24 foreman.osp6test.local dbus-daemon[579]: dbus[579]: [system] Successfully activated service 'org.freedesktop.timedate1'
+May 22 18:52:24 foreman.osp6test.local dbus[579]: [system] Successfully activated service 'org.freedesktop.timedate1'
+May 22 18:52:24 foreman.osp6test.local systemd[1]: Started Time & Date Service.
+May 22 18:54:45 foreman.osp6test.local systemd[1]: Stopped firewalld - dynamic firewall daemon.
+May 22 18:54:45 foreman.osp6test.local dbus-daemon[579]: dbus[579]: [system] Reloaded configuration
+May 22 18:54:45 foreman.osp6test.local dbus[579]: [system] Reloaded configuration
+May 22 18:54:45 foreman.osp6test.local systemd[1]: Reloading.
+May 22 18:54:45 foreman.osp6test.local systemd[1]: [/usr/lib/systemd/system/dm-event.socket:10] Unknown lvalue 'RemoveOnStop' in section 'Socket'
+May 22 18:54:45 foreman.osp6test.local systemd[1]: [/usr/lib/systemd/system/lvm2-lvmetad.socket:9] Unknown lvalue 'RemoveOnStop' in section 'Socket'
+May 22 18:54:48 foreman.osp6test.local systemd[1]: Stopping LSB: Bring up/down networking...
+May 22 18:54:48 foreman.osp6test.local network[3317]: Shutting down interface eth0:  [  OK  ]
+May 22 18:54:48 foreman.osp6test.local network[3317]: Shutting down interface eth1:  [  OK  ]
+May 22 18:54:49 foreman.osp6test.local network[3317]: Shutting down interface eth2:  [  OK  ]
+May 22 18:54:49 foreman.osp6test.local network[3317]: Shutting down interface eth3:  [  OK  ]
+May 22 18:54:49 foreman.osp6test.local network[3317]: Shutting down interface eth4:  [  OK  ]
+May 22 18:54:49 foreman.osp6test.local network[3317]: Shutting down interface eth5:  [  OK  ]
+May 22 18:54:49 foreman.osp6test.local network[3317]: Shutting down loopback interface:  [  OK  ]
+May 22 18:54:49 foreman.osp6test.local systemd[1]: Starting LSB: Bring up/down networking...
+May 22 18:54:49 foreman.osp6test.local network[3727]: Bringing up loopback interface:  [  OK  ]
+May 22 18:54:52 foreman.osp6test.local network[3727]: Bringing up interface eth0:  [  OK  ]
+May 22 18:54:54 foreman.osp6test.local NET[4011]: /etc/sysconfig/network-scripts/ifup-post : updated /etc/resolv.conf
+May 22 18:54:54 foreman.osp6test.local network[3727]: Bringing up interface eth1:  [  OK  ]
+May 22 18:54:55 foreman.osp6test.local ntpd[584]: Deleting interface #15 eth5, fe80::5054:ff:fe5e:3209#123, interface stats: received=0, sent=0, dropped=0, active_time=223 secs
+May 22 18:54:55 foreman.osp6test.local ntpd[584]: Deleting interface #14 eth5, 192.168.122.158#123, interface stats: received=9, sent=9, dropped=0, active_time=223 secs
+May 22 18:54:55 foreman.osp6test.local ntpd[584]: 10.5.27.10 interface 192.168.122.158 -> (none)
+May 22 18:54:55 foreman.osp6test.local ntpd[584]: 10.5.26.10 interface 192.168.122.158 -> (none)
+May 22 18:54:55 foreman.osp6test.local ntpd[584]: Deleting interface #13 eth2, fe80::5054:ff:fe4b:aea5#123, interface stats: received=0, sent=0, dropped=0, active_time=226 secs
+May 22 18:54:55 foreman.osp6test.local ntpd[584]: Deleting interface #12 eth3, fe80::5054:ff:fe08:ef3d#123, interface stats: received=0, sent=0, dropped=0, active_time=226 secs
+May 22 18:54:55 foreman.osp6test.local ntpd[584]: Deleting interface #11 eth4, fe80::5054:ff:fe5e:3208#123, interface stats: received=0, sent=0, dropped=0, active_time=226 secs
+May 22 18:54:55 foreman.osp6test.local ntpd[584]: Deleting interface #10 eth4, 172.16.99.10#123, interface stats: received=0, sent=0, dropped=0, active_time=226 secs
+May 22 18:54:55 foreman.osp6test.local ntpd[584]: Deleting interface #9 eth3, 10.0.2.10#123, interface stats: received=0, sent=0, dropped=0, active_time=226 secs
+May 22 18:54:55 foreman.osp6test.local ntpd[584]: Deleting interface #8 eth2, 10.0.0.10#123, interface stats: received=0, sent=0, dropped=0, active_time=226 secs
+May 22 18:54:56 foreman.osp6test.local network[3727]: Bringing up interface eth2:  [  OK  ]
+May 22 18:54:58 foreman.osp6test.local network[3727]: Bringing up interface eth3:  [  OK  ]
+May 22 18:54:59 foreman.osp6test.local ntpd[584]: Listen normally on 16 eth2 10.0.0.10 UDP 123
+May 22 18:54:59 foreman.osp6test.local ntpd[584]: Listen normally on 17 eth3 10.0.2.10 UDP 123
+May 22 18:54:59 foreman.osp6test.local ntpd[584]: Listen normally on 18 eth3 fe80::5054:ff:fe08:ef3d UDP 123
+May 22 18:54:59 foreman.osp6test.local ntpd[584]: Listen normally on 19 eth2 fe80::5054:ff:fe4b:aea5 UDP 123
+May 22 18:54:59 foreman.osp6test.local ntpd[584]: new interface(s) found: waking up resolver
+May 22 18:55:00 foreman.osp6test.local network[3727]: Bringing up interface eth4:  [  OK  ]
+May 22 18:55:00 foreman.osp6test.local network[3727]: Bringing up interface eth5:
+May 22 18:55:00 foreman.osp6test.local dhclient[4224]: DHCPREQUEST on eth5 to 255.255.255.255 port 67 (xid=0x7984ed43)
+May 22 18:55:00 foreman.osp6test.local dhclient[4224]: DHCPACK from 192.168.122.1 (xid=0x7984ed43)
+May 22 18:55:01 foreman.osp6test.local ntpd[584]: Listen normally on 20 eth4 172.16.99.10 UDP 123
+May 22 18:55:01 foreman.osp6test.local ntpd[584]: Listen normally on 21 eth4 fe80::5054:ff:fe5e:3208 UDP 123
+May 22 18:55:01 foreman.osp6test.local ntpd[584]: new interface(s) found: waking up resolver
+May 22 18:55:03 foreman.osp6test.local dhclient[4224]: bound to 192.168.122.158 -- renewal in 1751 seconds.
+May 22 18:55:03 foreman.osp6test.local network[3727]: Determining IP information for eth5... done.
+May 22 18:55:03 foreman.osp6test.local network[3727]: [  OK  ]
+May 22 18:55:03 foreman.osp6test.local systemd[1]: Started LSB: Bring up/down networking.
+May 22 18:55:04 foreman.osp6test.local ntpd[584]: Listen normally on 22 eth5 192.168.122.158 UDP 123
+May 22 18:55:04 foreman.osp6test.local ntpd[584]: Listen normally on 23 eth5 fe80::5054:ff:fe5e:3209 UDP 123
+May 22 18:55:04 foreman.osp6test.local ntpd[584]: new interface(s) found: waking up resolver
+May 22 18:55:05 foreman.osp6test.local ntpd[584]: 0.0.0.0 c628 08 no_sys_peer
+May 22 18:55:31 foreman.osp6test.local yum[4562]: Installed: mailcap-2.1.41-2.el7.noarch
+May 22 18:55:34 foreman.osp6test.local groupadd[4578]: group added to /etc/group: name=named, GID=25
+May 22 18:55:34 foreman.osp6test.local groupadd[4578]: group added to /etc/gshadow: name=named
+May 22 18:55:34 foreman.osp6test.local groupadd[4578]: new group: name=named, GID=25
+May 22 18:55:34 foreman.osp6test.local useradd[4582]: new user: name=named, UID=25, GID=25, home=/var/named, shell=/sbin/nologin
+May 22 18:55:35 foreman.osp6test.local systemd[1]: Reloading.
+May 22 18:55:35 foreman.osp6test.local systemd[1]: [/usr/lib/systemd/system/dm-event.socket:10] Unknown lvalue 'RemoveOnStop' in section 'Socket'
+May 22 18:55:35 foreman.osp6test.local systemd[1]: [/usr/lib/systemd/system/lvm2-lvmetad.socket:9] Unknown lvalue 'RemoveOnStop' in section 'Socket'
+May 22 18:55:35 foreman.osp6test.local yum[4573]: Installed: 32:bind-9.9.4-18.el7_1.1.x86_64
+May 22 18:55:39 foreman.osp6test.local systemd[1]: Reloading.
+May 22 18:55:39 foreman.osp6test.local systemd[1]: [/usr/lib/systemd/system/dm-event.socket:10] Unknown lvalue 'RemoveOnStop' in section 'Socket'
+May 22 18:55:39 foreman.osp6test.local systemd[1]: [/usr/lib/systemd/system/lvm2-lvmetad.socket:9] Unknown lvalue 'RemoveOnStop' in section 'Socket'
+May 22 18:55:39 foreman.osp6test.local yum[4606]: Installed: puppet-server-3.6.2-2.el7.noarch
+May 22 18:55:41 foreman.osp6test.local systemd[1]: Stopping Network Time Service...
+May 22 18:55:41 foreman.osp6test.local ntpd[584]: ntpd exiting on signal 15
+May 22 18:55:41 foreman.osp6test.local systemd[1]: Stopped Network Time Service.
+May 22 18:55:52 foreman.osp6test.local yum[4644]: Installed: boost-system-1.53.0-23.el7.x86_64
+May 22 18:55:52 foreman.osp6test.local yum[4644]: Installed: boost-thread-1.53.0-23.el7.x86_64
+May 22 18:55:52 foreman.osp6test.local yum[4644]: Installed: 1:librados2-0.80.8-7.el7cp.x86_64
+May 22 18:55:53 foreman.osp6test.local yum[4644]: Installed: 1:librbd1-0.80.8-7.el7cp.x86_64
+May 22 18:55:53 foreman.osp6test.local yum[4644]: Installed: 1:python-rados-0.80.8-7.el7cp.x86_64
+May 22 18:55:53 foreman.osp6test.local yum[4644]: Installed: 1:python-rbd-0.80.8-7.el7cp.x86_64
+May 22 18:55:53 foreman.osp6test.local yum[4644]: Installed: mailx-12.5-12.el7_0.x86_64
+May 22 18:55:53 foreman.osp6test.local yum[4644]: Installed: python-six-1.7.3-1.el7.noarch
+May 22 18:55:53 foreman.osp6test.local yum[4644]: Installed: python-urllib3-1.8.2-5.el7ost.noarch
+May 22 18:55:53 foreman.osp6test.local yum[4644]: Installed: python-requests-2.3.0-3.el7ost.noarch
+May 22 18:55:53 foreman.osp6test.local yum[4644]: Installed: ruby193-rubygem-ipaddress-0.8.0-6.el7ost.noarch
+May 22 18:55:53 foreman.osp6test.local yum[4644]: Installed: ed-1.9-4.el7.x86_64
+May 22 18:55:53 foreman.osp6test.local yum[4644]: Installed: 1:make-3.82-21.el7.x86_64
+May 22 18:55:54 foreman.osp6test.local yum[4644]: Installed: time-1.7-45.el7.x86_64
+May 22 18:55:54 foreman.osp6test.local systemd[1]: Reloading.
+May 22 18:55:54 foreman.osp6test.local systemd[1]: [/usr/lib/systemd/system/dm-event.socket:10] Unknown lvalue 'RemoveOnStop' in section 'Socket'
+May 22 18:55:54 foreman.osp6test.local systemd[1]: [/usr/lib/systemd/system/lvm2-lvmetad.socket:9] Unknown lvalue 'RemoveOnStop' in section 'Socket'
+May 22 18:55:54 foreman.osp6test.local yum[4644]: Installed: at-3.1.13-17.el7_0.1.x86_64
+May 22 18:55:54 foreman.osp6test.local yum[4644]: Installed: ruby193-rubygem-sequel-3.45.0-6.el7sat.noarch
+May 22 18:55:54 foreman.osp6test.local yum[4644]: Installed: advancecomp-1.15-20.el7.x86_64
+May 22 18:55:54 foreman.osp6test.local yum[4644]: Installed: ruby193-rubygem-algebrick-0.4.0-3.el7sat.noarch
+May 22 18:55:55 foreman.osp6test.local yum[4644]: Installed: yum-plugin-versionlock-1.1.31-29.el7.noarch
+May 22 18:55:55 foreman.osp6test.local yum[4644]: Installed: ruby193-rubygem-wicked-1.0.2-2.el7ost.noarch
+May 22 18:55:55 foreman.osp6test.local yum[4644]: Installed: ruby193-rubygem-open4-1.3.0-9.el7sat.noarch
+May 22 18:55:55 foreman.osp6test.local yum[4644]: Installed: redhat-lsb-submod-security-4.1-27.el7.x86_64
+May 22 18:55:55 foreman.osp6test.local yum[4644]: Installed: bc-1.06.95-13.el7.x86_64
+May 22 18:55:55 foreman.osp6test.local yum[4644]: Installed: ruby193-rubygem-rack-protection-1.2.0-7.el7.noarch
+May 22 18:55:55 foreman.osp6test.local yum[4644]: Installed: 1:ruby193-rubygem-sinatra-1.3.2-12.el7.noarch
+May 22 18:55:55 foreman.osp6test.local yum[4644]: Installed: m4-1.4.16-9.el7.x86_64
+May 22 18:55:55 foreman.osp6test.local yum[4644]: Installed: ruby193-rubygem-apipie-params-0.0.3-2.el7sat.noarch
+May 22 18:55:55 foreman.osp6test.local yum[4644]: Installed: ruby193-rubygem-dynflow-0.7.3-3.el7ost.noarch
+May 22 18:55:56 foreman.osp6test.local systemd[1]: Reloading.
+May 22 18:55:56 foreman.osp6test.local systemd[1]: [/usr/lib/systemd/system/dm-event.socket:10] Unknown lvalue 'RemoveOnStop' in section 'Socket'
+May 22 18:55:56 foreman.osp6test.local systemd[1]: [/usr/lib/systemd/system/lvm2-lvmetad.socket:9] Unknown lvalue 'RemoveOnStop' in section 'Socket'
+May 22 18:55:56 foreman.osp6test.local yum[4644]: Installed: ruby193-rubygem-foreman-tasks-0.6.9-1.1.1.el7ost.noarch
+May 22 18:55:57 foreman.osp6test.local yum[4644]: Installed: spax-1.5.2-11.el7.x86_64
+May 22 18:55:57 foreman.osp6test.local yum[4644]: Installed: 1:cups-libs-1.6.3-17.el7.x86_64
+May 22 18:55:57 foreman.osp6test.local yum[4644]: Installed: 1:cups-client-1.6.3-17.el7.x86_64
+May 22 18:55:57 foreman.osp6test.local yum[4644]: Installed: redhat-lsb-core-4.1-27.el7.x86_64
+May 22 18:55:58 foreman.osp6test.local yum[4644]: Installed: 1:ceph-common-0.80.8-7.el7cp.x86_64
+May 22 18:55:58 foreman.osp6test.local yum[4644]: Installed: ruby193-rubygem-ftools-0.0.0-5.el7sat.noarch
+May 22 18:55:58 foreman.osp6test.local yum[4644]: Installed: ruby193-rubygem-foreman_discovery-1.3.0-2.3.el7ost.noarch
+May 22 18:55:58 foreman.osp6test.local yum[4644]: Installed: ruby193-rubygem-staypuft-0.5.25-1.el7ost.noarch
+May 22 18:56:05 foreman.osp6test.local yum[4723]: Installed: 1:rubygem-rack-1.4.1-13.el7sat.noarch
+May 22 18:56:05 foreman.osp6test.local yum[4723]: Installed: rubygem-rack-protection-1.5.0-7.el7sat.noarch
+May 22 18:56:06 foreman.osp6test.local yum[4723]: Installed: rubygem-thor-0.17.0-3.el7.noarch
+May 22 18:56:06 foreman.osp6test.local yum[4723]: Installed: rubygem-tilt-1.3.3-18.el7sat.noarch
+May 22 18:56:06 foreman.osp6test.local yum[4723]: Installed: 1:rubygem-sinatra-1.3.6-27.el7sat.noarch
+May 22 18:56:06 foreman.osp6test.local yum[4723]: Installed: rubygem-rake-0.9.6-24.el7.noarch
+May 22 18:56:06 foreman.osp6test.local yum[4723]: Installed: rubygem-rkerberos-0.1.2-3.el7sat.x86_64
+May 22 18:56:06 foreman.osp6test.local yum[4723]: Installed: rubygem-net-http-persistent-2.8-5.el7.noarch
+May 22 18:56:06 foreman.osp6test.local yum[4723]: Installed: rubygem-bundler-1.3.1-3.el7.noarch
+May 22 18:56:06 foreman.osp6test.local yum[4723]: Installed: rubygem-bundler_ext-0.3.0-7.el7sat.noarch
+May 22 18:56:06 foreman.osp6test.local yum[4723]: Installed: rubygem-rubyipmi-0.7.0-2.el7sat.noarch
+May 22 18:56:07 foreman.osp6test.local yum[4723]: Installed: rubygem-ffi-1.4.0-3.el7sat.x86_64
+May 22 18:56:08 foreman.osp6test.local yum[4723]: Installed: rubygem-gssapi-1.1.2-4.el7sat.noarch
+May 22 18:56:08 foreman.osp6test.local groupadd[4735]: group added to /etc/group: name=foreman-proxy, GID=994
+May 22 18:56:08 foreman.osp6test.local groupadd[4735]: group added to /etc/gshadow: name=foreman-proxy
+May 22 18:56:08 foreman.osp6test.local groupadd[4735]: new group: name=foreman-proxy, GID=994
+May 22 18:56:08 foreman.osp6test.local useradd[4740]: new user: name=foreman-proxy, UID=997, GID=994, home=/usr/share/foreman-proxy, shell=/sbin/nologin
+May 22 18:56:08 foreman.osp6test.local systemd[1]: Reloading.
+May 22 18:56:08 foreman.osp6test.local systemd[1]: [/usr/lib/systemd/system/dm-event.socket:10] Unknown lvalue 'RemoveOnStop' in section 'Socket'
+May 22 18:56:08 foreman.osp6test.local systemd[1]: [/usr/lib/systemd/system/lvm2-lvmetad.socket:9] Unknown lvalue 'RemoveOnStop' in section 'Socket'
+May 22 18:56:08 foreman.osp6test.local yum[4723]: Installed: foreman-proxy-1.6.0.30-6.el7ost.noarch
+May 22 18:56:12 foreman.osp6test.local groupadd[4768]: group added to /etc/group: name=dhcpd, GID=177
+May 22 18:56:12 foreman.osp6test.local groupadd[4768]: group added to /etc/gshadow: name=dhcpd
+May 22 18:56:12 foreman.osp6test.local groupadd[4768]: new group: name=dhcpd, GID=177
+May 22 18:56:12 foreman.osp6test.local useradd[4774]: new user: name=dhcpd, UID=177, GID=177, home=/, shell=/sbin/nologin
+May 22 18:56:12 foreman.osp6test.local systemd[1]: Reloading.
+May 22 18:56:12 foreman.osp6test.local systemd[1]: [/usr/lib/systemd/system/dm-event.socket:10] Unknown lvalue 'RemoveOnStop' in section 'Socket'
+May 22 18:56:12 foreman.osp6test.local systemd[1]: [/usr/lib/systemd/system/lvm2-lvmetad.socket:9] Unknown lvalue 'RemoveOnStop' in section 'Socket'
+May 22 18:56:13 foreman.osp6test.local yum[4762]: Installed: 12:dhcp-4.2.5-36.el7.x86_64
+May 22 18:56:17 foreman.osp6test.local systemd[1]: Reloading.
+May 22 18:56:17 foreman.osp6test.local systemd[1]: [/usr/lib/systemd/system/dm-event.socket:10] Unknown lvalue 'RemoveOnStop' in section 'Socket'
+May 22 18:56:17 foreman.osp6test.local systemd[1]: [/usr/lib/systemd/system/lvm2-lvmetad.socket:9] Unknown lvalue 'RemoveOnStop' in section 'Socket'
+May 22 18:56:17 foreman.osp6test.local yum[4797]: Installed: 2:xinetd-2.3.15-12.el7.x86_64
+May 22 18:56:17 foreman.osp6test.local systemd[1]: Reloading.
+May 22 18:56:17 foreman.osp6test.local systemd[1]: [/usr/lib/systemd/system/dm-event.socket:10] Unknown lvalue 'RemoveOnStop' in section 'Socket'
+May 22 18:56:17 foreman.osp6test.local systemd[1]: [/usr/lib/systemd/system/lvm2-lvmetad.socket:9] Unknown lvalue 'RemoveOnStop' in section 'Socket'
+May 22 18:56:17 foreman.osp6test.local yum[4797]: Installed: tftp-server-5.2-11.el7.x86_64
+May 22 18:56:19 foreman.osp6test.local systemd[1]: Starting Generate rndc key for BIND (DNS)...
+May 22 18:56:19 foreman.osp6test.local systemd[1]: Started Generate rndc key for BIND (DNS).
+May 22 18:56:19 foreman.osp6test.local systemd[1]: Starting Berkeley Internet Name Domain (DNS)...
+May 22 18:56:19 foreman.osp6test.local named-checkconf[4842]: zone localhost.localdomain/IN: loaded serial 0
+May 22 18:56:19 foreman.osp6test.local named-checkconf[4842]: zone localhost/IN: loaded serial 0
+May 22 18:56:19 foreman.osp6test.local named-checkconf[4842]: zone 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa/IN: loaded serial 0
+May 22 18:56:19 foreman.osp6test.local named-checkconf[4842]: zone 1.0.0.127.in-addr.arpa/IN: loaded serial 0
+May 22 18:56:19 foreman.osp6test.local named-checkconf[4842]: zone 0.in-addr.arpa/IN: loaded serial 0
+May 22 18:56:19 foreman.osp6test.local named-checkconf[4842]: zone 9.0.10.in-addr.arpa/IN: loaded serial 1
+May 22 18:56:19 foreman.osp6test.local named-checkconf[4842]: zone osp6test.local/IN: loaded serial 1
+May 22 18:56:19 foreman.osp6test.local named[4846]: starting BIND 9.9.4-RedHat-9.9.4-18.el7_1.1 -u named
+May 22 18:56:19 foreman.osp6test.local named[4846]: built with '--build=x86_64-redhat-linux-gnu' '--host=x86_64-redhat-linux-gnu' '--program-prefix=' '--disable-dependency-tracking' '--prefix=/usr' '--exec-prefix=/usr' '--bindir=/usr/bin' '--sbindir=/usr/sbin' '--sysconfdir=/etc' '--datadir=/usr/share' '--includedir=/usr/include' '--libdir=/usr/lib64' '--libexecdir=/usr/libexec' '--sharedstatedir=/var/lib' '--mandir=/usr/share/man' '--infodir=/usr/share/info' '--with-libtool' '--localstatedir=/var' '--enable-threads' '--enable-ipv6' '--enable-filter-aaaa' '--enable-rrl' '--with-pic' '--disable-static' '--disable-openssl-version-check' '--enable-exportlib' '--with-export-libdir=/usr/lib64' '--with-export-includedir=/usr/include' '--includedir=/usr/include/bind9' '--with-dlopen=yes' '--with-dlz-ldap=yes' '--with-dlz-postgres=yes' '--with-dlz-mysql=yes' '--with-dlz-filesystem=yes' '--with-dlz-bdb=yes' '--with-gssapi=yes' '--disable-isc-spnego' '--enable-fixed-rrset' '--with-docbook-xsl=/usr/share/sgml/docbook/xsl-stylesheets' 'build_alias=x86_64-redhat-linux-gnu' 'host_alias=x86_64-redhat-linux-gnu' 'CFLAGS= -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches -m64 -mtune=generic' 'LDFLAGS=-Wl,-z,relro ' 'CPPFLAGS= -DDIG_SIGCHASE'
+May 22 18:56:19 foreman.osp6test.local named[4846]: ----------------------------------------------------
+May 22 18:56:19 foreman.osp6test.local named[4846]: BIND 9 is maintained by Internet Systems Consortium,
+May 22 18:56:19 foreman.osp6test.local named[4846]: Inc. (ISC), a non-profit 501(c)(3) public-benefit
+May 22 18:56:19 foreman.osp6test.local named[4846]: corporation.  Support and training for BIND 9 are
+May 22 18:56:19 foreman.osp6test.local named[4846]: available at https://www.isc.org/support
+May 22 18:56:19 foreman.osp6test.local named[4846]: ----------------------------------------------------
+May 22 18:56:19 foreman.osp6test.local named[4846]: adjusted limit on open files from 4096 to 1048576
+May 22 18:56:19 foreman.osp6test.local named[4846]: found 2 CPUs, using 2 worker threads
+May 22 18:56:19 foreman.osp6test.local named[4846]: using 2 UDP listeners per interface
+May 22 18:56:19 foreman.osp6test.local named[4846]: using up to 4096 sockets
+May 22 18:56:19 foreman.osp6test.local named[4846]: loading configuration from '/etc/named.conf'
+May 22 18:56:19 foreman.osp6test.local named[4846]: using default UDP/IPv4 port range: [1024, 65535]
+May 22 18:56:19 foreman.osp6test.local named[4846]: using default UDP/IPv6 port range: [1024, 65535]
+May 22 18:56:19 foreman.osp6test.local named[4846]: listening on IPv6 interfaces, port 53
+May 22 18:56:19 foreman.osp6test.local named[4846]: listening on IPv4 interface lo, 127.0.0.1#53
+May 22 18:56:19 foreman.osp6test.local named[4846]: listening on IPv4 interface eth0, 10.0.1.10#53
+May 22 18:56:19 foreman.osp6test.local named[4846]: listening on IPv4 interface eth1, 10.0.9.10#53
+May 22 18:56:19 foreman.osp6test.local named[4846]: listening on IPv4 interface eth2, 10.0.0.10#53
+May 22 18:56:19 foreman.osp6test.local named[4846]: listening on IPv4 interface eth3, 10.0.2.10#53
+May 22 18:56:19 foreman.osp6test.local named[4846]: listening on IPv4 interface eth4, 172.16.99.10#53
+May 22 18:56:19 foreman.osp6test.local named[4846]: listening on IPv4 interface eth5, 192.168.122.158#53
+May 22 18:56:19 foreman.osp6test.local named[4846]: generating session key for dynamic DNS
+May 22 18:56:19 foreman.osp6test.local named[4846]: sizing zone task pool based on 7 zones
+May 22 18:56:19 foreman.osp6test.local named[4846]: set up managed keys zone for view _default, file 'managed-keys.bind'
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 10.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 16.172.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 17.172.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 18.172.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 19.172.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 20.172.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 21.172.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 22.172.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 23.172.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 24.172.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 25.172.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 26.172.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 27.172.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 28.172.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 29.172.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 30.172.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 31.172.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 168.192.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 64.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 65.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 66.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 67.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 68.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 69.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 70.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 71.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 72.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 73.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 74.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 75.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 76.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 77.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 78.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 79.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 80.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 81.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 82.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 83.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 84.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 85.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 86.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 87.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 88.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 89.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 90.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 91.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 92.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 93.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 94.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 95.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 96.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 97.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 98.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 99.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 100.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 101.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 102.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 103.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 104.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 105.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 106.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 107.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 108.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 109.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 110.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 111.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 112.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 113.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 114.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 115.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 116.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 117.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 118.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 119.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 120.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 121.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 122.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 123.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 124.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 125.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 126.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 127.100.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 127.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 254.169.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 2.0.192.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 100.51.198.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 113.0.203.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 255.255.255.255.IN-ADDR.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.IP6.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: D.F.IP6.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 8.E.F.IP6.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 9.E.F.IP6.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: A.E.F.IP6.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: B.E.F.IP6.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: automatic empty zone: 8.B.D.0.1.0.0.2.IP6.ARPA
+May 22 18:56:19 foreman.osp6test.local named[4846]: command channel listening on 127.0.0.1#953
+May 22 18:56:19 foreman.osp6test.local named[4846]: managed-keys-zone: loaded serial 0
+May 22 18:56:19 foreman.osp6test.local named[4846]: zone 0.in-addr.arpa/IN: loaded serial 0
+May 22 18:56:19 foreman.osp6test.local named[4846]: zone 9.0.10.in-addr.arpa/IN: loaded serial 1
+May 22 18:56:19 foreman.osp6test.local named[4846]: zone 1.0.0.127.in-addr.arpa/IN: loaded serial 0
+May 22 18:56:19 foreman.osp6test.local named[4846]: zone 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa/IN: loaded serial 0
+May 22 18:56:19 foreman.osp6test.local named[4846]: zone localhost/IN: loaded serial 0
+May 22 18:56:19 foreman.osp6test.local named[4846]: zone osp6test.local/IN: loaded serial 1
+May 22 18:56:19 foreman.osp6test.local named[4846]: zone localhost.localdomain/IN: loaded serial 0
+May 22 18:56:19 foreman.osp6test.local named[4846]: all zones loaded
+May 22 18:56:19 foreman.osp6test.local named[4846]: running
+May 22 18:56:19 foreman.osp6test.local systemd[1]: Started Berkeley Internet Name Domain (DNS).
+May 22 18:56:19 foreman.osp6test.local systemd[1]: Starting Host and Network Name Lookups.
+May 22 18:56:19 foreman.osp6test.local systemd[1]: Reached target Host and Network Name Lookups.
+May 22 18:56:19 foreman.osp6test.local systemd[1]: Reloading.
+May 22 18:56:19 foreman.osp6test.local systemd[1]: [/usr/lib/systemd/system/dm-event.socket:10] Unknown lvalue 'RemoveOnStop' in section 'Socket'
+May 22 18:56:19 foreman.osp6test.local systemd[1]: [/usr/lib/systemd/system/lvm2-lvmetad.socket:9] Unknown lvalue 'RemoveOnStop' in section 'Socket'
+May 22 18:56:22 foreman.osp6test.local yum[4878]: Installed: apr-1.4.8-3.el7.x86_64
+May 22 18:56:22 foreman.osp6test.local yum[4878]: Installed: apr-util-1.5.2-6.el7.x86_64
+May 22 18:56:22 foreman.osp6test.local yum[4878]: Installed: httpd-tools-2.4.6-31.el7.x86_64
+May 22 18:56:22 foreman.osp6test.local useradd[4886]: new group: name=apache, GID=48
+May 22 18:56:22 foreman.osp6test.local useradd[4886]: new user: name=apache, UID=48, GID=48, home=/usr/share/httpd, shell=/sbin/nologin
+May 22 18:56:23 foreman.osp6test.local systemd[1]: Reloading.
+May 22 18:56:23 foreman.osp6test.local systemd[1]: [/usr/lib/systemd/system/dm-event.socket:10] Unknown lvalue 'RemoveOnStop' in section 'Socket'
+May 22 18:56:23 foreman.osp6test.local systemd[1]: [/usr/lib/systemd/system/lvm2-lvmetad.socket:9] Unknown lvalue 'RemoveOnStop' in section 'Socket'
+May 22 18:56:23 foreman.osp6test.local yum[4878]: Installed: httpd-2.4.6-31.el7.x86_64
+May 22 18:56:28 foreman.osp6test.local yum[4910]: Installed: rubygem-passenger-4.0.18-19.el7sat.x86_64
+May 22 18:56:28 foreman.osp6test.local yum[4910]: Installed: rubygem-passenger-native-libs-4.0.18-19.el7sat.x86_64
+May 22 18:56:28 foreman.osp6test.local yum[4910]: Installed: rubygem-passenger-native-4.0.18-19.el7sat.x86_64
+May 22 18:56:28 foreman.osp6test.local yum[4910]: Installed: mod_passenger-4.0.18-19.el7sat.x86_64
+May 22 18:56:31 foreman.osp6test.local systemd[1]: Starting Xinetd A Powerful Replacement For Inetd...
+May 22 18:56:31 foreman.osp6test.local xinetd[4931]: Reading included configuration file: /etc/xinetd.d/chargen-dgram [file=/etc/xinetd.conf] [line=51]
+May 22 18:56:31 foreman.osp6test.local xinetd[4931]: Reading included configuration file: /etc/xinetd.d/chargen-stream [file=/etc/xinetd.d/chargen-stream] [line=67]
+May 22 18:56:31 foreman.osp6test.local xinetd[4931]: Reading included configuration file: /etc/xinetd.d/daytime-dgram [file=/etc/xinetd.d/daytime-dgram] [line=67]
+May 22 18:56:31 foreman.osp6test.local xinetd[4931]: Reading included configuration file: /etc/xinetd.d/daytime-stream [file=/etc/xinetd.d/daytime-stream] [line=67]
+May 22 18:56:31 foreman.osp6test.local xinetd[4931]: Reading included configuration file: /etc/xinetd.d/discard-dgram [file=/etc/xinetd.d/discard-dgram] [line=67]
+May 22 18:56:31 foreman.osp6test.local xinetd[4931]: Reading included configuration file: /etc/xinetd.d/discard-stream [file=/etc/xinetd.d/discard-stream] [line=67]
+May 22 18:56:31 foreman.osp6test.local xinetd[4931]: Reading included configuration file: /etc/xinetd.d/echo-dgram [file=/etc/xinetd.d/echo-dgram] [line=67]
+May 22 18:56:31 foreman.osp6test.local xinetd[4931]: Reading included configuration file: /etc/xinetd.d/echo-stream [file=/etc/xinetd.d/echo-stream] [line=67]
+May 22 18:56:31 foreman.osp6test.local xinetd[4931]: Reading included configuration file: /etc/xinetd.d/tcpmux-server [file=/etc/xinetd.d/tcpmux-server] [line=67]
+May 22 18:56:31 foreman.osp6test.local xinetd[4931]: Reading included configuration file: /etc/xinetd.d/tftp [file=/etc/xinetd.d/tftp] [line=68]
+May 22 18:56:31 foreman.osp6test.local xinetd[4931]: Reading included configuration file: /etc/xinetd.d/time-dgram [file=/etc/xinetd.d/time-dgram] [line=19]
+May 22 18:56:31 foreman.osp6test.local xinetd[4931]: Reading included configuration file: /etc/xinetd.d/time-stream [file=/etc/xinetd.d/time-stream] [line=67]
+May 22 18:56:31 foreman.osp6test.local xinetd[4931]: removing chargen
+May 22 18:56:31 foreman.osp6test.local xinetd[4931]: removing chargen
+May 22 18:56:31 foreman.osp6test.local xinetd[4931]: removing daytime
+May 22 18:56:31 foreman.osp6test.local xinetd[4931]: removing daytime
+May 22 18:56:31 foreman.osp6test.local xinetd[4931]: removing discard
+May 22 18:56:31 foreman.osp6test.local xinetd[4931]: removing discard
+May 22 18:56:31 foreman.osp6test.local xinetd[4931]: removing echo
+May 22 18:56:31 foreman.osp6test.local xinetd[4931]: removing echo
+May 22 18:56:31 foreman.osp6test.local xinetd[4931]: removing tcpmux
+May 22 18:56:31 foreman.osp6test.local xinetd[4931]: removing time
+May 22 18:56:31 foreman.osp6test.local xinetd[4931]: removing time
+May 22 18:56:31 foreman.osp6test.local xinetd[4931]: xinetd Version 2.3.15 started with libwrap loadavg labeled-networking options compiled in.
+May 22 18:56:31 foreman.osp6test.local xinetd[4931]: Started working: 1 available service
+May 22 18:56:31 foreman.osp6test.local systemd[1]: Started Xinetd A Powerful Replacement For Inetd.
+May 22 18:56:36 foreman.osp6test.local yum[4980]: Installed: 1:openssl-1.0.1e-42.el7_1.5.x86_64
+May 22 18:56:36 foreman.osp6test.local yum[4980]: Installed: 1:mod_ssl-2.4.6-31.el7.x86_64
+May 22 18:56:39 foreman.osp6test.local systemd[1]: Starting Network Time Service...
+May 22 18:56:39 foreman.osp6test.local ntpd[5000]: ntpd 4.2.6p5@1.2349-o Fri Dec 19 16:19:03 UTC 2014 (1)
+May 22 18:56:39 foreman.osp6test.local systemd[1]: Started Network Time Service.
+May 22 18:56:39 foreman.osp6test.local ntpd[5001]: proto: precision = 0.080 usec
+May 22 18:56:39 foreman.osp6test.local ntpd[5001]: 0.0.0.0 c01d 0d kern kernel time sync enabled
+May 22 18:56:39 foreman.osp6test.local ntpd[5001]: ntp_io: estimated max descriptors: 1024, initial socket boundary: 16
+May 22 18:56:39 foreman.osp6test.local ntpd[5001]: Listen and drop on 0 v4wildcard 0.0.0.0 UDP 123
+May 22 18:56:39 foreman.osp6test.local ntpd[5001]: Listen and drop on 1 v6wildcard :: UDP 123
+May 22 18:56:39 foreman.osp6test.local ntpd[5001]: Listen normally on 2 lo 127.0.0.1 UDP 123
+May 22 18:56:39 foreman.osp6test.local ntpd[5001]: Listen normally on 3 eth0 10.0.1.10 UDP 123
+May 22 18:56:39 foreman.osp6test.local ntpd[5001]: Listen normally on 4 eth1 10.0.9.10 UDP 123
+May 22 18:56:39 foreman.osp6test.local ntpd[5001]: Listen normally on 5 eth2 10.0.0.10 UDP 123
+May 22 18:56:39 foreman.osp6test.local ntpd[5001]: Listen normally on 6 eth3 10.0.2.10 UDP 123
+May 22 18:56:39 foreman.osp6test.local ntpd[5001]: Listen normally on 7 eth4 172.16.99.10 UDP 123
+May 22 18:56:39 foreman.osp6test.local ntpd[5001]: Listen normally on 8 eth5 192.168.122.158 UDP 123
+May 22 18:56:39 foreman.osp6test.local ntpd[5001]: Listen normally on 9 eth5 fe80::5054:ff:fe5e:3209 UDP 123
+May 22 18:56:39 foreman.osp6test.local ntpd[5001]: Listen normally on 10 eth4 fe80::5054:ff:fe5e:3208 UDP 123
+May 22 18:56:39 foreman.osp6test.local ntpd[5001]: Listen normally on 11 lo ::1 UDP 123
+May 22 18:56:39 foreman.osp6test.local ntpd[5001]: Listen normally on 12 eth3 fe80::5054:ff:fe08:ef3d UDP 123
+May 22 18:56:39 foreman.osp6test.local ntpd[5001]: Listen normally on 13 eth0 fe80::5054:ff:feb8:f4d8 UDP 123
+May 22 18:56:39 foreman.osp6test.local ntpd[5001]: Listen normally on 14 eth2 fe80::5054:ff:fe4b:aea5 UDP 123
+May 22 18:56:39 foreman.osp6test.local ntpd[5001]: Listen normally on 15 eth1 fe80::5054:ff:fec4:7eea UDP 123
+May 22 18:56:39 foreman.osp6test.local ntpd[5001]: Listening on routing socket on fd #32 for interface updates
+May 22 18:56:39 foreman.osp6test.local ntpd[5001]: 0.0.0.0 c016 06 restart
+May 22 18:56:39 foreman.osp6test.local ntpd[5001]: 0.0.0.0 c012 02 freq_set kernel 0.000 PPM
+May 22 18:56:39 foreman.osp6test.local ntpd[5001]: 0.0.0.0 c011 01 freq_not_set
+May 22 18:56:40 foreman.osp6test.local systemd[1]: Reloading.
+May 22 18:56:40 foreman.osp6test.local systemd[1]: [/usr/lib/systemd/system/dm-event.socket:10] Unknown lvalue 'RemoveOnStop' in section 'Socket'
+May 22 18:56:40 foreman.osp6test.local systemd[1]: [/usr/lib/systemd/system/lvm2-lvmetad.socket:9] Unknown lvalue 'RemoveOnStop' in section 'Socket'
+May 22 18:56:40 foreman.osp6test.local systemd[1]: Starting PostgreSQL database server...
+May 22 18:56:40 foreman.osp6test.local ntpd[5001]: 0.0.0.0 c614 04 freq_mode
+May 22 18:56:41 foreman.osp6test.local systemd[1]: Started PostgreSQL database server.
+May 22 18:56:41 foreman.osp6test.local systemd[1]: Reloading.
+May 22 18:56:41 foreman.osp6test.local systemd[1]: [/usr/lib/systemd/system/dm-event.socket:10] Unknown lvalue 'RemoveOnStop' in section 'Socket'
+May 22 18:56:41 foreman.osp6test.local systemd[1]: [/usr/lib/systemd/system/lvm2-lvmetad.socket:9] Unknown lvalue 'RemoveOnStop' in section 'Socket'
+May 22 18:56:41 foreman.osp6test.local systemd[1]: Reloading PostgreSQL database server.
+May 22 18:56:41 foreman.osp6test.local systemd[1]: Reloaded PostgreSQL database server.
+May 22 18:56:42 foreman.osp6test.local systemd[1]: Starting Network is Online.
+May 22 18:56:42 foreman.osp6test.local systemd[1]: Reached target Network is Online.
+May 22 18:56:42 foreman.osp6test.local systemd[1]: Starting DHCPv4 Server Daemon...
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]: Internet Systems Consortium DHCP Server 4.2.5
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]: Copyright 2004-2013 Internet Systems Consortium.
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]: All rights reserved.
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]: For info, please visit https://www.isc.org/software/dhcp/
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]: Not searching LDAP since ldap-server, ldap-port and ldap-base-dn were not specified in the config file
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]: Internet Systems Consortium DHCP Server 4.2.5
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]: Copyright 2004-2013 Internet Systems Consortium.
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]: All rights reserved.
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]: For info, please visit https://www.isc.org/software/dhcp/
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]: Wrote 0 leases to leases file.
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]:
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]: No subnet declaration for eth5 (192.168.122.158).
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]: ** Ignoring requests on eth5.  If this is not what
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]: you want, please write a subnet declaration
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]: in your dhcpd.conf file for the network segment
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]: to which interface eth5 is attached. **
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]:
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]:
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]: No subnet declaration for eth4 (172.16.99.10).
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]: ** Ignoring requests on eth4.  If this is not what
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]: you want, please write a subnet declaration
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]: in your dhcpd.conf file for the network segment
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]: to which interface eth4 is attached. **
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]:
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]:
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]: No subnet declaration for eth3 (10.0.2.10).
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]: ** Ignoring requests on eth3.  If this is not what
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]: you want, please write a subnet declaration
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]: in your dhcpd.conf file for the network segment
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]: to which interface eth3 is attached. **
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]:
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]:
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]: No subnet declaration for eth2 (10.0.0.10).
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]: ** Ignoring requests on eth2.  If this is not what
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]: you want, please write a subnet declaration
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]: in your dhcpd.conf file for the network segment
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]: to which interface eth2 is attached. **
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]:
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]: Listening on LPF/eth1/52:54:00:c4:7e:ea/10.0.9.0/24
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]: Sending on   LPF/eth1/52:54:00:c4:7e:ea/10.0.9.0/24
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]:
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]: No subnet declaration for eth0 (10.0.1.10).
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]: ** Ignoring requests on eth0.  If this is not what
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]: you want, please write a subnet declaration
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]: in your dhcpd.conf file for the network segment
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]: to which interface eth0 is attached. **
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]:
+May 22 18:56:42 foreman.osp6test.local dhcpd[5209]: Sending on   Socket/fallback/fallback-net
+May 22 18:56:42 foreman.osp6test.local systemd[1]: Started DHCPv4 Server Daemon.
+May 22 18:56:42 foreman.osp6test.local systemd[1]: Reloading.
+May 22 18:56:42 foreman.osp6test.local systemd[1]: [/usr/lib/systemd/system/dm-event.socket:10] Unknown lvalue 'RemoveOnStop' in section 'Socket'
+May 22 18:56:42 foreman.osp6test.local systemd[1]: [/usr/lib/systemd/system/lvm2-lvmetad.socket:9] Unknown lvalue 'RemoveOnStop' in section 'Socket'
+May 22 18:56:46 foreman.osp6test.local yum[5318]: Installed: ruby193-rubygem-passenger-4.0.18-19.el7sat.x86_64
+May 22 18:56:46 foreman.osp6test.local yum[5318]: Installed: ruby193-rubygem-passenger-native-libs-4.0.18-19.el7sat.x86_64
+May 22 18:56:46 foreman.osp6test.local yum[5318]: Installed: ruby193-rubygem-passenger-native-4.0.18-19.el7sat.x86_64
+May 22 18:56:48 foreman.osp6test.local crontab[5324]: (root) LIST (root)
+May 22 18:56:48 foreman.osp6test.local usermod[5335]: change user 'foreman' shell from '/sbin/nologin' to '/bin/false'
+May 22 18:56:49 foreman.osp6test.local usermod[5342]: add 'foreman' to group 'puppet'
+May 22 18:56:49 foreman.osp6test.local usermod[5342]: add 'foreman' to shadow group 'puppet'
+May 22 18:57:46 foreman.osp6test.local systemd[1]: Starting Foreman jobs daemon...
+May 22 18:57:49 foreman.osp6test.local foreman-tasks[5460]: Dynflow Executor: start in progress
+May 22 18:57:49 foreman.osp6test.local foreman-tasks[5460]: dynflow_executor: process with pid 5480 started.
+May 22 18:57:49 foreman.osp6test.local foreman-tasks[5460]: Waiting for the executor to be ready...
+May 22 18:58:06 foreman.osp6test.local foreman-tasks[5460]: ..................executor started successfully
+May 22 18:58:06 foreman.osp6test.local systemd[1]: Started Foreman jobs daemon.
+May 22 18:58:06 foreman.osp6test.local systemd[1]: Reloading.
+May 22 18:58:06 foreman.osp6test.local systemd[1]: [/usr/lib/systemd/system/dm-event.socket:10] Unknown lvalue 'RemoveOnStop' in section 'Socket'
+May 22 18:58:06 foreman.osp6test.local systemd[1]: [/usr/lib/systemd/system/lvm2-lvmetad.socket:9] Unknown lvalue 'RemoveOnStop' in section 'Socket'
+May 22 18:58:09 foreman.osp6test.local systemd[1]: Starting The Apache HTTP Server...
+May 22 18:58:09 foreman.osp6test.local systemd[1]: Started The Apache HTTP Server.
+May 22 18:58:09 foreman.osp6test.local systemd[1]: Reloading.
+May 22 18:58:09 foreman.osp6test.local systemd[1]: [/usr/lib/systemd/system/dm-event.socket:10] Unknown lvalue 'RemoveOnStop' in section 'Socket'
+May 22 18:58:09 foreman.osp6test.local systemd[1]: [/usr/lib/systemd/system/lvm2-lvmetad.socket:9] Unknown lvalue 'RemoveOnStop' in section 'Socket'
+May 22 18:58:09 foreman.osp6test.local usermod[5657]: change user 'foreman-proxy' shell from '/sbin/nologin' to '/bin/false'
+May 22 18:58:09 foreman.osp6test.local usermod[5664]: add 'foreman-proxy' to group 'puppet'
+May 22 18:58:09 foreman.osp6test.local usermod[5664]: add 'foreman-proxy' to group 'named'
+May 22 18:58:09 foreman.osp6test.local usermod[5664]: add 'foreman-proxy' to shadow group 'puppet'
+May 22 18:58:09 foreman.osp6test.local usermod[5664]: add 'foreman-proxy' to shadow group 'named'
+May 22 18:58:10 foreman.osp6test.local systemd[1]: Starting Puppet agent...
+May 22 18:58:10 foreman.osp6test.local systemd[1]: Started Puppet agent.
+May 22 18:58:10 foreman.osp6test.local systemd[1]: Reloading.
+May 22 18:58:10 foreman.osp6test.local systemd[1]: [/usr/lib/systemd/system/dm-event.socket:10] Unknown lvalue 'RemoveOnStop' in section 'Socket'
+May 22 18:58:10 foreman.osp6test.local systemd[1]: [/usr/lib/systemd/system/lvm2-lvmetad.socket:9] Unknown lvalue 'RemoveOnStop' in section 'Socket'
+May 22 18:58:11 foreman.osp6test.local systemd[1]: Starting Foreman Proxy...
+May 22 18:58:13 foreman.osp6test.local puppet-agent[5696]: Starting Puppet client version 3.6.2
+May 22 18:58:14 foreman.osp6test.local systemd[1]: PID file /run/foreman-proxy/foreman-proxy.pid not readable (yet?) after start.
+May 22 18:58:14 foreman.osp6test.local systemd[1]: Started Foreman Proxy.
+May 22 18:58:14 foreman.osp6test.local systemd[1]: Reloading.
+May 22 18:58:14 foreman.osp6test.local systemd[1]: [/usr/lib/systemd/system/dm-event.socket:10] Unknown lvalue 'RemoveOnStop' in section 'Socket'
+May 22 18:58:14 foreman.osp6test.local systemd[1]: [/usr/lib/systemd/system/lvm2-lvmetad.socket:9] Unknown lvalue 'RemoveOnStop' in section 'Socket'
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_etc_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_etc_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_etc_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_etc_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_log_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_log_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_log_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_log_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_run_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_run_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_run_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_run_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_etc_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_etc_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_etc_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_etc_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_etc_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_etc_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_etc_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_etc_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_log_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_log_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_log_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_log_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_etc_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_etc_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_etc_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_etc_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_etc_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_etc_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_etc_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_etc_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:14 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_etc_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_etc_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_etc_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_etc_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: /etc/selinux/targeted/contexts/files/file_contexts:  invalid context system_u:object_r:puppet_var_lib_t:s0
+May 22 18:58:15 foreman.osp6test.local puppet-master[5797]: Starting Puppet master version 3.6.2
+May 22 18:58:15 foreman.osp6test.local puppet-master[5859]: Failed to find foreman.osp6test.local via exec: Execution of '/etc/puppet/node.rb foreman.osp6test.local' returned 1:
+May 22 18:58:15 foreman.osp6test.local puppet-agent[5788]: Unable to fetch my node definition, but the agent run will continue:
+May 22 18:58:15 foreman.osp6test.local puppet-agent[5788]: Error 400 on SERVER: Failed to find foreman.osp6test.local via exec: Execution of '/etc/puppet/node.rb foreman.osp6test.local' returned 1:
+May 22 18:58:32 foreman.osp6test.local puppet-master[5859]: Failed when searching for node foreman.osp6test.local: Failed to find foreman.osp6test.local via exec: Execution of '/etc/puppet/node.rb foreman.osp6test.local' returned 1:
+May 22 18:58:32 foreman.osp6test.local puppet-master[5859]: Failed when searching for node foreman.osp6test.local: Failed to find foreman.osp6test.local via exec: Execution of '/etc/puppet/node.rb foreman.osp6test.local' returned 1:
+May 22 18:58:32 foreman.osp6test.local puppet-agent[5788]: Could not retrieve catalog from remote server: Error 400 on SERVER: Failed when searching for node foreman.osp6test.local: Failed to find foreman.osp6test.local via exec: Execution of '/etc/puppet/node.rb foreman.osp6test.local' returned 1:
+May 22 18:58:32 foreman.osp6test.local puppet-agent[5788]: Using cached catalog
+May 22 18:58:32 foreman.osp6test.local puppet-agent[5788]: Could not retrieve catalog; skipping run
+May 22 18:58:32 foreman.osp6test.local start-puppet-agent[5695]: /usr/share/ruby/vendor_ruby/puppet/agent.rb:87:in `exit': no implicit conversion from nil to integer (TypeError)
+May 22 18:58:32 foreman.osp6test.local start-puppet-agent[5695]: from /usr/share/ruby/vendor_ruby/puppet/agent.rb:87:in `block in run_in_fork'
+May 22 18:58:32 foreman.osp6test.local start-puppet-agent[5695]: from /usr/share/ruby/vendor_ruby/puppet/agent.rb:84:in `fork'
+May 22 18:58:32 foreman.osp6test.local start-puppet-agent[5695]: from /usr/share/ruby/vendor_ruby/puppet/agent.rb:84:in `run_in_fork'
+May 22 18:58:32 foreman.osp6test.local start-puppet-agent[5695]: from /usr/share/ruby/vendor_ruby/puppet/agent.rb:43:in `block in run'
+May 22 18:58:32 foreman.osp6test.local start-puppet-agent[5695]: from /usr/share/ruby/vendor_ruby/puppet/application.rb:179:in `call'
+May 22 18:58:32 foreman.osp6test.local start-puppet-agent[5695]: from /usr/share/ruby/vendor_ruby/puppet/application.rb:179:in `controlled_run'
+May 22 18:58:32 foreman.osp6test.local start-puppet-agent[5695]: from /usr/share/ruby/vendor_ruby/puppet/agent.rb:41:in `run'
+May 22 18:58:32 foreman.osp6test.local start-puppet-agent[5695]: from /usr/share/ruby/vendor_ruby/puppet/daemon.rb:163:in `block in run_event_loop'
+May 22 18:58:32 foreman.osp6test.local start-puppet-agent[5695]: from /usr/share/ruby/vendor_ruby/puppet/scheduler/job.rb:49:in `call'
+May 22 18:58:32 foreman.osp6test.local start-puppet-agent[5695]: from /usr/share/ruby/vendor_ruby/puppet/scheduler/job.rb:49:in `run'
+May 22 18:58:32 foreman.osp6test.local start-puppet-agent[5695]: from /usr/share/ruby/vendor_ruby/puppet/scheduler/scheduler.rb:39:in `block in run_ready'
+May 22 18:58:32 foreman.osp6test.local start-puppet-agent[5695]: from /usr/share/ruby/vendor_ruby/puppet/scheduler/scheduler.rb:34:in `each'
+May 22 18:58:32 foreman.osp6test.local start-puppet-agent[5695]: from /usr/share/ruby/vendor_ruby/puppet/scheduler/scheduler.rb:34:in `run_ready'
+May 22 18:58:32 foreman.osp6test.local start-puppet-agent[5695]: from /usr/share/ruby/vendor_ruby/puppet/scheduler/scheduler.rb:11:in `run_loop'
+May 22 18:58:32 foreman.osp6test.local start-puppet-agent[5695]: from /usr/share/ruby/vendor_ruby/puppet/daemon.rb:179:in `run_event_loop'
+May 22 18:58:32 foreman.osp6test.local start-puppet-agent[5695]: from /usr/share/ruby/vendor_ruby/puppet/daemon.rb:142:in `start'
+May 22 18:58:32 foreman.osp6test.local start-puppet-agent[5695]: from /usr/share/ruby/vendor_ruby/puppet/application/agent.rb:377:in `main'
+May 22 18:58:32 foreman.osp6test.local start-puppet-agent[5695]: from /usr/share/ruby/vendor_ruby/puppet/application/agent.rb:323:in `run_command'
+May 22 18:58:32 foreman.osp6test.local start-puppet-agent[5695]: from /usr/share/ruby/vendor_ruby/puppet/application.rb:371:in `block (2 levels) in run'
+May 22 18:58:32 foreman.osp6test.local start-puppet-agent[5695]: from /usr/share/ruby/vendor_ruby/puppet/application.rb:477:in `plugin_hook'
+May 22 18:58:32 foreman.osp6test.local start-puppet-agent[5695]: from /usr/share/ruby/vendor_ruby/puppet/application.rb:371:in `block in run'
+May 22 18:58:32 foreman.osp6test.local start-puppet-agent[5695]: from /usr/share/ruby/vendor_ruby/puppet/util.rb:479:in `exit_on_fail'
+May 22 18:58:32 foreman.osp6test.local start-puppet-agent[5695]: from /usr/share/ruby/vendor_ruby/puppet/application.rb:371:in `run'
+May 22 18:58:32 foreman.osp6test.local start-puppet-agent[5695]: from /usr/share/ruby/vendor_ruby/puppet/util/command_line.rb:137:in `run'
+May 22 18:58:32 foreman.osp6test.local start-puppet-agent[5695]: from /usr/share/ruby/vendor_ruby/puppet/util/command_line.rb:91:in `execute'
+May 22 18:58:32 foreman.osp6test.local start-puppet-agent[5695]: from /usr/bin/puppet:8:in `<main>'
+May 22 18:58:36 foreman.osp6test.local systemd[1]: Stopping Puppet agent...
+May 22 18:58:36 foreman.osp6test.local puppet-agent[5696]: Caught TERM; calling stop
+May 22 18:58:36 foreman.osp6test.local systemd[1]: Stopped Puppet agent.
+May 22 18:58:38 foreman.osp6test.local puppet-agent[6286]: Reopening log files
+May 22 18:58:38 foreman.osp6test.local systemd[1]: Starting Puppet agent...
+May 22 18:58:38 foreman.osp6test.local systemd[1]: Started Puppet agent.
+May 22 18:58:39 foreman.osp6test.local puppet-master[5859]: Failed to find foreman.osp6test.local via exec: Execution of '/etc/puppet/node.rb foreman.osp6test.local' returned 1:
+May 22 18:58:39 foreman.osp6test.local puppet-agent[6286]: Unable to fetch my node definition, but the agent run will continue:
+May 22 18:58:39 foreman.osp6test.local puppet-agent[6286]: Error 400 on SERVER: Failed to find foreman.osp6test.local via exec: Execution of '/etc/puppet/node.rb foreman.osp6test.local' returned 1:
+May 22 18:58:39 foreman.osp6test.local puppet-agent[6286]: (/File[/var/lib/puppet/lib/puppet]/ensure) created
+May 22 18:58:39 foreman.osp6test.local puppet-agent[6286]: (/File[/var/lib/puppet/lib/puppet/provider]/ensure) created
+May 22 18:58:39 foreman.osp6test.local puppet-agent[6286]: (/File[/var/lib/puppet/lib/puppet/parser]/ensure) created
+May 22 18:58:39 foreman.osp6test.local puppet-agent[6286]: (/File[/var/lib/puppet/lib/puppet/parser/functions]/ensure) created
+May 22 18:58:39 foreman.osp6test.local puppet-agent[6286]: (/File[/var/lib/puppet/lib/puppet/parser/functions/get_nic_from_network.rb]/ensure) defined content as '{md5}9cda1da76beae26ae16f9e2f79020f3e'
+May 22 18:58:39 foreman.osp6test.local puppet-agent[6286]: (/File[/var/lib/puppet/lib/puppet/parser/functions/scenario_classes.rb]/ensure) defined content as '{md5}6b5033ba12b722e346b2eacf0292458e'
+May 22 18:58:39 foreman.osp6test.local puppet-agent[6286]: (/File[/var/lib/puppet/lib/puppet/parser/functions/port_range.rb]/ensure) defined content as '{md5}3be165675b54e6ef0d35774971ec1320'
+May 22 18:58:39 foreman.osp6test.local puppet-agent[6286]: (/File[/var/lib/puppet/lib/puppet/parser/functions/quick_include.rb]/ensure) defined content as '{md5}89c6c48affc5e305309c55d12f8e7488'
+May 22 18:58:39 foreman.osp6test.local puppet-agent[6286]: (/File[/var/lib/puppet/lib/puppet/parser/functions/map_params.rb]/ensure) defined content as '{md5}7be92155c1fdbe91f8d136bbe1167861'
+May 22 18:58:39 foreman.osp6test.local puppet-agent[6286]: (/File[/var/lib/puppet/lib/puppet/parser/functions/join_arrays_if_exist.rb]/ensure) defined content as '{md5}138747af8b9400fabc131085df8632b9'
+May 22 18:58:40 foreman.osp6test.local puppet-agent[6286]: (/File[/var/lib/puppet/lib/puppet/parser/functions/is_configured.rb]/ensure) defined content as '{md5}70acc74887b485b13144aa2ce0d1b58b'
+May 22 18:58:40 foreman.osp6test.local puppet-agent[6286]: (/File[/var/lib/puppet/lib/puppet/parser/functions/get_ip_from_nic.rb]/ensure) defined content as '{md5}766d722375d6850f03d120d4cecb3781'
+May 22 18:58:40 foreman.osp6test.local puppet-agent[6286]: (/File[/var/lib/puppet/lib/puppet/parser/functions/get_nic_from_ip.rb]/ensure) defined content as '{md5}d447834b17f1bf883b33acbe03304080'
+May 22 18:58:40 foreman.osp6test.local puppet-agent[6286]: (/File[/var/lib/puppet/lib/puppet/parser/functions/get_ip_from_network.rb]/ensure) defined content as '{md5}d0a690f7f3dfbde36ead25535250d52b'
+May 22 18:58:40 foreman.osp6test.local puppet-agent[6286]: (/File[/var/lib/puppet/lib/puppet/parser/functions/str2bool_i.rb]/ensure) defined content as '{md5}0f4639f1e39f9b645bd11841a78a4592'
+May 22 18:58:40 foreman.osp6test.local puppet-agent[6303]: Starting Puppet client version 3.6.2
+May 22 18:58:40 foreman.osp6test.local puppet-agent[6303]: Could not run: Could not create PID file: /var/run/puppet/agent.pid
+May 22 18:58:40 foreman.osp6test.local systemd[1]: puppet.service: main process exited, code=exited, status=1/FAILURE
+May 22 18:58:40 foreman.osp6test.local systemd[1]: Unit puppet.service entered failed state.
+May 22 18:58:40 foreman.osp6test.local puppet-agent[6286]: (/File[/var/lib/puppet/lib/puppet/parser/functions/empty_to_undef.rb]/ensure) defined content as '{md5}6e5376ee8cdcd5e927a2f2fc3973f9e9'
+May 22 18:58:40 foreman.osp6test.local puppet-agent[6286]: (/File[/var/lib/puppet/lib/puppet/type]/ensure) created
+May 22 18:58:40 foreman.osp6test.local puppet-agent[6286]: (/File[/var/lib/puppet/lib/puppet/type/swift_ring_build_helper.rb]/ensure) defined content as '{md5}5e0c93c701c81c6ac75d466cdc18b92a'
+May 22 18:58:40 foreman.osp6test.local puppet-agent[6286]: (/File[/var/lib/puppet/lib/facter]/ensure) created
+May 22 18:58:40 foreman.osp6test.local puppet-agent[6286]: (/File[/var/lib/puppet/lib/facter/kvm_capable.rb]/ensure) defined content as '{md5}722ad240ad8f00f6f80573edfe421eed'
+May 22 18:58:40 foreman.osp6test.local puppet-agent[6286]: (/File[/var/lib/puppet/lib/facter/galera_bootstrap_ok.rb]/ensure) defined content as '{md5}c851972752ed7e42c14821de90ac4fd3'
+May 22 18:58:40 foreman.osp6test.local puppet-agent[6286]: (/File[/var/lib/puppet/lib/facter/pcs.rb]/ensure) defined content as '{md5}650b7c7b105d4e69cae94524ed0ed10f'
+May 22 18:58:40 foreman.osp6test.local puppet-agent[6286]: (/File[/var/lib/puppet/lib/puppetx]/ensure) created
+May 22 18:58:40 foreman.osp6test.local puppet-agent[6286]: (/File[/var/lib/puppet/lib/puppetx/redhat]/ensure) created
+May 22 18:58:40 foreman.osp6test.local puppet-agent[6286]: (/File[/var/lib/puppet/lib/puppetx/redhat/scenario.rb]/ensure) defined content as '{md5}c1255b4ac3aaaf9c69b0622697fb9553'
+May 22 18:58:41 foreman.osp6test.local puppet-agent[6286]: (/File[/var/lib/puppet/lib/puppet/parser/functions/find_nic.rb]/ensure) defined content as '{md5}5ec502f263a5d5012ab006895eda8efa'
+May 22 18:58:41 foreman.osp6test.local puppet-agent[6286]: (/File[/var/lib/puppet/lib/puppet/parser/functions/find_ip.rb]/ensure) defined content as '{md5}0eb0083a7293d3a23a30a0e1a0190086'
+May 22 18:58:41 foreman.osp6test.local puppet-agent[6286]: (/File[/var/lib/puppet/lib/puppet/parser/functions/amqp_backend.rb]/ensure) defined content as '{md5}e2ec6f59d532c4a56163cae79e5d6cdf'
+May 22 18:58:41 foreman.osp6test.local puppet-agent[6286]: (/File[/var/lib/puppet/lib/puppet/parser/functions/produce_array_with_prefix.rb]/ensure) defined content as '{md5}2400bb53b091f8f9a4ed1a483a4b0d02'
+May 22 18:58:41 foreman.osp6test.local puppet-agent[6286]: (/File[/var/lib/puppet/lib/puppet/provider/swift_ring_build_helper]/ensure) created
+May 22 18:58:41 foreman.osp6test.local puppet-agent[6286]: (/File[/var/lib/puppet/lib/puppet/provider/swift_ring_build_helper/default.rb]/ensure) defined content as '{md5}565a31be2d7634c8e4ca20031503b910'
+May 22 18:58:41 foreman.osp6test.local su[6533]: (to foreman) root on pts/1
+May 22 18:58:41 foreman.osp6test.local su[6533]: pam_unix(su-l:session): session opened for user foreman by root(uid=0)
+May 22 18:58:45 foreman.osp6test.local puppet-master[5859]: Compiled catalog for foreman.osp6test.local in environment production in 0.02 seconds
+May 22 18:58:45 foreman.osp6test.local puppet-agent[6286]: Finished catalog run in 0.23 seconds
+May 22 19:00:01 foreman.osp6test.local systemd[1]: Starting Session 4 of user root.
+May 22 19:00:01 foreman.osp6test.local systemd[1]: Started Session 4 of user root.
+May 22 19:00:01 foreman.osp6test.local systemd[1]: Starting user-998.slice.
+May 22 19:00:01 foreman.osp6test.local systemd[1]: Created slice user-998.slice.
+May 22 19:00:01 foreman.osp6test.local systemd[1]: Starting Session 3 of user foreman.
+May 22 19:00:01 foreman.osp6test.local systemd[1]: Started Session 3 of user foreman.
+May 22 19:00:01 foreman.osp6test.local CROND[6913]: (foreman) CMD (   /usr/sbin/foreman-rake trends:counter >>/var/log/foreman/cron.log 2>&1)
+May 22 19:00:01 foreman.osp6test.local CROND[6912]: (root) CMD (/usr/lib64/sa/sa1 1 1)
+May 22 19:00:42 foreman.osp6test.local sshd[6965]: Accepted publickey for root from 10.0.9.254 port 54020 ssh2: RSA e5:07:b1:1c:a9:9a:3f:da:f8:2a:44:1c:e5:e1:c9:56
+May 22 19:00:42 foreman.osp6test.local systemd[1]: Starting Session 5 of user root.
+May 22 19:00:42 foreman.osp6test.local systemd[1]: Started Session 5 of user root.
+May 22 19:00:42 foreman.osp6test.local systemd-logind[578]: New session 5 of user root.
+May 22 19:00:42 foreman.osp6test.local sshd[6965]: pam_unix(sshd:session): session opened for user root by (uid=0)
+May 22 19:01:01 foreman.osp6test.local systemd[1]: Starting Session 6 of user root.
+May 22 19:01:01 foreman.osp6test.local systemd[1]: Started Session 6 of user root.
+May 22 19:01:01 foreman.osp6test.local CROND[6996]: (root) CMD (run-parts /etc/cron.hourly)
+May 22 19:01:01 foreman.osp6test.local run-parts(/etc/cron.hourly)[6999]: starting 0anacron
+May 22 19:01:01 foreman.osp6test.local anacron[7005]: Anacron started on 2015-05-22
+May 22 19:01:01 foreman.osp6test.local anacron[7005]: Will run job `cron.daily' in 33 min.
+May 22 19:01:01 foreman.osp6test.local anacron[7005]: Will run job `cron.weekly' in 53 min.
+May 22 19:01:01 foreman.osp6test.local anacron[7005]: Will run job `cron.monthly' in 73 min.
+May 22 19:01:01 foreman.osp6test.local anacron[7005]: Jobs will be executed sequentially
+May 22 19:01:01 foreman.osp6test.local run-parts(/etc/cron.hourly)[7007]: finished 0anacron
+May 22 19:01:01 foreman.osp6test.local run-parts(/etc/cron.hourly)[7009]: starting 0yum-hourly.cron
+May 22 19:01:01 foreman.osp6test.local run-parts(/etc/cron.hourly)[7013]: finished 0yum-hourly.cron
+May 22 19:01:07 foreman.osp6test.local sshd[7018]: Accepted publickey for root from 10.0.9.254 port 54021 ssh2: RSA e5:07:b1:1c:a9:9a:3f:da:f8:2a:44:1c:e5:e1:c9:56
+May 22 19:01:07 foreman.osp6test.local systemd[1]: Starting Session 7 of user root.
+May 22 19:01:07 foreman.osp6test.local systemd[1]: Started Session 7 of user root.
+May 22 19:01:07 foreman.osp6test.local systemd-logind[578]: New session 7 of user root.
+May 22 19:01:07 foreman.osp6test.local sshd[7018]: pam_unix(sshd:session): session opened for user root by (uid=0)
+May 22 19:03:42 foreman.osp6test.local su[6533]: pam_unix(su-l:session): session closed for user foreman
+May 22 19:05:43 foreman.osp6test.local systemd[1]: Starting Cleanup of Temporary Directories...
+May 22 19:05:43 foreman.osp6test.local systemd[1]: Started Cleanup of Temporary Directories.
+May 22 19:06:43 foreman.osp6test.local su[7216]: (to foreman) root on pts/1
+May 22 19:06:43 foreman.osp6test.local su[7216]: pam_unix(su-l:session): session opened for user foreman by root(uid=0)
+May 22 19:06:54 foreman.osp6test.local su[7216]: pam_unix(su-l:session): session closed for user foreman
+May 22 19:06:54 foreman.osp6test.local su[7271]: (to foreman) root on pts/1
+May 22 19:06:54 foreman.osp6test.local su[7271]: pam_unix(su-l:session): session opened for user foreman by root(uid=0)
+May 22 19:07:30 foreman.osp6test.local su[7271]: pam_unix(su-l:session): session closed for user foreman
+May 22 19:10:01 foreman.osp6test.local systemd[1]: Starting Session 8 of user root.
+May 22 19:10:01 foreman.osp6test.local systemd[1]: Started Session 8 of user root.
+May 22 19:10:01 foreman.osp6test.local CROND[7399]: (root) CMD (/usr/lib64/sa/sa1 1 1)
+May 22 19:13:05 foreman.osp6test.local ntpd[5001]: 0.0.0.0 0612 02 freq_set kernel 16.887 PPM
+May 22 19:13:05 foreman.osp6test.local ntpd[5001]: 0.0.0.0 0615 05 clock_sync
+

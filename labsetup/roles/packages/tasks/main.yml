@@ -1,0 +1,11 @@
+---
+
+- name: yum repository
+  template: src=localrepo-rhel7.repo.j2 dest=/etc/yum.repos.d/localrepo-rhel7.repo
+
+- name: update packages
+  yum: name=* state=latest
+
+- name: install basic packages
+  yum: name={{ item }} state=installed
+  with_items: "{{system_packages}}"

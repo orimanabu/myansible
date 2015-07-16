@@ -1,0 +1,16 @@
+<network>
+  <name>external</name>
+  <forward mode='nat' dev='eno4' />
+  <bridge name='virbr-external' stp='off' delay='0' />
+  <domain name='osp-external.local'/>
+  <dns>
+    <!-- Libvirt host aliases: -->
+    <host ip='172.16.99.254'><hostname>gw.osp-external.local</hostname></host>
+    <host ip='172.16.99.254'><hostname>ks.osp-external.local</hostname></host>
+  </dns>
+  <ip address='172.16.99.254' netmask='255.255.255.0'>
+    <dhcp>
+      <range start='172.16.99.220' end='172.16.99.249'/>
+    </dhcp>
+  </ip>
+</network>

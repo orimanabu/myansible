@@ -1,0 +1,22 @@
+---
+
+- name: ntp.conf 1
+  lineinfile: >-
+    dest=/etc/ntp.conf
+    state=absent
+    regexp="^server [0-9].rhel.pool.ntp.org iburst"
+
+- name: ntp.conf 2
+  lineinfile: >-
+    dest=/etc/ntp.conf
+    state=present
+    line="server 10.5.26.10 iburst"
+
+- name: ntp.conf 3
+  lineinfile: >-
+    dest=/etc/ntp.conf
+    state=present
+    line="server 10.5.27.10 iburst"
+
+- name: restart ntp
+  service: name=ntpd enabled=yes state=restarted

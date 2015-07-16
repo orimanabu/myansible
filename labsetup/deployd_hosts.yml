@@ -1,0 +1,9 @@
+---
+
+- hosts: osp
+  roles:
+#    - test
+#    - packages
+#    - user
+#    - grub_console
+    - git_clone

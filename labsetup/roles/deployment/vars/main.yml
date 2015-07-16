@@ -1,0 +1,19 @@
+---
+
+staypuft_deploy_ip: 10.0.1.9
+staypuft:
+  deploy:
+    login:
+      username: admin
+      password: password
+staypuft_deployment:
+  amqp_provider: rabbitmq
+  description: test deployment
+  layout_name: High Availability Controllers / Compute
+  name: deploy1
+  networking: neutron
+  passwords:
+    mode: single
+    single_password: password
+    single_password_confirmation: password
+  platform: rhel7

@@ -1,0 +1,14 @@
+users:
+  - {user: root, homedir: /root}
+  - {user: ori, homedir: /home/ori}
+
+ssh_related_files:
+  - {file: id_rsa, mode: 600}
+  - {file: id_rsa.pub, mode: 644}
+  - {file: authorized_keys, mode: 644}
+
+dotfiles:
+  - .gitconfig
+  - .vimrc
+  - .inputrc
+  - .pythonstartup

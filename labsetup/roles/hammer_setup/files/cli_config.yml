@@ -1,0 +1,7 @@
+:ui:  
+  :interactive: true  
+  :per_page: 20  
+  :history_file: '~/.hammer/history'  
+:watch_plain: false  
+:log_dir: '~/.hammer/log'  
+:log_level: 'error'

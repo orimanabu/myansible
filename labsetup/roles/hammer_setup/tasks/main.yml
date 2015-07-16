@@ -1,0 +1,13 @@
+---
+
+- name: install hammer
+  yum: name=rubygem-hammer_cli_foreman state=installed
+
+- name: mkdir hammer config dir
+  file: path=/root/.hammer/cli.modules.d state=directory
+
+- name: hammer config
+  copy: src=cli_config.yml dest=/root/.hammer/cli_config.yml
+
+- name: hammer foreman config
+  copy: src=foreman.yml dest=/root/.hammer/cli.modules.d/foreman.yml

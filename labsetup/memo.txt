@@ -1,0 +1,3 @@
+sudo ansible-playbook virtual.yml -i ~/repos/ansible/plugins/inventory/libvirt.py -l 10.0.1.240 -k
+ansible-playbook virtual.yml -i hosts -l 10.0.1.10 -k
+ansible-playbook -vvv tmp.yml -i hosts -l 10.0.1.9

@@ -1,0 +1,27 @@
+---
+
+- name: rename subnet - default => foreman
+  shell: hammer subnet update --name {{ item.old }} --new-name {{ item.new }}
+  with_items:
+    - old: default
+      new: foreman
+
+- name: create subnet - dhcp
+  shell: hammer subnet create --name {{ item.name }} --network {{ item.network }} --mask {{ item.netmask }} --ipam "Internal DB" --boot-mode Static --from {{ item.range_from }} --to {{ item.range_to }}
+  with_items:
+    - name: storage
+      network: 10.0.0.0
+      netmask: 255.255.255.0
+      range_from: 10.0.0.200
+      range_to: 10.0.0.240
+
+- name: create subnet - static
+  shell: hammer subnet create --name {{ item.name }} --network {{ item.network }} --mask {{ item.netmask }} --ipam None --boot-mode Static
+  with_items:
+    - name: external
+      network: 172.16.99.0
+      netmask: 255.255.255.0
+    - name: tenant
+      network: 10.0.2.0
+      netmask: 255.255.255.0
+  

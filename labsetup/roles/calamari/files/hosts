@@ -1,0 +1,31 @@
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+
+10.0.9.30	ospceph-calamari.osp6test.local
+10.0.9.9	ospceph-foreman.osp6test.local
+10.0.9.11	controller-1.osp6test.local controller-1
+10.0.9.12	controller-2.osp6test.local controller-2
+10.0.9.13	controller-3.osp6test.local controller-3
+10.0.9.21	compute-1.osp6test.local compute-1
+10.0.9.22	compute-2.osp6test.local compute-2
+10.0.9.31	storage-1.osp6test.local storage-1
+10.0.9.32	storage-2.osp6test.local storage-2
+10.0.9.33	storage-3.osp6test.local storage-3
+
+#10.0.0.11	ctl1.ceph.local ctl1
+#10.0.0.12	ctl2.ceph.local ctl2
+#10.0.0.13	ctl3.ceph.local ctl3
+#10.0.0.21	cmp1.ceph.local cmp1
+#10.0.0.22	cmp2.ceph.local cmp2
+#10.0.0.31	osd1.ceph.local osd1
+#10.0.0.32	osd2.ceph.local osd2
+#10.0.0.33	osd3.ceph.local osd3
+
+10.0.0.200	ctl1.ceph.local ctl1
+10.0.0.201	ctl2.ceph.local ctl2
+10.0.0.202	ctl3.ceph.local ctl3
+10.0.0.203	cmp1.ceph.local cmp1
+10.0.0.204	cmp2.ceph.local cmp2
+10.0.0.205	osd1.ceph.local osd1
+10.0.0.206	osd2.ceph.local osd2
+10.0.0.207	osd3.ceph.local osd3

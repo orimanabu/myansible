@@ -1,0 +1,70 @@
+#- name: nic
+#  lineinfile: >-
+#    dest="/etc/sysconfig/network-scripts/ifcfg-{{ item.int }}"
+#    state=absent
+#    regexp="{{ item.regexp }}"
+#  with_items:
+#    - int: "eth1"
+#      regexp: "NETMASK=.*"
+#- name: nic
+#  lineinfile: >-
+#    dest="/etc/sysconfig/network-scripts/ifcfg-{{ item.int }}"
+#    state=present
+#    regexp="{{ item.regexp }}"
+#    line="{{ item.line }}"
+#  with_items:
+#    - int: "eth1"
+#      regexp: "BOOTPROTO=.*"
+#      line: "BOOTPROTO=none"
+#    - int: "eth1"
+#      regexp: "IPADDR=.*"
+#      line: "IPADDR={{ ipv4_addr }}"
+#    - int: "eth1"
+#      regexp: "PREFIX=.*"
+#      line: "PREFIX={{ ipv4_prefixlen }}"
+#    - int: "eth1"
+#      regexp: "GATEWAY=.*"
+#      line: "GATEWAY={{ ipv4_gateway }}"
+#    - int: "eth1"
+#      regexp: "NM_CONTROLLED=.*"
+#      line: "NM_CONTROLLED=no"
+
+- name: gather interfaces with GATEWAY set
+  shell: grep GATEWAY /etc/sysconfig/network-scripts/ifcfg-eth* | sed -e 's/^.*\(eth[0-9]*\):.*/\1/'
+  always_run: yes
+  changed_when: false
+  register: gw_interfaces
+
+- name: remove GATEWAY if set
+  lineinfile: >-
+    dest="/etc/sysconfig/network-scripts/ifcfg-{{ item }}"
+    state=absent
+    regexp="GATEWAY=.*"
+  with_items: gw_interfaces.stdout_lines
+
+- name: add GATEWAY on foreman_interface
+  lineinfile: >-
+    dest="/etc/sysconfig/network-scripts/ifcfg-{{ foreman_interface }}"
+    state=present
+    line="GATEWAY={{ ipv4_gateway }}"
+  
+- name: NM_CONTROLLED=no
+  lineinfile: >-
+    dest="/etc/sysconfig/network-scripts/ifcfg-{{ item }}"
+    state=present
+    regexp="NM_CONTROLLED=.*"
+    line="NM_CONTROLLED=no"
+  when: item != "lo"
+  with_items: "{{ ansible_interfaces }}"
+
+- name: static routes
+  copy: src=route-static_route_interface dest=/etc/sysconfig/network-scripts/route-{{ static_route_interface }}
+
+- name: hostname
+  shell: hostnamectl set-hostname {{ hostname }}
+
+- name: stop NetworkManager
+  service: name=NetworkManager enabled=no state=stopped
+
+- name: restart network
+  service: name=network state=restarted

@@ -1,0 +1,40 @@
+---
+
+- name: GRUB_TERMINAL_OUTPUT
+  lineinfile: >-
+    dest=/etc/default/grub
+    state=present
+    regexp='GRUB_TERMINAL_OUTPUT=.*'
+    line='GRUB_TERMINAL_OUTPUT="serial console"'
+
+- name: GRUB_SERIAL_COMMAND
+  lineinfile: >-
+    dest=/etc/default/grub
+    state=present
+    line='GRUB_SERIAL_COMMAND="serial --speed=115200"'
+
+- name: GRUB_CMDLINE_LINUX 1
+  lineinfile: >-
+    dest=/etc/default/grub
+    state=present
+    backrefs=yes
+    regexp='GRUB_CMDLINE_LINUX="(.*) rhgb quiet(.*)"'
+    line='GRUB_CMDLINE_LINUX="\1 \2"'
+
+- name: check if GRUB_CMDLINE_LINUX contains 'console=...'
+  shell: grep -E 'GRUB_CMDLINE_LINUX=.*console=ttyS0,115200' /etc/default/grub
+  ignore_errors: true
+  register: result
+  
+- name: GRUB_CMDLINE_LINUX 2
+  lineinfile: >-
+    dest=/etc/default/grub
+    state=present
+    backrefs=yes
+    regexp='GRUB_CMDLINE_LINUX="(.*)"'
+    line='GRUB_CMDLINE_LINUX="\1 console=ttyS0,115200"'
+  when: result.rc != 0
+
+- name: grub2-mkconfig
+  shell: grub2-mkconfig -o /boot/grub2/grub.cfg
+  changed_when: false

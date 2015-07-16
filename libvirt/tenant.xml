@@ -1,0 +1,14 @@
+<network>
+  <name>tenant</name>
+  <forward mode='nat' dev='eno3' />
+  <bridge name='virbr-tenant' stp='off' delay='0' />
+  <domain name='osp-tenant.local'/>
+  <dns>
+    <!-- Libvirt host aliases: -->
+    <host ip='10.0.2.254'><hostname>gw.osp-tenant.local</hostname></host>
+    <host ip='10.0.2.254'><hostname>ks.osp-tenant.local</hostname></host>
+  </dns>
+  <ip address='10.0.2.254' netmask='255.255.255.0'>
+      <range start='10.0.2.220' end='10.0.2.249'/>
+  </ip>
+</network>

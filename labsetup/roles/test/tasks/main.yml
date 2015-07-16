@@ -1,0 +1,20 @@
+---
+
+#- name: prepare home directory
+#  sudo: yes
+#  sudo_user: "{{ item }}"
+#  shell: echo $HOME
+#  with_items:
+#    - "{{ users }}"
+#  register: homedirs
+#
+#- name: xxx
+#  debug: msg="{{ item }}"
+#  with_items:
+#    "{{ homedirs.stdout_lines }}"
+
+- name: test
+  debug: msg="src={{ item[0] }} dest={{ item[1]['homedir'] }}"
+  with_nested:
+    - "{{ dotfiles }}"
+    - "{{ users }}"

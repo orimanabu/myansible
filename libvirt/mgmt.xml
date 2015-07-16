@@ -1,0 +1,16 @@
+<network>
+  <name>mgmt</name>
+  <forward mode='nat' dev='eno1' />
+  <bridge name='virbr-mgmt' stp='off' delay='0' />
+  <domain name='osp-mgmt.local'/>
+  <dns>
+    <!-- Libvirt host aliases: -->
+    <host ip='10.0.1.254'><hostname>gw.osp-mgmt.local</hostname></host>
+    <host ip='10.0.1.254'><hostname>ks.osp-mgmt.local</hostname></host>
+  </dns>
+  <ip address='10.0.1.254' netmask='255.255.255.0'>
+    <dhcp>
+      <range start='10.0.1.220' end='10.0.1.249'/>
+    </dhcp>
+  </ip>
+</network>

@@ -1,0 +1,14 @@
+- name: install virtualization related packages
+  yum: name={{ item }} state=installed
+  with_items:
+    - virt-install
+    - libvirt-daemon-config-network
+    - libvirt-daemon-kvm
+    - qemu-kvm
+    - virt-manager
+    - virt-viewer
+    - guestfs-browser
+    - libguestfs-tools
+    - python-libguestfs
+    - virt-top
+

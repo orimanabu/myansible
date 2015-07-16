@@ -1,0 +1,16 @@
+<network>
+  <name>storage</name>
+  <forward mode='nat' dev='eno2' />
+  <bridge name='virbr-storage' stp='off' delay='0' />
+  <domain name='osp-storage.local'/>
+  <dns>
+    <!-- Libvirt host aliases: -->
+    <host ip='10.0.0.254'><hostname>gw.osp-storage.local</hostname></host>
+    <host ip='10.0.0.254'><hostname>ks.osp-storage.local</hostname></host>
+  </dns>
+  <ip address='10.0.0.254' netmask='255.255.255.0'>
+    <dhcp>
+      <range start='10.0.0.220' end='10.0.0.249'/>
+    </dhcp>
+  </ip>
+</network>
