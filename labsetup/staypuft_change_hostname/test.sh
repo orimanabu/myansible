@@ -25,6 +25,9 @@ foreman_password=password
 foreman_url=10.0.9.8
 
 curl="curl -k -s -u $foreman_username:$foreman_password -H 'Accept: application/json' -H 'Content-type: application/json'"
+curl="curl -k -s -u $foreman_username:$foreman_password -H 'Content-type: application/json'"
+curl="curl -k -s -u $foreman_username:$foreman_password -H 'Accept:application/json,version=2'"
+curl="curl -k -s -u $foreman_username:$foreman_password -H 'Content-Type: application/json'"
 
 #curl -k -s -u $foreman_username:$foreman_password -H "Accept: application/json" -H "Content-type: application/json" -X GET https://${foreman_url}/api/hosts/ | jq '.[] | .host | {name:.name, id:.id}'
 #curl -k -s -u $foreman_username:$foreman_password -H "Accept: application/json" -H "Content-type: application/json" -X GET https://${foreman_url}/api/hosts/ | jq '.[] | .host | .id'
@@ -40,8 +43,14 @@ curl="curl -k -s -u $foreman_username:$foreman_password -H 'Accept: application/
 #${curl} -X GET https://${foreman_url}/api/subnets/ | python -m json.tool
 
 ip=10.0.2.99
+#host=controller-1.osp6test.local
 host=mac525400ef1446.osp6test.local
 newhost=xxx
 #${curl} -X PUT -d '{"name": "'"${newhost}"'", "interface_attributes": {"3": {"ip": "'"${ip}"'"}}, "overwrite": true}' https://${foreman_url}/api/hosts/${host}/ | python -m json.tool
 #${curl} -X PUT -d '{"host": {"name": "'"${newhost}"'", "interfaces_attributes": {"3": {"ip": "'"${ip}"'"}}, "overwrite": true}}' https://${foreman_url}/api/hosts/${host}/ | python -m json.tool
-echo '{"host": {"name": "'"${newhost}"'", "ip": "'"${ip}"'", "interfaces_attributes": {"3": {"ip": "'"${ip}"'"}}, "overwrite": true}}' | python -m json.tool
+#echo '{"host": {"name": "'"${newhost}"'", "ip": "'"${ip}"'", "interfaces_attributes": {"3": {"ip": "'"${ip}"'"}}, "overwrite": true}}' | python -m json.tool
+
+#${curl} -H 'Content-Type: application/json' -d '{"ip": "'"${ip}"'"}' -X PUT https://${foreman_url}/api/v2/hosts/${host}/interfaces/98
+
+#${curl} -H 'Content-Type: application/json' -X GET https://${foreman_url}/api/v2/subnets
+${curl} -H 'Content-Type: application/json' -X GET https://${foreman_url}/api/v2/hosts/${host}/interfaces | jq -r '.results[] | select(.subnet_name == "tenant") | .id'
