@@ -31,9 +31,12 @@ def main():
     #print json.dumps(data)
     network = 'foreman'
     for vm in sorted(data.keys()):
-        mac = data[vm][network]['mac']
-        hostname = re.sub(r'^[^-]+-', '', vm)
-        print "%s,%s,%s" % (vm, mac, hostname)
+        if data[vm].get(network):
+            mac = data[vm][network]['mac']
+            hostname = re.sub(r'^[^-]+-', '', vm)
+            print "%s,%s,%s" % (vm, mac, hostname)
+        else:
+            print "!!! %s is not connected to %s" % (vm, network)
 
 if __name__ == '__main__':
     main()
