@@ -1,31 +1,86 @@
 #!/bin/bash  
 # https://mojo.redhat.com/docs/DOC-1034108
 
-if [ x"$#" != x"6" ]; then
-	echo "$0 <filename> <DOMAIN> <foreman_user> <foreman_pass> <foreman_url> <network>"
+function usage {
+	echo "$0 -d domain -u foreman_user -p foreman_password -f foreman_host -h target_host -n network -a ipaddr"
+	exit 1
+}
+
+while getopts "d:u:p:f:h:n:a:" o; do
+        case ${o} in
+	d)
+		domain=${OPTARG}
+		;;
+	u)
+		user=${OPTARG}
+		;;
+	p)
+		password=${OPTARG}
+		;;
+	f)
+		foreman=${OPTARG}
+		;;
+	h)
+		host=${OPTARG}
+		;;
+	n)
+		network=${OPTARG}
+		;;
+	a)
+		ipaddr=${OPTARG}
+		;;
+        *)
+                echo "unknown option: ${o}"
+                usage
+                ;;
+        esac
+done
+shift $((OPTIND - 1))
+
+if [ x"$#" != x"1" ]; then
+        usage
+fi
+op=$1; shift
+
+headers="-H Accept:application/json -H Content-type:application/json"
+curl="curl -k -s -u ${user}:${password} ${headers}"
+
+if [ x"$user" = x"" -o x"$password" = x"" -o x"$foreman" = x"" ]; then
+	usage
 	exit 1
 fi
-INPUT=$1  
-DOMAIN=$2  
-foreman_username=$3  
-foreman_password=$4  
-foreman_url=$5  
-network=$6
-  
-#transforming the 00:AA:BB:CC:DD:EE:FF MAC to mac00aabbccddeeff  
-cat ${INPUT}  | awk '{print tolower($0)}' |sed 's/://g' | sed 's/^/mac/' | sed 's/^\(.\{15\}\)/\1.'$DOMAIN'/' > tmp_${INPUT}
-  
-while IFS=, read dummy mac host ip; do    echo "I got: $mac $host $ip"; done < tmp_${INPUT}
-#changing hostname and primary IP  
-#while IFS=, read dummy mac host ip; do curl -k -s -u $foreman_username:$foreman_password -H "Accept: application/json" -H "Content-type: application/json" -X PUT -d '{"name": "'"$host"'", "ip":"'"$ip"'","overwrite": true}' https://$foreman_url/api/hosts/$mac/; done < tmp_${INPUT}
-while IFS=, read dummy mac host ip; do
-	#echo curl -k -s -u $foreman_username:$foreman_password -H "Accept: application/json" -H "Content-type: application/json" -X GET https://${foreman_url}/api/v2/hosts/${host}.${DOMAIN}/interfaces
-	#curl -k -s -u $foreman_username:$foreman_password -H "Accept: application/json" -H "Content-type: application/json" -X GET https://${foreman_url}/api/v2/hosts/${host}.${DOMAIN}/interfaces | python -m json.tool
-	#curl -k -s -u $foreman_username:$foreman_password -H "Accept: application/json" -H "Content-type: application/json" -X GET https://${foreman_url}/api/v2/hosts/${host}.${DOMAIN}/interfaces | jq -r '.results[] | select(.subnet_name == "'${network}'") | .id'
-	interface_id=$(curl -k -s -u $foreman_username:$foreman_password -H "Accept: application/json" -H "Content-type: application/json" -X GET https://${foreman_url}/api/v2/hosts/${host}.${DOMAIN}/interfaces | jq -r '.results[] | select(.subnet_name == "'${network}'") | .id')
-	echo "interface_id: ${interface_id}"
-	
-	curl -k -s -u $foreman_username:$foreman_password -H "Accept: application/json" -H "Content-type: application/json" -X PUT -d '{"ip":"'"$ip"'"}' https://$foreman_url/api/v2/hosts/${host}.${DOMAIN}/interfaces/${interface_id}
-done < tmp_${INPUT}
-  
-#rm tmp_${INPUT}
+
+case ${op} in
+hosts)
+	${curl} -X GET http://${foreman}/api/v2/hosts/ | python -m json.tool
+	;;
+
+host-info)
+	if [ x"$host" = x"" ]; then usage; fi
+	${curl} -X GET http://${foreman}/api/v2/hosts/${host}.${domain} | python -m json.tool
+	;;
+
+subnets)
+	${curl} -X GET http://${foreman}/api/v2/subnets | python -m json.tool
+	;;
+
+interfaces)
+	if [ x"$host" = x"" ]; then usage; fi
+	${curl} -X GET http://${foreman}/api/v2/hosts/${host}.${domain}/interfaces | python -m json.tool
+	;;
+
+interface-update)
+	interface_id=$(${curl} -X GET https://${foreman}/api/v2/hosts/${host}.${domain}/interfaces | jq -r '.results[] | select(.subnet_name == "'${network}'") | .id')
+	result=$(${curl} -X PUT -d '{"ip":"'"${ipaddr}"'"}' https://${foreman}/api/v2/hosts/${host}.${domain}/interfaces/${interface_id})
+	if [ x"$?" = x"0" ]; then
+		echo ${result} | python -m json.tool
+	else
+		echo ${result}
+	fi
+	;;
+
+*)
+	echo "unknown op: ${op}"
+	usage
+	;;
+esac
