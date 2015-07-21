@@ -1,0 +1,9 @@
+---
+
+- hosts: vm
+  roles:
+#    - packages
+#    - user
+#    - nic_noNM
+#    - osp-installer
+    - test

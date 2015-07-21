@@ -1,0 +1,7 @@
+---
+
+- name: add GATEWAY on foreman_interface
+  lineinfile: >-
+    dest="/etc/sysconfig/network-scripts/ifcfg-{{ foreman_interface }}"
+    state=present
+    line="GATEWAY={{ ipv4_gateway }}"

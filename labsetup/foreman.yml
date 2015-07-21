@@ -4,7 +4,9 @@
   roles:
     - packages
     - user
-    - no_firewalld
     - nic_ifcfg
+    - nic_foreman_gateway
+    - static_routes
     - nic_noNM
     - ntp
+    - osp-installer

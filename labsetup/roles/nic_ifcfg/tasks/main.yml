@@ -1,0 +1,15 @@
+---
+
+- name: gather interfaces with GATEWAY set
+  shell: grep GATEWAY /etc/sysconfig/network-scripts/ifcfg-eth* | sed -e 's/^.*\(eth[0-9]*\):.*/\1/'
+  always_run: yes
+  changed_when: false
+  register: gw_interfaces
+
+- name: remove GATEWAY if set
+  lineinfile: >-
+    dest="/etc/sysconfig/network-scripts/ifcfg-{{ item }}"
+    state=absent
+    regexp="GATEWAY=.*"
+  with_items: gw_interfaces.stdout_lines
+

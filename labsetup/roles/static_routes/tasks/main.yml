@@ -1,0 +1,4 @@
+---
+
+- name: static routes
+  copy: src=route-static_route_interface dest=/etc/sysconfig/network-scripts/route-{{ static_route_interface }}

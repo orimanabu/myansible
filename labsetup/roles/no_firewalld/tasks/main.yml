@@ -1,0 +1,14 @@
+---
+
+- name: stop firewalld
+  service: name=firewalld enabled=no state=stopped
+
+- name: install iptables-services
+  yum: name=iptables-services state=installed
+
+#- name: iptables conf
+#  copy: src=iptables dest=/etc/sysconfig/iptables
+
+- name: start iptables
+  service: name=iptables enabled=yes state=restarted
+
