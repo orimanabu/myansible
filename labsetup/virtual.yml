@@ -7,4 +7,6 @@
     - no_firewalld
     - nic_ifcfg
     - nic_noNM
+    - hostname
+    - disable_NetworkManager
     - ntp

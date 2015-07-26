@@ -1,0 +1,7 @@
+---
+
+- name: RDO repo
+  yum: name=https://rdoproject.org/repos/rdo-release.rpm state=installed
+
+#- name: packstack
+#  yum: name=openstack-packstack state=installed

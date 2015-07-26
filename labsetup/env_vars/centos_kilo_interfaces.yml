@@ -1,0 +1,5 @@
+---
+
+network_info:
+  - { interface: eth1, prefix: 10.0.1 }
+  - { interface: eth2, prefix: 10.0.2 }

@@ -15,6 +15,17 @@ firegoby.nrt.redhat.com ansible_ssh_user=root
 10.0.1.42	ansible_host_key_checking=no ansible_ssh_user=root
 10.0.1.51	ansible_host_key_checking=no ansible_ssh_user=root
 
+[centos-br0]
+10.64.193.1	ansible_host_key_checking=no ansible_ssh_user=root hostname=controller.kilotest.local mgmt_interface=eth1 mgmt_last_octet=61
+10.64.193.33	ansible_host_key_checking=no ansible_ssh_user=root hostname=compute.kilotest.local mgmt_interface=eth1 mgmt_last_octet=71
+
+[centos-br0:vars]
+env_name=centos_kilo_interfaces
+
+[centos-mgmt]
+10.0.1.61	ansible_host_key_checking=no ansible_ssh_user=root hostname=controller.kilotest.local
+10.0.1.71	ansible_host_key_checking=no ansible_ssh_user=root hostname=compute.kilotest.local
+
 [calamari]
 10.0.1.30 ansible_host_key_checking=no ansible_ssh_user=root hostname=foreman.osp6test.local ipv4_addr=10.0.1.30 ipv4_prefixlen=24
 

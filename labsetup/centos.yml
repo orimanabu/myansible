@@ -1,0 +1,21 @@
+---
+
+- hosts: centos-br0
+  vars_files:
+    - "env_vars/{{ env_name }}.yml"
+  roles:
+    - packages
+    - user
+    - no_firewalld
+    - nic_ifcfg
+    - nic_ifcfg_manual
+    - nic_noNM
+    - hostname
+    - disable_NetworkManager
+    - ntp
+
+- hosts: centos-mgmt
+  roles:
+    - grub_console
+    - git_clone
+    - rdo

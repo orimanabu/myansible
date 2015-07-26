@@ -1,0 +1,40 @@
+---
+
+- name: BOOTPROTO
+  lineinfile: >-
+    dest="/etc/sysconfig/network-scripts/ifcfg-{{ item['interface'] }}"
+    state=present
+    regexp="BOOTPROTO=.*"
+    line="BOOTPROTO=none"
+  with_items: "{{ network_info }}"
+
+- name: ONBOOT
+  lineinfile: >-
+    dest="/etc/sysconfig/network-scripts/ifcfg-{{ item['interface'] }}"
+    state=present
+    regexp="ONBOOT=.*"
+    line="ONBOOT=yes"
+  with_items: "{{ network_info }}"
+
+- name: IPADDR
+  lineinfile: >-
+    dest="/etc/sysconfig/network-scripts/ifcfg-{{ item['interface'] }}"
+    state=present
+    regexp="IPADDR=.*"
+    line="IPADDR={{ item['prefix'] }}.{{ mgmt_last_octet }}"
+  with_items: "{{ network_info }}"
+
+- name: NETMASK
+  lineinfile: >-
+    dest="/etc/sysconfig/network-scripts/ifcfg-{{ item['interface'] }}"
+    state=absent
+    regexp="NETMASK=.*"
+  with_items: "{{ network_info }}"
+
+- name: PREFIX
+  lineinfile: >-
+    dest="/etc/sysconfig/network-scripts/ifcfg-{{ item['interface'] }}"
+    state=present
+    regexp="PREFIX=.*"
+    line="PREFIX=24"
+  with_items: "{{ network_info }}"

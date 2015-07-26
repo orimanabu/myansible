@@ -9,11 +9,3 @@
   when: item != "lo"
   with_items: "{{ ansible_interfaces }}"
 
-- name: hostname
-  shell: hostnamectl set-hostname {{ hostname }}
-
-- name: stop NetworkManager
-  service: name=NetworkManager enabled=no state=stopped
-
-- name: restart network
-  service: name=network state=restarted

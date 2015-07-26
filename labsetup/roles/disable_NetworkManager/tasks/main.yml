@@ -1,0 +1,8 @@
+---
+
+- name: stop NetworkManager
+  service: name=NetworkManager enabled=no state=stopped
+
+- name: restart network
+  service: name=network state=restarted
+

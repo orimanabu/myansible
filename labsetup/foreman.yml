@@ -8,5 +8,7 @@
     - nic_foreman_gateway
     - static_routes
     - nic_noNM
+    - hostname
+    - disable_NetworkManager
     - ntp
     - osp-installer
