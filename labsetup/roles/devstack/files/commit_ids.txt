@@ -1,0 +1,49 @@
+Mon Jul 27 18:23:34 JST 2015
+==> /home/ori/devstack
+* master
+c90656a4a3ca148cd3eec8b4792215f735f9c75d
+	url = https://git.openstack.org/openstack-dev/devstack
+==> /opt/stack/requirements
+* master
+0297b9936788ac100db6787d048c6d378da377b0
+	url = git://git.openstack.org/openstack/requirements.git
+==> /opt/stack/keystone
+* master
+6a6fcc22bef6f81dd202928e9c3f342c3338ad73
+	url = git://git.openstack.org/openstack/keystone.git
+==> /opt/stack/glance
+* master
+d4cf5a015b49b8163a71726781aee54da9c252ec
+	url = git://git.openstack.org/openstack/glance.git
+==> /opt/stack/cinder
+* master
+9e7a7e113f023bb3634a81c5f14401d09788205a
+	url = git://git.openstack.org/openstack/cinder.git
+==> /opt/stack/neutron
+* master
+e95bc6f5be6b0d3bcf0677e515660f6b972163fe
+	url = git://git.openstack.org/openstack/neutron.git
+==> /opt/stack/neutron-fwaas
+* master
+8de258e595714e17047e6bf20e4250f420a3125b
+	url = git://git.openstack.org/openstack/neutron-fwaas.git
+==> /opt/stack/neutron-lbaas
+* master
+30842f7776b22b62dc5e737a444c3632b5335ff2
+	url = git://git.openstack.org/openstack/neutron-lbaas.git
+==> /opt/stack/noVNC
+* master
+8f3c0f6b9b5e5c23a7dc7e90bd22901017ab4fc7
+	url = https://github.com/kanaka/noVNC.git
+==> /opt/stack/nova
+* master
+183cd88cb2f9781b53f71b6b161df401c286c9ff
+	url = git://git.openstack.org/openstack/nova.git
+==> /opt/stack/horizon
+* master
+e62918d70646c11afc59c6a63bc7339d998a013e
+	url = git://git.openstack.org/openstack/horizon.git
+==> /opt/stack/tempest
+* master
+91a9548c147393fade7930d7e00c2a0a1ec3bac0
+	url = git://git.openstack.org/openstack/tempest.git

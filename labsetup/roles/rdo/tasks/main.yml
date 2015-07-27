@@ -3,5 +3,16 @@
 - name: RDO repo
   yum: name=https://rdoproject.org/repos/rdo-release.rpm state=installed
 
+- name: check if RDO Manager repo file exists
+  shell: grep baseurl /etc/yum.repos.d/rdo-management-trunk.repo
+  ignore_errors: true
+  always_run: yes
+  changed_when: false
+  register: result
+
+- name: RDO Manager repo
+  shell: curl -o /etc/yum.repos.d/rdo-management-trunk.repo http://trunk-mgt.rdoproject.org/centos-kilo/current-passed-ci/delorean-rdo-management.repo
+  when: result.rc != 0
+
 #- name: packstack
 #  yum: name=openstack-packstack state=installed

@@ -1,0 +1,7 @@
+devstack:
+  user: ori
+  dir: /home/ori/devstack
+  host_ip: "{{ ansible_eth1.ipv4.address }}"
+  dest: /opt/stack
+#  branch: stable/kilo
+  branch: master

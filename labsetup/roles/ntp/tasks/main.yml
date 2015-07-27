@@ -4,7 +4,7 @@
   lineinfile: >-
     dest=/etc/ntp.conf
     state=absent
-    regexp="^server [0-9].rhel.pool.ntp.org iburst"
+    regexp="^server [0-9]\.{fedora,centos,rhel}\.pool\.ntp\.org iburst"
 
 - name: ntp.conf 2
   lineinfile: >-

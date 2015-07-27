@@ -26,6 +26,15 @@ env_name=centos_kilo_interfaces
 10.0.1.61	ansible_host_key_checking=no ansible_ssh_user=root hostname=controller.kilotest.local
 10.0.1.71	ansible_host_key_checking=no ansible_ssh_user=root hostname=compute.kilotest.local
 
+[fedora-br0]
+10.64.193.210	ansible_host_key_checking=no ansible_ssh_user=root hostname=controller.devstack.local mgmt_interface=eth1 mgmt_last_octet=81
+
+[fedora-br0:vars]
+env_name=centos_kilo_interfaces
+
+[fedora-mgmt]
+10.0.1.81	ansible_host_key_checking=no ansible_ssh_user=root hostname=controller.devstack.local
+
 [calamari]
 10.0.1.30 ansible_host_key_checking=no ansible_ssh_user=root hostname=foreman.osp6test.local ipv4_addr=10.0.1.30 ipv4_prefixlen=24
 

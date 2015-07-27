@@ -1,0 +1,38 @@
+---
+
+#- name: user stack
+#  user: name=stack comment="Devstack User" groups=wheel
+#  
+#- name: sudoers
+#  copy: src=stack dest=/etc/sudoers.d/stack mode=440 owner=root group=root
+
+- name: git clone
+  sudo: yes
+  sudo_user: ori
+  git: repo=https://git.openstack.org/openstack-dev/devstack dest={{ devstack.dir }}
+
+- name: local.conf
+  sudo: yes
+  sudo_user: ori
+  template: src=local.conf.j2 dest={{ devstack.dir }}/local.conf
+
+- name: mkdir devstack.dest
+  file: path=/opt/stack state=directory owner={{ devstack.user }} group=wheel mode=0755
+
+- name: current_commit_ids.sh
+  sudo: yes
+  sudo_user: ori
+  copy: src=current_commit_ids.sh dest={{ devstack.dir }} mode=0755
+
+- name: stack-screenrc
+  lineinfile: >-
+    dest={{ devstack.dir }}/stack-screenrc
+    state=present
+    line="{{ item.line }} # XXX"
+  with_items:
+    - line: "escape ^Zz"
+    - line: "bind w windowlist -b"
+    - line: "bind ^h focus left"
+    - line: "bind ^j focus down"
+    - line: "bind ^k focus up"
+    - line: "bind ^l focus right"

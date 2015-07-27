@@ -1,0 +1,33 @@
+[[local|localrc]]
+RECLONE=yes
+HOST_IP={{ devstack.host_ip }}
+DEST={{ devstack.dest }}
+
+ADMIN_PASSWORD=admin
+MYSQL_PASSWORD=mysql
+RABBIT_PASSWORD=rabbit
+SERVICE_PASSWORD=password
+SERVICE_TOKEN=token
+
+disable_service n-net
+enable_service q-svc
+enable_service q-agt
+enable_service q-dhcp
+enable_service q-l3
+enable_service q-meta
+enable_service ceilometer
+enable_service q-fwaas
+enable_service q-lbaas
+
+LOGFILE=/opt/stack/logs/stack.sh.log
+LOGDAYS=1
+SCREEN_LOGDIR=$DEST/logs/screen
+
+NOVA_BRANCH={{ devstack.branch }}
+GLANCE_BRANCH={{ devstack.branch }}
+KEYSTONE_BRANCH={{ devstack.branch }}
+HORIZON_BRANCH={{ devstack.branch }}
+CINDER_BRANCH={{ devstack.branch }}
+NEUTRON_BRANCH={{ devstack.branch }}
+CEILOMETER_BRANCH={{ devstack.branch }}
+HEAT_BRANCH={{ devstack.branch }}
