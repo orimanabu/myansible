@@ -1,0 +1,12 @@
+---
+
+- name: copy images
+  copy: src={{ item }} dest=/home/stack/Downloads/ owner=stack group=wheel
+  with_items:
+    - "{{ osp_deploy_images }}"
+
+- name: extract images
+  unarchive: copy=no src=/home/stack/Downloads/{{ item }} dest=/home/stack/images
+  with_items:
+    - "{{ osp_deploy_images }}"
+

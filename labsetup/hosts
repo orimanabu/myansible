@@ -22,6 +22,42 @@ firegoby.nrt.redhat.com ansible_ssh_user=root
 [centos-br0:vars]
 env_name=centos_kilo_interfaces
 
+[osp7ceph-director:vars]
+env_name=osp7ceph_interfaces
+
+[osp7ceph-director]
+#10.0.1.237	ansible_host_key_checking=no ansible_ssh_user=root hostname=director.osp7test.local mgmt_last_octet=200
+10.0.1.200	ansible_host_key_checking=no ansible_ssh_user=root hostname=director.osp7test.local mgmt_last_octet=200
+
+[osp7ceph-mgmt:vars]
+env_name=osp7ceph_interfaces
+
+[osp7ceph-mgmt]
+10.0.1.200	ansible_host_key_checking=no ansible_ssh_user=root hostname=director.osp7test.local mgmt_last_octet=200
+10.0.1.211	ansible_host_key_checking=no ansible_ssh_user=root hostname=controller01.osp7test.local mgmt_last_octet=211
+10.0.1.212	ansible_host_key_checking=no ansible_ssh_user=root hostname=controller02.osp7test.local mgmt_last_octet=212
+10.0.1.213	ansible_host_key_checking=no ansible_ssh_user=root hostname=controller03.osp7test.local mgmt_last_octet=213
+10.0.1.221	ansible_host_key_checking=no ansible_ssh_user=root hostname=compute01.osp7test.local mgmt_last_octet=221
+10.0.1.222	ansible_host_key_checking=no ansible_ssh_user=root hostname=compute02.osp7test.local mgmt_last_octet=222
+10.0.1.231	ansible_host_key_checking=no ansible_ssh_user=root hostname=storage01.osp7test.local mgmt_last_octet=231
+10.0.1.232	ansible_host_key_checking=no ansible_ssh_user=root hostname=storage02.osp7test.local mgmt_last_octet=232
+10.0.1.233	ansible_host_key_checking=no ansible_ssh_user=root hostname=storage03.osp7test.local mgmt_last_octet=233
+
+[osp7ps-mgmt:vars]
+env_name=osp7ps_interfaces
+
+[osp7ps-mgmt]
+10.0.1.111	ansible_host_key_checking=no ansible_ssh_user=root hostname=osp7ps-controller01.test.local mgmt_last_octet=111
+10.0.1.121	ansible_host_key_checking=no ansible_ssh_user=root hostname=osp7ps-compute01.test.local mgmt_last_octet=121
+
+[test-mgmt:vars]
+env_name=test_interfaces
+
+[test-mgmt]
+10.0.1.100	ansible_host_key_checking=no ansible_ssh_user=root hostname=node0.test.local mgmt_last_octet=100
+10.0.1.101	ansible_host_key_checking=no ansible_ssh_user=root hostname=node1.test.local mgmt_last_octet=101
+10.0.1.102	ansible_host_key_checking=no ansible_ssh_user=root hostname=node2.test.local mgmt_last_octet=102
+
 [centos-mgmt]
 10.0.1.61	ansible_host_key_checking=no ansible_ssh_user=root hostname=controller.kilotest.local
 10.0.1.71	ansible_host_key_checking=no ansible_ssh_user=root hostname=compute.kilotest.local

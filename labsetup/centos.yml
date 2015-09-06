@@ -1,6 +1,6 @@
 ---
 
-- hosts: centos-br0
+- hosts: test-mgmt
   vars_files:
     - "env_vars/{{ env_name }}.yml"
   roles:
@@ -14,9 +14,7 @@
     - disable_NetworkManager
     - ntp
 
-- hosts: centos-mgmt
-  roles:
     - grub_console
     - git_clone
-    - rdo
+#    - rdo
 #    - devstack

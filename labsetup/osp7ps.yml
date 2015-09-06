@@ -1,0 +1,21 @@
+---
+
+- hosts: osp7ps-mgmt
+  vars_files:
+    - "env_vars/{{ env_name }}.yml"
+  roles:
+#   - packages
+#   - user
+#   - no_firewalld
+#   - nic_ifcfg
+#   - nic_ifcfg_manual
+#   - nic_noNM
+    - hostname
+#   - ntp
+
+#   - grub_console
+#   - git_clone
+
+#   - disable_NetworkManager
+#    - rdo
+#    - devstack

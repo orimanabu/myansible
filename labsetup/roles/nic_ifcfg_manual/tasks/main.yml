@@ -38,3 +38,12 @@
     regexp="PREFIX=.*"
     line="PREFIX=24"
   with_items: "{{ network_info }}"
+
+- name: GATEWAY
+  lineinfile: >-
+    dest="/etc/sysconfig/network-scripts/ifcfg-{{ item.interface }}"
+    state=present
+    regexp="GATEWAY=.*"
+    line="GATEWAY={{ item.prefix }}.254"
+  when: item.interface == "{{ gateway_interface }}"
+  with_items: "{{ network_info }}"

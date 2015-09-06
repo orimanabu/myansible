@@ -1,0 +1,16 @@
+resource_registry:
+#  OS::TripleO::BlockStorage::Net::SoftwareConfig: /home/stack/templates/nic-configs/cinder-storage.yaml
+  OS::TripleO::Compute::Net::SoftwareConfig: /home/stack/templates/nic-configs/compute.yaml
+  OS::TripleO::Controller::Net::SoftwareConfig: /home/stack/templates/nic-configs/controller.yaml
+#  OS::TripleO::ObjectStorage::Net::SoftwareConfig: /home/stack/templates/nic-configs/swift-storage.yaml
+#  OS::TripleO::CephStorage::Net::SoftwareConfig: /home/stack/templates/nic-configs/ceph-storage.yaml
+
+parameters:
+  # Set to "br-ex" if using floating IPs on native VLAN on bridge br-ex
+  Controller-1::NeutronExternalNetworkBridge: "''"
+
+parameter_defaults:
+  ExternalNetCidr: 172.16.99.0/24
+  ExternalAllocationPools: [{'start': '172.16.99.100', 'end': '172.16.99.120'}]
+  ExternalNetworkVlanID: 100
+  ExternalInterfaceDefaultRoute: 172.16.99.254
