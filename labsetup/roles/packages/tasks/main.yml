@@ -6,7 +6,9 @@
 
 - name: yum local repository for RHEL
   copy: src=reposyncer.repo dest=/etc/yum.repos.d/reposyncer.repo
-  when: ansible_os_family == "RedHat" and ansible_distribution == "RedHat"
+  when:
+    - ansible_os_family == "RedHat"
+    - ansible_distribution == "RedHat"
 
 - name: yum local repository for RHEL
   file: path=redhat.repo state=absent

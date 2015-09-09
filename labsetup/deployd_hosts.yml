@@ -1,9 +1,10 @@
 ---
 
-- hosts: osp
+#- hosts: osp
+- hosts: deployd_hosts
   roles:
 #    - test
 #    - packages
-#    - user
-#    - grub_console
+    - user
+    - grub_console
     - git_clone

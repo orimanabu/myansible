@@ -1,0 +1,123 @@
+---
+
+- name: undercloud install
+  sudo: yes
+  sudo_user: stack
+  shell: openstack undercloud install 2>&1 | tee log && touch .done_undercloud_install creates=.done_undercloud_install
+
+- name: haproxy.cfg fix
+  shell: sed -i.orig -e '/^listen ironic/,+3s/^.*option httpchk.*$/#&/' /etc/haproxy/haproxy.cfg creates=/etc/haproxy/haproxy.cfg.orig
+
+- name: install bootif-fix
+  copy: src=bootif-fix dest=/usr/bin/bootif-fix mode=0755
+
+- name: install bootif-fix.service
+  copy: src=bootif-fix.service dest=/usr/lib/systemd/system
+
+- name: bootif-fix service
+  shell: systemctl enable bootif-fix.service
+
+- name: bootif-fix service
+  shell: systemctl start bootif-fix.service
+
+- name: bootif-fix status
+  shell: systemctl status bootif-fix.service
+  register: result
+- debug: var=result
+
+- name: image upload
+  sudo: yes
+  sudo_user: stack
+  shell: . ~/stackrc && openstack overcloud image upload chdir=~/images && touch .done_image_upload creates=.done_image_upload
+
+- name: image list
+  sudo: yes
+  sudo_user: stack
+  shell: . ~/stackrc && openstack image list
+  register: result
+- debug: var=result
+
+- name: neutron dns
+  sudo: yes
+  sudo_user: stack
+  shell: . ~/stackrc && neutron subnet-update $(neutron subnet-list | awk '/start.*end/ {print $2}') --dns-nameserver 10.0.1.254 && touch .done_neutron_dns executable=/bin/bash creates=.done_neutron_dns
+
+- name: neutron subnet show
+  sudo: yes
+  sudo_user: stack
+  shell: . ~/stackrc && neutron subnet-show $(neutron subnet-list | awk '/start.*end/ {print $2}') executable=/bin/bash
+  register: result
+- debug: var=result
+
+- name: plan download
+  sudo: yes
+  sudo_user: stack
+  shell: . ~/stackrc && openstack management plan download $(openstack management plan list | awk '/overcloud/ {print $2}') -O ~/templates/overcloud-plan && touch .done_plan_download executable=/bin/bash creates=.done_plan_download
+
+- name: flavor create
+  sudo: yes
+  sudo_user: stack
+  shell: . ~/stackrc && openstack flavor create --id auto --ram 6144 --disk 39 --vcpus 2 baremetal && touch .done_flavor_create creates=.done_flavor_create
+
+- name: flavor set
+  sudo: yes
+  sudo_user: stack
+  shell: . ~/stackrc && openstack flavor set --property "cpu_arch"="x86_64" --property "capabilities:boot_option"="local" baremetal && touch .done_flavor_set creates=.done_flavor_set
+
+- name: flavor list
+  sudo: yes
+  sudo_user: stack
+  register: result
+  shell: . ~/stackrc && openstack flavor list
+- debug: var=result
+
+- name: flavor show
+  sudo: yes
+  sudo_user: stack
+  register: result
+  shell: . ~/stackrc && openstack flavor show baremetal
+- debug: var=result
+
+- name: copy instackenv.json
+  sudo: yes
+  sudo_user: stack
+  copy: src=instackenv.json dest=~/instackenv.json
+
+- name: copy instackenv-validator.py
+  sudo: yes
+  sudo_user: stack
+  copy: src=instackenv-validator.py dest=~/instackenv-validator.py mode=0755
+
+- name: instackenv validation
+  sudo: yes
+  sudo_user: stack
+  shell: ~/instackenv-validator.py -f ~/instackenv.json
+  register: result
+- debug: var=result
+
+- name: baremetal import
+  sudo: yes
+  sudo_user: stack
+  shell: . ~/stackrc && openstack baremetal import --json ~/instackenv.json && touch .done_flavor_set creates=.done_baremetal_import
+
+- name: baremetal configure boot
+  sudo: yes
+  sudo_user: stack
+  shell: . ~/stackrc && openstack baremetal configure boot && touch .done_flavor_set creates=.done_baremetal_configure_boot
+
+- name: ironic node-list
+  sudo: yes
+  sudo_user: stack
+  register: result
+  shell: . ~/stackrc && ironic node-list
+- debug: var=result
+
+
+#openstack baremetal import --json ~/instackenv.json
+#openstack baremetal configure boot
+#openstack baremetal introspection bulk start
+#openstack overcloud deploy --templates --ntp-server 10.5.26.10 --control-scale 1 --compute-scale 1 --neutron-tunnel-types vxlan --neutron-network-type vxlan
+
+#cp -r /usr/share/openstack-tripleo-heat-templates/network/config/single-nic-vlans ~/templates/nic-configs
+#vim templates/nic-configs/controller.yaml
+#vim ~/templates/network-environment.yaml

@@ -3,14 +3,15 @@
 #- hosts: osp7ceph-mgmt
 - hosts: osp7ceph-director
   vars_files:
-    - "env_vars/{{ env_name }}.yml"
+#    - "env_vars/{{ env_name }}.yml"
+    - "env_vars/osp7.yml"
   roles:
 #    - nic_ifcfg
 #    - nic_ifcfg_manual
 #    - nic_noNM
 #    - hostname
 #    - disable_NetworkManager
-
+#
 #    - packages
 #    - user
 #    - ntp
@@ -20,6 +21,10 @@
 ##    - git_clone
 ##    - rdo
 ##    - devstack
+#
+#    - osp-d_install
+#    - osp-d_prepare
 
-    - osp-d_install
-    - osp-d_prepare
+#    - osp-d_undercloud
+#    - osp-d_discover
+    - osp-d_deploy

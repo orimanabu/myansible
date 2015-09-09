@@ -1,9 +1,9 @@
 ---
 
 network_info:
-  - { interface: eth0, prefix: 10.0.9 }
   - { interface: eth1, prefix: 10.0.1 }
   - { interface: eth2, prefix: 10.0.2 }
   - { interface: eth3, prefix: 10.0.0 }
-  - { interface: eth4, prefix: 172.16.99 }
+  - { interface: eth4, prefix: 10.0.9 }
+  - { interface: eth5, prefix: 172.16.99 }
 gateway_interface: eth1

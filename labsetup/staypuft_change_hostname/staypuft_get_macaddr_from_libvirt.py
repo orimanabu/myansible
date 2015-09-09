@@ -28,15 +28,15 @@ def main():
         xml = get_vm_xml(vm)
         ma = mac_ipaddr(xml)
         data[vm] = ma
-    #print json.dumps(data)
+    print json.dumps(data)
     network = 'foreman'
-    for vm in sorted(data.keys()):
-        if data[vm].get(network):
-            mac = data[vm][network]['mac']
-            hostname = re.sub(r'^[^-]+-', '', vm)
-            print "%s,%s,%s" % (vm, mac, hostname)
-        else:
-            print "!!! %s is not connected to %s" % (vm, network)
+#    for vm in sorted(data.keys()):
+#        if data[vm].get(network):
+#            mac = data[vm][network]['mac']
+#            hostname = re.sub(r'^[^-]+-', '', vm)
+#            #print "%s,%s,%s" % (vm, mac, hostname)
+#        else:
+#            print "!!! %s is not connected to %s" % (vm, network)
 
 if __name__ == '__main__':
     main()

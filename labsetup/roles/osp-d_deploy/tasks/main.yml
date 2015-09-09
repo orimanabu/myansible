@@ -1,0 +1,8 @@
+---
+
+- name: baremetal deploy
+  sudo: yes
+  sudo_user: stack
+  shell: . ~/stackrc && openstack overcloud deploy --templates --ntp-server 10.5.26.10 --control-scale 1 --compute-scale 1 --neutron-tunnel-types vxlan --neutron-network-type vxlan && touch .done_flavor_set creates=.done_baremetal_deploy
+  register: result
+- debug: var=result

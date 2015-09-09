@@ -1,0 +1,8 @@
+---
+
+- name: baremetal introspection
+  sudo: yes
+  sudo_user: stack
+  shell: . ~/stackrc && time openstack baremetal introspection bulk start && touch .done_flavor_set creates=.done_baremetal_introspection
+  register: result
+- debug: var=result
