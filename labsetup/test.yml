@@ -1,9 +1,20 @@
 ---
 
-- hosts: vm
+- hosts: test-mgmt
+  vars_files:
+    - "env_vars/{{ env_name }}.yml"
   roles:
-#    - packages
-#    - user
-#    - nic_noNM
-#    - osp-installer
-    - test
+    - packages
+    - user
+    - no_firewalld
+    - nic_ifcfg
+    - nic_ifcfg_manual
+    - nic_noNM
+    - hostname
+    - disable_NetworkManager
+    - ntp
+
+    - grub_console
+    - git_clone
+#    - rdo
+#    - devstack

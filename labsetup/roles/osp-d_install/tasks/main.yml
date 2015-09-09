@@ -1,0 +1,60 @@
+---
+
+- name: directory
+  file: path={{ item }} state=directory owner=stack group=wheel
+  with_items:
+    - "/home/stack"
+    - "/home/stack/Downloads"
+    - "/home/stack/images"
+    - "/home/stack/templates"
+    - "/home/stack/templates/overcloud-plan"
+
+- name: /etc/hosts
+  shell: sed -i -e "s/^127.0.0.1.*$/& $(hostname -f) $(hostname -s)/" /etc/hosts
+
+- name: sysctl conf
+  copy: src=ip_forward.conf dest=/etc/sysctl.d/ip_forward.conf
+- name: sysctl
+  shell: systemctl restart systemd-sysctl
+  changed_when: false
+
+- name: install openssl policycoreutils-python
+  yum: name={{ item }} state=latest
+  with_items:
+    - openssl
+    - policycoreutils-python
+
+- name: openssl genrsa
+  shell: openssl genrsa -out /root/privkey.pem 2048
+
+- name: openssl req
+  shell: openssl req -new -x509 -key /root/privkey.pem -out /root/cacert.pem -days 365 -subj "/C=JP/ST=Tokyo/localName=Ebisu/O=Red Hat Japan/organizationName=GPS/emailAddress=ori@redhat.com/commonName=10.0.9.201"
+
+- name: directory
+  file: path={{ item }} state=directory 
+  with_items:
+    - "/etc/pki/instack-certs"
+
+- name: undercloud.pem create
+  shell: cat /root/cacert.pem /root/privkey.pem > /etc/pki/instack-certs/undercloud.pem
+
+- name: undercloud.pem selinux
+  shell: |
+    semanage fcontext -a -t etc_t "/etc/pki/instack-certs(/.*)?"
+    restorecon -R /etc/pki/instack-certs/
+
+- name: copy files 1
+  copy: src={{ item }} dest=/home/stack/{{ item }} owner=stack group=wheel
+  with_items:
+    - undercloud.conf
+    - uc_prepare.sh
+
+- name: copy files 2
+  copy: src={{ item }} dest=/home/stack/templates/{{ item }} owner=stack group=wheel
+  with_items:
+    - network-environment.yaml
+
+- name: install python-rdomanager-oscplugin
+  yum: name={{ item }} state=latest
+  with_items:
+    - python-rdomanager-oscplugin

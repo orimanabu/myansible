@@ -1,6 +1,7 @@
 users:
   - {user: root, homedir: /root}
   - {user: ori, homedir: /home/ori}
+  - {user: stack, homedir: /home/stack}
 
 ssh_related_files:
   - {file: id_rsa, mode: 600}

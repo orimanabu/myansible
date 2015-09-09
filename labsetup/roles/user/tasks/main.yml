@@ -1,10 +1,16 @@
 ---
 
-- name: user ori
-  user: name=ori comment="Manabu Ori" groups=wheel
+- name: user create
+  user: name={{ item.user }} comment="User {{ item.user }}" groups=wheel
+  with_items:
+    - "{{ users }}"
+  when: item.user != "root"
 
 - name: sudoers
-  copy: src=ori dest=/etc/sudoers.d/ori mode=440 owner=root group=root
+  template: src=sudoer.j2 dest=/etc/sudoers.d/{{ item.user }} mode=440 owner=root group=root
+  with_items:
+    - "{{ users }}"
+  when: item.user != "root"
 
 - name: .ssh
   file: path={{ item['homedir'] }}/.ssh state=directory owner={{ item['user'] }} group={{ item['user'] }} mode=700
@@ -24,7 +30,7 @@
     - "{{ users }}"
 
 - name: dotfiles
-  copy: src={{ item[0] }} dest={{ item[1]['homedir'] }}
+  copy: src={{ item[0] }} dest={{ item[1]['homedir'] }} owner={{ item[1].user }} group={{ item[1].user }}
   with_nested:
     - "{{ dotfiles }}"
     - "{{ users }}"
