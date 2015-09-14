@@ -1,4 +1,4 @@
-resource_registry
+resource_registry:
   # Network Interface templates to use (these files must exist)
 #  OS::TripleO::BlockStorage::Net::SoftwareConfig: 
 #    /home/stack/nic-configs/cinder-storage.yaml
