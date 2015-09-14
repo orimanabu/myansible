@@ -1,0 +1,25 @@
+---
+
+- name: copy files
+  sudo: yes
+  sudo_user: stack
+  shell: cp -rf /usr/share/openstack-tripleo-heat-templates ~/my_templates
+
+- name: network-environment.yaml
+  sudo: yes
+  sudo_user: stack
+  copy: src=network-environment.yaml dest=~/network-environment.yaml
+
+- name: nic-configs directory
+  sudo: yes
+  sudo_user: stack
+  file: path=~/nic-configs state=directory
+
+- name: nic-configs files
+  sudo: yes
+  sudo_user: stack
+  copy: src={{ item }} dest=~/nic-configs
+  with_items:
+    - controller.yaml
+    - compute.yaml
+

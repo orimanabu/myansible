@@ -48,11 +48,15 @@
   with_items:
     - undercloud.conf
     - uc_prepare.sh
+
+- name: copy files 2
+  copy: src={{ item }} dest=/home/stack/{{ item }} owner=stack group=wheel mode=0755
+  with_items:
     - heat_sub.sh
     - heat_log.sh
     - deploy.sh
 
-- name: copy files 2
+- name: copy files 3
   copy: src={{ item }} dest=/home/stack/templates/{{ item }} owner=stack group=wheel
   with_items:
     - network-environment.yaml

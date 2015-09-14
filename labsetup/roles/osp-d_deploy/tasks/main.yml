@@ -4,6 +4,7 @@
   sudo: yes
   sudo_user: stack
 #  shell: . ~/stackrc && openstack overcloud deploy --templates --ntp-server 10.5.26.10 --control-scale 1 --compute-scale 1 --neutron-tunnel-types vxlan --neutron-network-type vxlan && touch .done_flavor_set creates=.done_baremetal_deploy
-  shell: . ~/stackrc && openstack overcloud deploy --templates --ntp-server 10.5.26.10 --control-flavor control --compute-flavor compute --swift-storage-flavor control --ceph-storage-flavor control --block-storage-flavor control --control-scale 1 --compute-scale 1 --neutron-tunnel-types vxlan --neutron-network-type vxlan --neutron-public-interface {{ controller_external_interface }} && touch .done_flavor_set creates=.done_baremetal_deploy
+#  shell: . ~/stackrc && openstack overcloud deploy --templates --ntp-server 10.5.26.10 --control-flavor control --compute-flavor compute --swift-storage-flavor control --ceph-storage-flavor control --block-storage-flavor control --control-scale 1 --compute-scale 1 --neutron-tunnel-types vxlan --neutron-network-type vxlan --neutron-public-interface {{ controller_external_interface }} && touch .done_flavor_set creates=.done_baremetal_deploy
+  shell: . ~/stackrc && time openstack overcloud deploy -e ~/network-environment.yaml --templates --ntp-server 10.5.26.10 --control-flavor control --compute-flavor compute --swift-storage-flavor control --ceph-storage-flavor control --block-storage-flavor control --control-scale 1 --compute-scale 1 --neutron-tunnel-types vxlan --neutron-network-type vxlan
   register: result
 - debug: var=result
