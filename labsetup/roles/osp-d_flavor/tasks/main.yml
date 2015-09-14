@@ -1,0 +1,29 @@
+---
+
+- name: flavor create 
+  sudo: yes
+  sudo_user: stack
+#  shell: . ~/stackrc && openstack flavor create --id auto --ram 6144 --disk 39 --vcpus 2 baremetal && touch .done_flavor_create creates=.done_flavor_create
+  shell: . ~/stackrc && openstack flavor create --id auto --ram {{ item.ram }} --disk {{ item.disk }} --vcpus {{ item.vcpus }} {{ item.name }}
+  with_items: "{{ flavors }}"
+
+- name: flavor set
+  sudo: yes
+  sudo_user: stack
+#  shell: . ~/stackrc && openstack flavor set --property "cpu_arch"="x86_64" --property "capabilities:boot_option"="local" baremetal && touch .done_flavor_set creates=.done_flavor_set
+  shell: . ~/stackrc && openstack flavor set --property "cpu_arch"="x86_64" --property "capabilities:boot_option"="local" --property "capabilities:profile"={{ item.name }} {{ item.name }}
+  with_items: "{{ flavors }}"
+
+- name: flavor list
+  sudo: yes
+  sudo_user: stack
+  register: result
+  shell: . ~/stackrc && openstack flavor list
+- debug: var=result
+
+#- name: flavor show
+#  sudo: yes
+#  sudo_user: stack
+#  register: result
+#  shell: . ~/stackrc && openstack flavor show baremetal
+#- debug: var=result

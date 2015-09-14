@@ -1,0 +1,46 @@
+---
+
+- name: install packages
+  yum: name=ahc-tools state=installed
+
+- name: copy ahc-tools.conf
+  shell: sed 's/\[discoverd/\[ironic/' /etc/ironic-discoverd/discoverd.conf 2>&1 | sudo tee /etc/ahc-tools/ahc-tools.conf
+  shell: cp /etc/ironic-discoverd/discoverd.conf /etc/ahc-tools/ahc-tools.conf
+
+- name: modify ahc-tools.conf
+  lineinfile: >-
+    dest=/etc/ahc-tools/ahc-tools.conf
+    state=present
+    regexp="\[discoverd\]"
+    line="[ironic]"
+
+- name: run ahc-report
+  shell: ahc-report --full 2>&1 | tee log.ahc-report
+
+- name: copy specs
+  template: src={{ item.name }}.specs.j2 dest=/etc/ahc-tools/edeploy/{{ item.name }}.specs
+  with_items: "{{ flavors }}"
+
+- name: copy specs
+  template: src={{ item.name }}.specs.j2 dest=/etc/ahc-tools/edeploy/{{ item.name }}.specs
+  with_items: "{{ flavors }}"
+
+- name: register controller info
+  shell: echo "{{ item.scale }}"
+  register: controller_info
+  when: item.name == "control"
+  with_items: "{{ flavors }}"
+- debug: var=controller_info.results
+
+- name: register compute info
+  shell: echo "{{ item.scale }}"
+  register: compute_info
+  when: item.name == "compute"
+  with_items: "{{ flavors }}"
+- debug: var=compute_info.results
+
+- name: copy state
+  template: src=state.j2 dest=/etc/ahc-tools/edeploy/state
+
+- name: run ahc-match
+  shell: ahc-match 2>&1 | tee log.ahc-match

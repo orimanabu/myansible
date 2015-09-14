@@ -1,5 +1,39 @@
 ---
 
+- name: copy instackenv.json
+  sudo: yes
+  sudo_user: stack
+  copy: src=instackenv.json dest=~/instackenv.json
+
+- name: copy instackenv-validator.py
+  sudo: yes
+  sudo_user: stack
+  copy: src=instackenv-validator.py dest=~/instackenv-validator.py mode=0755
+
+- name: instackenv validation
+  sudo: yes
+  sudo_user: stack
+  shell: ~/instackenv-validator.py -f ~/instackenv.json
+  register: result
+- debug: var=result
+
+- name: baremetal import
+  sudo: yes
+  sudo_user: stack
+  shell: . ~/stackrc && openstack baremetal import --json ~/instackenv.json && touch .done_flavor_set creates=.done_baremetal_import
+
+- name: baremetal configure boot
+  sudo: yes
+  sudo_user: stack
+  shell: . ~/stackrc && openstack baremetal configure boot && touch .done_flavor_set creates=.done_baremetal_configure_boot
+
+- name: ironic node-list
+  sudo: yes
+  sudo_user: stack
+  register: result
+  shell: . ~/stackrc && ironic node-list
+- debug: var=result
+
 - name: baremetal introspection
   sudo: yes
   sudo_user: stack

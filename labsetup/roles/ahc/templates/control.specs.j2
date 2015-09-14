@@ -1,0 +1,4 @@
+[
+ ('disk', '$disk', 'size', 'gt(4)'),
+ ('memory', 'total', 'size', 'ge({{ 1024 * 1024 * (item.ram - 100) }})'),
+]

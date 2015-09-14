@@ -14,7 +14,7 @@
       "cpu": "2"
     },
     {
-      "memory": "4096",
+      "memory": "2048",
       "disk": "40",
       "arch": "x86_64",
       "pm_user": "root",

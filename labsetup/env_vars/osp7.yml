@@ -7,3 +7,9 @@ network_info:
   - { interface: eth4, prefix: 10.0.9 }
   - { interface: eth5, prefix: 172.16.99 }
 gateway_interface: eth1
+
+flavors:
+  - { name: control, vcpus: 2, ram: 4098, disk: 39, scale: 1 }
+  - { name: compute, vcpus: 2, ram: 2048, disk: 39, scale: 1 }
+
+controller_external_interface: eth4

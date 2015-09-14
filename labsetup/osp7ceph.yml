@@ -24,7 +24,10 @@
 #
 #    - osp-d_install
 #    - osp-d_prepare
-
+#
 #    - osp-d_undercloud
+
+#    - osp-d_flavor
 #    - osp-d_discover
-    - osp-d_deploy
+#    - ahc
+#    - osp-d_deploy
