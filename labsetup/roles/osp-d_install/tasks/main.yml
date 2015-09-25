@@ -55,6 +55,9 @@
     - heat_sub.sh
     - heat_log.sh
     - deploy.sh
+    - heat_status.sh
+    - ironic_show.sh
+    - taillog_undercloud.sh
 
 - name: copy files 3
   copy: src={{ item }} dest=/home/stack/templates/{{ item }} owner=stack group=wheel
