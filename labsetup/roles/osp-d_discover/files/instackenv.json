@@ -1,7 +1,7 @@
 {
   "nodes": [
     {
-      "memory": "4096",
+      "memory": "5120",
       "disk": "40",
       "arch": "x86_64",
       "pm_user": "root",
@@ -14,7 +14,7 @@
       "cpu": "2"
     },
     {
-      "memory": "4096",
+      "memory": "5120",
       "disk": "40",
       "arch": "x86_64",
       "pm_user": "root",
@@ -27,7 +27,7 @@
       "cpu": "2"
     },
     {
-      "memory": "4096",
+      "memory": "5120",
       "disk": "40",
       "arch": "x86_64",
       "pm_user": "root",
