@@ -37,4 +37,3 @@
 
 - name: grub2-mkconfig
   shell: grub2-mkconfig -o /boot/grub2/grub.cfg
-  when: result.rc != 0
