@@ -10,8 +10,8 @@ gateway_interface: eth1
 
 flavors:
   - { name: control, vcpus: 2, ram: 5120, disk: 39, scale: 3 }
-  - { name: compute, vcpus: 2, ram: 2048, disk: 39, scale: 2 }
-  - { name: storage, vcpus: 2, ram: 1024, disk: 39, scale: 1 }
+  - { name: compute, vcpus: 1, ram: 2048, disk: 39, scale: 2 }
+  - { name: storage, vcpus: 1, ram: 1024, disk: 39, scale: 1 }
 
 controller_external_interface: eth4
 
