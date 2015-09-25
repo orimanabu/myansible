@@ -40,7 +40,7 @@
 - name: neutron dns
   sudo: yes
   sudo_user: stack
-  shell: . ~/stackrc && neutron subnet-update $(neutron subnet-list | awk '/start.*end/ {print $2}') --dns-nameserver 10.0.1.254 && touch .done_neutron_dns executable=/bin/bash creates=.done_neutron_dns
+  shell: . ~/stackrc && neutron subnet-update $(neutron subnet-list | awk '/start.*end/ {print $2}') --dns-nameserver {{ dns_nameserver }} && touch .done_neutron_dns executable=/bin/bash creates=.done_neutron_dns
 
 - name: neutron subnet show
   sudo: yes

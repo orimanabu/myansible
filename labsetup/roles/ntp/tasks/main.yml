@@ -10,13 +10,13 @@
   lineinfile: >-
     dest=/etc/ntp.conf
     state=present
-    line="server 10.5.26.10 iburst"
+    line="server {{ ntp_server1 }} iburst"
 
 - name: ntp.conf 3
   lineinfile: >-
     dest=/etc/ntp.conf
     state=present
-    line="server 10.5.27.10 iburst"
+    line="server {{ ntp_server2 }} iburst"
 
 - name: restart ntp
   service: name=ntpd enabled=yes state=restarted
