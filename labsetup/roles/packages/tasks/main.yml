@@ -1,26 +1,5 @@
 ---
 
-#- name: yum local repository for RHEL
-#  template: src=localrepo-rhel7.repo.j2 dest=/etc/yum.repos.d/localrepo-rhel7.repo
-#  when: ansible_os_family == "RedHat" and ansible_distribution == "RedHat"
-
-- name: yum local repository for RHEL
-  copy: src=reposyncer.repo dest=/etc/yum.repos.d/reposyncer.repo
-  when:
-    - ansible_os_family == "RedHat"
-    - ansible_distribution == "RedHat"
-
-- name: yum local repository for RHEL
-  file: path=redhat.repo state=absent
-  when: ansible_os_family == "RedHat" and ansible_distribution == "RedHat"
-
-#- name: repo pkg
-#  yum: name=http://debugs.nrt.redhat.com/reposync/RHEL7/repos/bootstrap/Packages/reposyncer-gps-nrt-rhel7-1-2.noarch.rpm state=present
-
-- name: EPEL repo for CentOS
-  yum: name=http://download.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm state=installed
-  when: ansible_os_family == "RedHat" and ansible_distribution == "CentOS"
-
 - name: update packages - yum
   yum: name=* state=latest
   when: ansible_os_family == "RedHat" and ansible_distribution != "Fedora"
