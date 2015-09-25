@@ -3,6 +3,8 @@
 #- hosts: osp
 - hosts: deployd_hosts
   roles:
+    - ntp
+    - timezone
 #    - test
 #    - repository
 #    - packages

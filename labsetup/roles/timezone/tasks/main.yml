@@ -1,0 +1,10 @@
+---
+
+- name: set timezone
+  shell: timedatectl set-timezone Asia/Tokyo
+
+- name: ntpdate
+  shell: ntpdate -u clock.redhat.com
+
+- name: restart ntpd
+  service: name=ntpd enabled=yes state=restarted
