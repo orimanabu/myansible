@@ -2,6 +2,7 @@
 
 - hosts: physical
   roles:
+    - repository
     - packages
     - fonts
     - kvmhost

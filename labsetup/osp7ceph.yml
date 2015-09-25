@@ -12,6 +12,7 @@
 #    - hostname
 #    - disable_NetworkManager
 #
+#    - repository
 #    - packages
 #    - user
 #    - ntp

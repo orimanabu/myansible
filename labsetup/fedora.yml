@@ -13,6 +13,7 @@
 
 - hosts: fedora-mgmt
   roles:
+#    - repository
 #    - packages
 #    - user
 #    - ntp

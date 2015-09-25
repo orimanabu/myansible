@@ -4,6 +4,7 @@
 - hosts: deployd_hosts
   roles:
 #    - test
+#    - repository
 #    - packages
     - user
     - grub_console

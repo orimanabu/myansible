@@ -2,6 +2,7 @@
 
 - hosts: vm
   roles:
+    - repository
     - packages
     - user
     - nic_ifcfg
