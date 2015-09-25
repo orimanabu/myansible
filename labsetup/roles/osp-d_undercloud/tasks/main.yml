@@ -53,15 +53,3 @@
   sudo: yes
   sudo_user: stack
   shell: . ~/stackrc && openstack management plan download $(openstack management plan list | awk '/overcloud/ {print $2}') -O ~/templates/overcloud-plan && touch .done_plan_download executable=/bin/bash creates=.done_plan_download
-
-
-
-
-#openstack baremetal import --json ~/instackenv.json
-#openstack baremetal configure boot
-#openstack baremetal introspection bulk start
-#openstack overcloud deploy --templates --ntp-server 10.5.26.10 --control-scale 1 --compute-scale 1 --neutron-tunnel-types vxlan --neutron-network-type vxlan
-
-#cp -r /usr/share/openstack-tripleo-heat-templates/network/config/single-nic-vlans ~/templates/nic-configs
-#vim templates/nic-configs/controller.yaml
-#vim ~/templates/network-environment.yaml
