@@ -1,78 +1,52 @@
 resource_registry:
   # Network Interface templates to use (these files must exist)
-#  OS::TripleO::BlockStorage::Net::SoftwareConfig: 
-#    /home/stack/nic-configs/cinder-storage.yaml
-  OS::TripleO::Compute::Net::SoftwareConfig: 
-    /home/stack/nic-configs/compute.yaml
-  OS::TripleO::Controller::Net::SoftwareConfig:
-    /home/stack/nic-configs/controller.yaml
-#  OS::TripleO::ObjectStorage::Net::SoftwareConfig: 
-#    /home/stack/nic-configs/swift-storage.yaml
-#  OS::TripleO::CephStorage::Net::SoftwareConfig: 
-#    /home/stack/nic-configs/ceph-storage.yaml
+  OS::TripleO::BlockStorage::Net::SoftwareConfig:  /home/stack/nic-configs/cinder-storage.yaml
+  OS::TripleO::Compute::Net::SoftwareConfig:       /home/stack/nic-configs/compute.yaml
+  OS::TripleO::Controller::Net::SoftwareConfig:    /home/stack/nic-configs/controller.yaml
+#  OS::TripleO::ObjectStorage::Net::SoftwareConfig: /home/stack/nic-configs/swift-storage.yaml
+#  OS::TripleO::CephStorage::Net::SoftwareConfig:   /home/stack/nic-configs/ceph-storage.yaml
 
   # This section is usually not modified, if in doubt stick to the defaults
   # TripleO overcloud networks 
-  OS::TripleO::Network::External:
-    /usr/share/openstack-tripleo-heat-templates/network/external.yaml
-  OS::TripleO::Network::InternalApi:
-    /usr/share/openstack-tripleo-heat-templates/network/internal_api.yaml
-  OS::TripleO::Network::StorageMgmt:
-#    /usr/share/openstack-tripleo-heat-templates/network/storage_mgmt.yaml
-    /usr/share/openstack-tripleo-heat-templates/network/noop.yaml
-  OS::TripleO::Network::Storage:
-    /usr/share/openstack-tripleo-heat-templates/network/storage.yaml
-  OS::TripleO::Network::Tenant:
-   /usr/share/openstack-tripleo-heat-templates/network/tenant.yaml
+  OS::TripleO::Network::External:    /home/stack/my_templates/network/external.yaml
+  OS::TripleO::Network::InternalApi: /home/stack/my_templates/network/internal_api.yaml
+#  OS::TripleO::Network::StorageMgmt: /home/stack/my_templates/network/storage_mgmt.yaml
+  OS::TripleO::Network::StorageMgmt: /home/stack/my_templates/network/noop.yaml
+  OS::TripleO::Network::Storage:     /home/stack/my_templates/network/storage.yaml
+  OS::TripleO::Network::Tenant:      /home/stack/my_templates/network/tenant.yaml
 
   # Port assignments for the controller role
-  OS::TripleO::Controller::Ports::ExternalPort: 
-    /usr/share/openstack-tripleo-heat-templates/network/ports/external.yaml
-  OS::TripleO::Controller::Ports::InternalApiPort:
-    /usr/share/openstack-tripleo-heat-templates/network/ports/internal_api.yaml
-  OS::TripleO::Controller::Ports::StoragePort: 
-    /usr/share/openstack-tripleo-heat-templates/network/ports/storage.yaml
-  OS::TripleO::Controller::Ports::StorageMgmtPort: 
-#    /usr/share/openstack-tripleo-heat-templates/network/ports/storage_mgmt.yaml
-    /usr/share/openstack-tripleo-heat-templates/network/ports/noop.yaml
-  OS::TripleO::Controller::Ports::TenantPort: 
-    /usr/share/openstack-tripleo-heat-templates/network/ports/tenant.yaml
+  OS::TripleO::Controller::Ports::ExternalPort:    /home/stack/my_templates/network/ports/external.yaml
+  OS::TripleO::Controller::Ports::InternalApiPort: /home/stack/my_templates/network/ports/internal_api.yaml
+  OS::TripleO::Controller::Ports::StoragePort:     /home/stack/my_templates/network/ports/storage.yaml
+#  OS::TripleO::Controller::Ports::StorageMgmtPort: /home/stack/my_templates/network/ports/storage_mgmt.yaml
+  OS::TripleO::Controller::Ports::StorageMgmtPort: /home/stack/my_templates/network/ports/noop.yaml
+  OS::TripleO::Controller::Ports::TenantPort:      /home/stack/my_templates/network/ports/tenant.yaml
+
   # Port assignment for the Redis VIP on isolated network
-  OS::TripleO::Controller::Ports::RedisVipPort: 
-    /usr/share/openstack-tripleo-heat-templates/network/ports/vip.yaml 
+  OS::TripleO::Controller::Ports::RedisVipPort:    /home/stack/my_templates/network/ports/vip.yaml 
 
   # Port assignments for the compute role
-  OS::TripleO::Compute::Ports::InternalApiPort: 
-    /usr/share/openstack-tripleo-heat-templates/network/ports/internal_api.yaml
-  OS::TripleO::Compute::Ports::StoragePort: 
-    /usr/share/openstack-tripleo-heat-templates/network/ports/storage.yaml
-  OS::TripleO::Compute::Ports::TenantPort: 
-    /usr/share/openstack-tripleo-heat-templates/network/ports/tenant.yaml
+  OS::TripleO::Compute::Ports::InternalApiPort: /home/stack/my_templates/network/ports/internal_api.yaml
+  OS::TripleO::Compute::Ports::StoragePort:     /home/stack/my_templates/network/ports/storage.yaml
+  OS::TripleO::Compute::Ports::TenantPort:      /home/stack/my_templates/network/ports/tenant.yaml
 
   # Port assignments for the ceph storage role
-  OS::TripleO::CephStorage::Ports::StoragePort: 
-    /usr/share/openstack-tripleo-heat-templates/network/ports/storage.yaml
-  OS::TripleO::CephStorage::Ports::StorageMgmtPort: 
-#    /usr/share/openstack-tripleo-heat-templates/network/ports/storage_mgmt.yaml
-    /usr/share/openstack-tripleo-heat-templates/network/ports/noop.yaml
+  OS::TripleO::CephStorage::Ports::StoragePort:     /home/stack/my_templates/network/ports/storage.yaml
+#  OS::TripleO::CephStorage::Ports::StorageMgmtPort: /home/stack/my_templates/network/ports/storage_mgmt.yaml
+  OS::TripleO::CephStorage::Ports::StorageMgmtPort: /home/stack/my_templates/network/ports/noop.yaml
 
   # Port assignments for the swift storage role
-  OS::TripleO::SwiftStorage::Ports::InternalApiPort: 
-    /usr/share/openstack-tripleo-heat-templates/network/ports/internal_api.yaml
-  OS::TripleO::SwiftStorage::Ports::StoragePort: 
-    /usr/share/openstack-tripleo-heat-templates/network/ports/storage.yaml
-  OS::TripleO::SwiftStorage::Ports::StorageMgmtPort: 
-#    /usr/share/openstack-tripleo-heat-templates/network/ports/storage_mgmt.yaml
-    /usr/share/openstack-tripleo-heat-templates/network/ports/noop.yaml
+  OS::TripleO::SwiftStorage::Ports::InternalApiPort: /home/stack/my_templates/network/ports/internal_api.yaml
+  OS::TripleO::SwiftStorage::Ports::StoragePort:     /home/stack/my_templates/network/ports/storage.yaml
+#  OS::TripleO::SwiftStorage::Ports::StorageMgmtPort: /home/stack/my_templates/network/ports/storage_mgmt.yaml
+  OS::TripleO::SwiftStorage::Ports::StorageMgmtPort: /home/stack/my_templates/network/ports/noop.yaml
 
   # Port assignments for the block storage role
-  OS::TripleO::BlockStorage::Ports::InternalApiPort: 
-    /usr/share/openstack-tripleo-heat-templates/network/ports/internal_api.yaml
-  OS::TripleO::BlockStorage::Ports::StoragePort: 
-    /usr/share/openstack-tripleo-heat-templates/network/ports/storage.yaml
-  OS::TripleO::BlockStorage::Ports::StorageMgmtPort: 
-#    /usr/share/openstack-tripleo-heat-templates/network/ports/storage_mgmt.yaml
-    /usr/share/openstack-tripleo-heat-templates/network/ports/noop.yaml
+  OS::TripleO::BlockStorage::Ports::InternalApiPort: /home/stack/my_templates/network/ports/internal_api.yaml
+  OS::TripleO::BlockStorage::Ports::StoragePort:     /home/stack/my_templates/network/ports/storage.yaml
+#  OS::TripleO::BlockStorage::Ports::StorageMgmtPort: /home/stack/my_templates/network/ports/storage_mgmt.yaml
+  OS::TripleO::BlockStorage::Ports::StorageMgmtPort: /home/stack/my_templates/network/ports/noop.yaml
 
 parameter_defaults:
   # This section is where deployment-specific configuration is done

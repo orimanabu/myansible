@@ -48,11 +48,16 @@ resources:
           network_config:
             -
               type: interface
+              name: nic1
+              use_dhcp: true
+
+            -
+              type: interface
               name: nic2
               use_dhcp: true
               addresses:
-                -
-                  ip_netmask: {get_param: InternalApiIpSubnet}
+              -
+                ip_netmask: {get_param: InternalApiIpSubnet}
             -
               type: interface
               name: nic3

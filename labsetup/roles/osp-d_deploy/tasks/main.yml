@@ -4,7 +4,27 @@
   sudo: yes
   sudo_user: stack
 #  shell: . ~/stackrc && openstack overcloud deploy --templates --ntp-server 10.5.26.10 --control-scale 1 --compute-scale 1 --neutron-tunnel-types vxlan --neutron-network-type vxlan && touch .done_flavor_set creates=.done_baremetal_deploy
-#  shell: . ~/stackrc && openstack overcloud deploy --templates --ntp-server 10.5.26.10 --control-flavor control --compute-flavor compute --swift-storage-flavor control --ceph-storage-flavor control --block-storage-flavor control --control-scale 1 --compute-scale 1 --neutron-tunnel-types vxlan --neutron-network-type vxlan --neutron-public-interface {{ controller_external_interface }} && touch .done_flavor_set creates=.done_baremetal_deploy
-  shell: . ~/stackrc && time openstack overcloud deploy -e ~/network-environment.yaml --templates --ntp-server 10.5.26.10 --control-flavor control --compute-flavor compute --swift-storage-flavor control --ceph-storage-flavor control --block-storage-flavor control --control-scale 1 --compute-scale 1 --neutron-tunnel-types vxlan --neutron-network-type vxlan
+#  shell: . ~/stackrc && time openstack overcloud deploy -e ~/network-environment.yaml --templates --ntp-server 10.5.26.10 --control-flavor control --compute-flavor compute --swift-storage-flavor control --ceph-storage-flavor control --block-storage-flavor control --control-scale 1 --compute-scale 1 --neutron-tunnel-types vxlan --neutron-network-type vxlan
+#  shell: . ~/stackrc && openstack overcloud deploy --templates --ntp-server 10.5.26.10 --control-flavor control --compute-flavor compute --swift-storage-flavor control --ceph-storage-flavor control --block-storage-flavor control --control-scale 1 --compute-scale 1 --neutron-tunnel-types vxlan --neutron-network-type vxlan --libvirt-type kvm -e ~/network-environment.yaml
+#  shell: . ~/stackrc && openstack overcloud deploy --templates --ntp-server 10.5.26.10 --control-flavor control --compute-flavor compute --swift-storage-flavor control --ceph-storage-flavor control --block-storage-flavor control --control-scale 1 --compute-scale 1 --neutron-tunnel-types vxlan --neutron-network-type vxlan --neutron-public-interface {{ controller_external_interface }} --libvirt-type kvm
+#  shell: . ~/stackrc && openstack overcloud deploy --templates --ntp-server 10.5.26.10 --control-flavor control --compute-flavor compute --swift-storage-flavor control --ceph-storage-flavor control --block-storage-flavor storage --control-scale 1 --compute-scale 1 --block-storage-scale 1 --neutron-tunnel-types vxlan --neutron-network-type vxlan --neutron-public-interface {{ controller_external_interface }} --libvirt-type kvm -e ~/network-environment.yaml
+  shell: 
+    . ~/stackrc &&
+    openstack overcloud deploy
+    --templates ~/my_templates
+    --ntp-server 10.5.26.10
+    --control-flavor control
+    --compute-flavor compute
+    --swift-storage-flavor control
+    --ceph-storage-flavor control
+    --block-storage-flavor storage
+    --control-scale {{ flavors[0].scale }}
+    --compute-scale {{ flavors[1].scale }}
+    --block-storage-scale {{ flavors[2].scale }}
+    --neutron-tunnel-types vxlan
+    --neutron-network-type vxlan
+    --neutron-public-interface {{ controller_external_interface }}
+    --libvirt-type kvm
+    -e ~/network-environment.yaml
   register: result
 - debug: var=result
