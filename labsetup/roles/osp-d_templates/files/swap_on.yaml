@@ -1,0 +1,2 @@
+resource_registry:
+  OS::TripleO::NodeUserData: /home/stack/firstboot/enable_swap.yaml
