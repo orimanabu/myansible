@@ -39,3 +39,7 @@
     - compute.yaml
     - cinder-storage.yaml
 
+- name: setup_openstack
+  sudo: yes
+  sudo_user: stack
+  git: repo=git@github.com:orimanabu/setup_openstack.git dest=setup_openstack accept_hostkey=yes
