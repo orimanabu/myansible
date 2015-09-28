@@ -1,0 +1,6 @@
+---
+
+- name: copy files
+  copy: src={{ item }} dest=/home/heat-admin/{{ item }} owner=heat-admin mode=0755
+  with_items:
+    - getsos.sh
