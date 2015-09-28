@@ -12,6 +12,7 @@ resource_registry:
   OS::TripleO::Network::InternalApi: /home/stack/my_templates/network/internal_api.yaml
 #  OS::TripleO::Network::StorageMgmt: /home/stack/my_templates/network/storage_mgmt.yaml
   OS::TripleO::Network::StorageMgmt: /home/stack/my_templates/network/noop.yaml
+#  OS::TripleO::Network::StorageMgmt: /home/stack/my_templates/network/storage.yaml
   OS::TripleO::Network::Storage:     /home/stack/my_templates/network/storage.yaml
   OS::TripleO::Network::Tenant:      /home/stack/my_templates/network/tenant.yaml
 
@@ -21,6 +22,7 @@ resource_registry:
   OS::TripleO::Controller::Ports::StoragePort:     /home/stack/my_templates/network/ports/storage.yaml
 #  OS::TripleO::Controller::Ports::StorageMgmtPort: /home/stack/my_templates/network/ports/storage_mgmt.yaml
   OS::TripleO::Controller::Ports::StorageMgmtPort: /home/stack/my_templates/network/ports/noop.yaml
+#  OS::TripleO::Controller::Ports::StorageMgmtPort: /home/stack/my_templates/network/ports/storage.yaml
   OS::TripleO::Controller::Ports::TenantPort:      /home/stack/my_templates/network/ports/tenant.yaml
 
   # Port assignment for the Redis VIP on isolated network
@@ -35,18 +37,21 @@ resource_registry:
   OS::TripleO::CephStorage::Ports::StoragePort:     /home/stack/my_templates/network/ports/storage.yaml
 #  OS::TripleO::CephStorage::Ports::StorageMgmtPort: /home/stack/my_templates/network/ports/storage_mgmt.yaml
   OS::TripleO::CephStorage::Ports::StorageMgmtPort: /home/stack/my_templates/network/ports/noop.yaml
+#  OS::TripleO::CephStorage::Ports::StorageMgmtPort: /home/stack/my_templates/network/ports/storage.yaml
 
   # Port assignments for the swift storage role
   OS::TripleO::SwiftStorage::Ports::InternalApiPort: /home/stack/my_templates/network/ports/internal_api.yaml
   OS::TripleO::SwiftStorage::Ports::StoragePort:     /home/stack/my_templates/network/ports/storage.yaml
 #  OS::TripleO::SwiftStorage::Ports::StorageMgmtPort: /home/stack/my_templates/network/ports/storage_mgmt.yaml
   OS::TripleO::SwiftStorage::Ports::StorageMgmtPort: /home/stack/my_templates/network/ports/noop.yaml
+#  OS::TripleO::SwiftStorage::Ports::StorageMgmtPort: /home/stack/my_templates/network/ports/storage.yaml
 
   # Port assignments for the block storage role
   OS::TripleO::BlockStorage::Ports::InternalApiPort: /home/stack/my_templates/network/ports/internal_api.yaml
   OS::TripleO::BlockStorage::Ports::StoragePort:     /home/stack/my_templates/network/ports/storage.yaml
 #  OS::TripleO::BlockStorage::Ports::StorageMgmtPort: /home/stack/my_templates/network/ports/storage_mgmt.yaml
   OS::TripleO::BlockStorage::Ports::StorageMgmtPort: /home/stack/my_templates/network/ports/noop.yaml
+#  OS::TripleO::BlockStorage::Ports::StorageMgmtPort: /home/stack/my_templates/network/ports/storage.yaml
 
 parameter_defaults:
   # This section is where deployment-specific configuration is done
