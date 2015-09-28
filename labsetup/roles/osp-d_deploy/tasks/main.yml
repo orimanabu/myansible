@@ -26,5 +26,6 @@
     --neutron-public-interface {{ controller_external_interface }}
     --libvirt-type kvm
     -e ~/network-environment.yaml
+    -e ~/swap_on.yaml
   register: result
 - debug: var=result

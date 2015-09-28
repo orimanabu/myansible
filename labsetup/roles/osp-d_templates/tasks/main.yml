@@ -5,10 +5,25 @@
   sudo_user: stack
   shell: cp -rf /usr/share/openstack-tripleo-heat-templates ~/my_templates
 
-- name: network-environment.yaml
+- name: custom yaml
   sudo: yes
   sudo_user: stack
-  copy: src=network-environment.yaml dest=~/network-environment.yaml
+  copy: src={{ item }} dest=~/
+  with_items:
+    - network-environment.yaml
+    - swap_on.yaml
+
+- name: firstboot directory
+  sudo: yes
+  sudo_user: stack
+  file: path=~/firstboot state=directory
+
+- name: firstboot files
+  sudo: yes
+  sudo_user: stack
+  copy: src={{ item }} dest=~/firstboot/
+  with_items:
+    - enable_swap.yaml
 
 - name: nic-configs directory
   sudo: yes
