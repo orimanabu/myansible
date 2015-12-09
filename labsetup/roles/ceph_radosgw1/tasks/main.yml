@@ -1,0 +1,80 @@
+---
+
+- name: make args for gateway nodes
+  set_fact:
+    opt_str: '{{ item.name }}'
+  register: opts
+  when: inventory_hostname == "{{ admin_node.addr }}"
+  with_items:
+    - "{{ gateway_nodes }}"
+
+#- name: check /etc/apt/sources.list.d/ceph.list on gateway node
+#  shell: ls /etc/apt/sources.list.d/ceph.list
+#  always_run: true
+#  changed_when: false
+#  register: cephlist
+#  ignore_errors: yes
+#  when: inventory_hostname == "{{ gateway.addr }}"
+
+- name: install repo to gateway node
+  shell: ceph-deploy install --repo {{ opts.results | join(' ', attribute='ansible_facts.opt_str') }} chdir=~ori/ceph-config
+  when: inventory_hostname == "{{ admin_node.addr }}"
+
+- name: apt-get update
+  sudo: true
+  apt: update_cache=yes
+  when: inventory_hostname == "{{ item.addr }}"
+  with_items: "{{ gateway_nodes }}"
+
+- name: install apache2
+  sudo: true
+  apt: name=apache2 state=present
+  when: inventory_hostname == "{{ item.addr }}"
+  with_items: "{{ gateway_nodes }}"
+
+- name: install libapache2-mod-fastcgi
+  sudo: true
+  apt: name=libapache2-mod-fastcgi state=present
+  when: inventory_hostname == "{{ item.addr }}"
+  with_items: "{{ gateway_nodes }}"
+
+- name: grep ServerName
+  shell: grep ServerName /etc/apache2/apache2.conf
+  always_run: true
+  changed_when: false
+  register: result
+  ignore_errors: yes
+  when: inventory_hostname == "{{ gateway_node.addr }}"
+
+- name: apache2.conf
+  sudo: true
+  lineinfile: >-
+    dest=/etc/apache2/apache2.conf
+    insertafter=EOF
+    line="ServerName {{ item.name }}.domainname"
+  when: inventory_hostname == "{{ item.addr }}" and result.rc != 0
+  with_items: "{{ gateway_nodes }}"
+
+- name: rewrite
+  sudo: true
+  shell: a2enmod rewrite
+  when: inventory_hostname == "{{ item.addr }}"
+  with_items: "{{ gateway_nodes }}"
+
+- name: fastcgi
+  sudo: true
+  shell: a2enmod fastcgi
+  when: inventory_hostname == "{{ item.addr }}"
+  with_items: "{{ gateway_nodes }}"
+
+- name: apache2
+  sudo: true
+  service: name=apache2 state=restarted
+  when: inventory_hostname == "{{ item.addr }}"
+  with_items: "{{ gateway_nodes }}"
+
+- name: install radosgw
+  sudo: true
+  apt: name=radosgw state=present
+  when: inventory_hostname == "{{ item.addr }}"
+  with_items: "{{ gateway_nodes }}"

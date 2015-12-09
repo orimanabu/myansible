@@ -1,0 +1,95 @@
+---
+
+- name: create user
+  sudo: true
+  shell: radosgw-admin user create --uid="{{ radosgw_user }}" --display-name="First User" | tee /tmp/log.create_user.txt
+  args:
+    creates: /tmp/log.create_user.txt
+  register: create_user
+  when: inventory_hostname == "{{ item.addr }}"
+  with_items: "{{ gateway_nodes }}"
+
+- name: create subuser
+  sudo: true
+  shell: radosgw-admin subuser create --uid={{ radosgw_user }} --subuser={{ radosgw_user }}:swift --access=full | tee /tmp/log.create_subuser.txt
+  args:
+    creates: /tmp/log.create_subuser.txt
+  register: create_subuser
+  when: inventory_hostname == "{{ item.addr }}"
+  with_items: "{{ gateway_nodes }}"
+
+- name: create secret key
+  sudo: true
+  shell: radosgw-admin key create --subuser={{ radosgw_user }}:swift --key-type=swift --gen-secret | tee /tmp/log.create_key.txt
+  args:
+    creates: /tmp/log.create_key.txt
+  register: create_key
+  when: inventory_hostname == "{{ item.addr }}"
+  with_items: "{{ gateway_nodes }}"
+
+- name: install jq
+  sudo: true
+  apt: name=jq state=present
+  when: inventory_hostname == "{{ item.addr }}"
+  with_items: "{{ gateway_nodes }}"
+
+- name: get access_key
+  shell: jq -r '.keys[] | select(.user == "{{ radosgw_user }}").access_key' /tmp/log.create_user.txt
+  register: access_key
+  when: inventory_hostname == "{{ item.addr }}"
+  with_items: "{{ gateway_nodes }}"
+#- debug: var=access_key
+
+- name: get secret_key
+  shell: jq -r '.keys[] | select(.user == "{{ radosgw_user }}").secret_key' /tmp/log.create_user.txt
+  register: secret_key
+  when: inventory_hostname == "{{ item.addr }}"
+  with_items: "{{ gateway_nodes }}"
+#- debug: var=secret_key.results[0].stdout
+
+- name: create s3test.py
+  template: src=s3test.py.j2 dest=~/s3test.py mode=0755
+  when: inventory_hostname == "{{ item.addr }}"
+  with_items: "{{ gateway_nodes }}"
+
+- name: install python-boto
+  sudo: true
+  apt: name=python-boto state=present
+  when: inventory_hostname == "{{ item.addr }}"
+  with_items: "{{ gateway_nodes }}"
+
+- name: get swift_secret_key
+  shell: jq -r '.swift_keys[].secret_key' /tmp/log.create_key.txt
+  register: swift_secret_key
+  when: inventory_hostname == "{{ item.addr }}"
+  with_items: "{{ gateway_nodes }}"
+
+- name: create swift.sh
+  template: src=swift.sh.j2 dest=~/swift.sh mode=0755
+  when: inventory_hostname == "{{ item.addr }}"
+  with_items: "{{ gateway_nodes }}"
+
+- name: install python-setuptools
+  sudo: true
+  apt: name=python-setuptools state=present
+  when: inventory_hostname == "{{ item.addr }}"
+  with_items: "{{ gateway_nodes }}"
+
+- name: install pip
+  sudo: true
+  shell: easy_install pip
+  when: inventory_hostname == "{{ item.addr }}"
+  with_items: "{{ gateway_nodes }}"
+
+- name: update setuptools
+  sudo: true
+  shell: pip install --upgrade setuptools
+  when: inventory_hostname == "{{ item.addr }}"
+  with_items: "{{ gateway_nodes }}"
+
+- name: install python-swiftclient
+  sudo: true
+  shell: pip install --upgrade python-swiftclient
+  when: inventory_hostname == "{{ item.addr }}"
+  with_items: "{{ gateway_nodes }}"
+

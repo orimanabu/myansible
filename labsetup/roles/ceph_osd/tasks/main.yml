@@ -1,0 +1,49 @@
+---
+
+- name: build arg for disk zap
+  set_fact:
+    opt_str: "{{ item.name }}:{{ item.data }}"
+  register: opts
+  when: inventory_hostname == "{{ admin_node.addr }}"
+  with_items:
+    - "{{ osd_nodes }}"
+
+- name: disk zap
+  shell: ceph-deploy disk zap {{ opts.results | join(' ', attribute='ansible_facts.opt_str') }} chdir=~ori/ceph-config
+  when: inventory_hostname == "{{ admin_node.addr }}"
+
+- name: build arg for osd prepare with device name
+  set_fact:
+    opt_str: "{{ item.name }}:{{ item.data }}:{{ item.journal }}"
+  register: opts
+  when: inventory_hostname == "{{ admin_node.addr }}"
+  with_items:
+    - "{{ osd_nodes }}"
+
+- name: osd prepare
+  shell: ceph-deploy osd prepare {{ opts.results | join(' ', attribute='ansible_facts.opt_str') }} chdir=~ori/ceph-config
+  when: inventory_hostname == "{{ admin_node.addr }}"
+
+- name: build arg for osd activate with partition name
+  set_fact:
+    opt_str: "{{ item.name }}:{{ item.data }}1:{{ item.journal }}1"
+  register: opts
+  when: inventory_hostname == "{{ admin_node.addr }}"
+  with_items:
+    - "{{ osd_nodes }}"
+
+- name: osd activate
+  shell: ceph-deploy osd activate {{ opts.results | join(' ', attribute='ansible_facts.opt_str') }} chdir=~ori/ceph-config
+  when: inventory_hostname == "{{ admin_node.addr }}"
+
+- name: build arg for calamari connect
+  set_fact:
+    opt_str: "{{ item.name }}"
+  register: opts
+  when: inventory_hostname == "{{ admin_node.addr }}"
+  with_items:
+    - "{{ osd_nodes }}"
+
+- name: calamari connect
+  shell: ceph-deploy calamari connect {{ opts.results | join(' ', attribute='ansible_facts.opt_str') }} chdir=~ori/ceph-config
+  when: inventory_hostname == "{{ admin_node.addr }}"

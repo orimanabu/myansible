@@ -1,0 +1,37 @@
+---
+
+- name: create ceph.client.radosgw.keyring
+  sudo: true
+  shell: ceph-authtool --create-keyring /etc/ceph/ceph.client.radosgw.keyring
+  when: inventory_hostname == "{{ admin_node.addr }}"
+
+- name: chmod ceph.client.radosgw.keyring
+  sudo: true
+  shell: chmod +r /etc/ceph/ceph.client.radosgw.keyring
+  when: inventory_hostname == "{{ admin_node.addr }}"
+
+- name: generate user and key
+  sudo: true
+  shell: ceph-authtool /etc/ceph/ceph.client.radosgw.keyring -n client.radosgw.gateway --gen-key
+  when: inventory_hostname == "{{ admin_node.addr }}"
+
+- name: add capability to the key
+  sudo: true
+  shell: ceph-authtool -n client.radosgw.gateway --cap osd 'allow rwx' --cap mon 'allow rwx' /etc/ceph/ceph.client.radosgw.keyring
+  when: inventory_hostname == "{{ admin_node.addr }}"
+
+- name: add the key to cluster
+  sudo: true
+  shell: ceph -k /etc/ceph/ceph.client.admin.keyring auth add client.radosgw.gateway -i /etc/ceph/ceph.client.radosgw.keyring
+  when: inventory_hostname == "{{ admin_node.addr }}"
+
+- name: scp ceph.client.radosgw.keyring
+  shell: "scp /etc/ceph/ceph.client.radosgw.keyring {{ item.name }}:"
+  when: inventory_hostname == "{{ admin_node.addr }}"
+  with_items: "{{ gateway_nodes }}"
+
+- name: mv ceph.client.radosgw.keyring
+  sudo: true
+  shell: mv ~ori/ceph.client.radosgw.keyring /etc/ceph/ceph.client.radosgw.keyring
+  when: inventory_hostname == "{{ item.addr }}"
+  with_items: "{{ gateway_nodes }}"

@@ -1,0 +1,19 @@
+---
+
+- name: mon initialize
+  shell: ceph-deploy mon create-initial chdir=~ori/ceph-config
+  when: inventory_hostname == "{{ admin_node.addr }}"
+
+- name: mon calamari connect
+  shell: ceph-deploy calamari connect node1 chdir=~ori/ceph-config
+  when: inventory_hostname == "{{ admin_node.addr }}"
+
+- name: make calamari admin node a ceph admin node
+  shell: ceph-deploy admin node0 chdir=~ori/ceph-config
+  when: inventory_hostname == "{{ admin_node.addr }}"
+
+- name: chmod admin.keyring
+  sudo: true
+  shell: chmod +r /etc/ceph/ceph.client.admin.keyring
+  when: inventory_hostname == "{{ admin_node.addr }}"
+
