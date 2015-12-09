@@ -47,3 +47,12 @@
     line="GATEWAY={{ item.prefix }}.254"
   when: item.interface == "{{ gateway_interface }}"
   with_items: "{{ network_info }}"
+
+- name: DNS
+  lineinfile: >-
+    dest="/etc/sysconfig/network-scripts/ifcfg-{{ item.interface }}"
+    state=present
+    regexp="DNS1=.*"
+    line="DNS1={{ dns_nameserver }}"
+  when: item.interface == "{{ gateway_interface }}"
+  with_items: "{{ network_info }}"
