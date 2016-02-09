@@ -1,0 +1,17 @@
+public_network: {{ public_network }}
+cluster_network: {{ cluster_network }}
+osd_journal_size: 1000
+osd_pool_default_size = 3
+osd_pool_default_min_size = 2
+osd_pool_default_pg_num = 512
+osd_pool_default_pgp_num = 512
+osd_crush_chooseleaf_type = 1
+max_open_files = 131072
+mon_clock_drift_allowed = .15
+mon_clock_drift_warn_backoff = 30
+mon_osd_down_out_interval = 300
+mon_osd_report_timeout = 300
+mon_osd_full_ratio = .75
+mon_osd_nearfull_ratio = .65
+osd_backfill_full_ratio = .65
+

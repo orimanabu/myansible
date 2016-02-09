@@ -4,18 +4,18 @@
   vars_files:
     - "env_vars/{{ env_name }}.yml"
   roles:
-#   - repository
-#   - packages
-#   - user
-#   - no_firewalld
-#   - nic_ifcfg
-#   - nic_ifcfg_manual
-#   - nic_noNM
-    - hostname
-#   - ntp
+   - repository
+   - packages
+   - user
+   - no_firewalld
+   - nic_ifcfg
+   - nic_ifcfg_manual
+   - nic_noNM
+   - hostname
+   - ntp
 
-#   - grub_console
-#   - git_clone
+   - grub_console
+   - git_clone
 
 #   - disable_NetworkManager
 #    - rdo

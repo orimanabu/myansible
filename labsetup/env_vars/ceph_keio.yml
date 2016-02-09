@@ -1,0 +1,27 @@
+---
+
+domainname: cephtest.local
+nodes:
+  - { role: admin, name: node0, addr: 10.0.0.130 }
+  - { role: mon, name: node1, addr: 10.0.0.131 }
+  - { role: osd, name: node2, addr: 10.0.0.132 }
+  - { role: osd, name: node3, addr: 10.0.0.133 }
+  - { role: osd, name: node4, addr: 10.0.0.134 }
+  - { role: gateway, name: gateway, addr: 10.0.0.135 }
+admin_node: { name: node0, addr: 10.0.0.130 }
+mon_nodes:
+  - { name: node1, addr: 10.0.0.131 }
+osd_nodes:
+  - { name: node2, addr: 10.0.0.132, data: vdb, journal: vdc }
+  - { name: node3, addr: 10.0.0.133, data: vdb, journal: vdc }
+  - { name: node4, addr: 10.0.0.134, data: vdb, journal: vdc }
+gateway_nodes:
+  - { name: gateway, addr: 10.0.0.135 }
+
+iso_path: /home/ori/rhceph-1.2.3-2-ubuntu-x86_64-rh.iso
+mount_point: /mnt
+
+public_network: 10.0.0.0/24
+cluster_network: 10.0.2.0/24
+
+radosgw_user: testuserX

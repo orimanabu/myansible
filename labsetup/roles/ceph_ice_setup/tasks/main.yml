@@ -1,0 +1,10 @@
+---
+
+- name: input1
+  template: src=cf.j2 dest=/tmp/input1
+
+- name: ice_setup
+  sudo: true
+#  shell: cat /tmp/input1 | ice_setup -d /mnt chdir=~ori/ceph-config creates=/etc/ceph
+  shell: ice_setup -d /mnt < /tmp/input1 chdir=~ori/ceph-config creates=/etc/ceph
+  when: inventory_hostname == "{{ admin_node.addr }}"

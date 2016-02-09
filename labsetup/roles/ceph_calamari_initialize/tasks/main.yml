@@ -1,0 +1,9 @@
+---
+
+- name: input2
+  template: src=calamari-ctl.j2 dest=/tmp/input2
+
+- name: calamari initialize
+  sudo: true
+  shell: calamari-ctl initialize < /tmp/input2 && touch calamari-ctl chdir=~ori/ceph-config creates=calamari-ctl
+  when: inventory_hostname == "{{ admin_node.addr }}"

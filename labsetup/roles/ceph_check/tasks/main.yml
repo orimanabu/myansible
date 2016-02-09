@@ -1,0 +1,20 @@
+---
+
+- name: copy cephcheck.sh
+  copy: src=cephcheck.sh dest=~ mode=0755
+
+- name: first check
+  shell: ~/cephcheck.sh > ~/log.check1 2>&1
+  when: inventory_hostname == "{{ admin_node.addr }}"
+
+- name: create pool
+  shell: ceph osd pool create mypool 512 512 replicated replicated_ruleset
+  when: inventory_hostname == "{{ admin_node.addr }}"
+
+- name: put object
+  shell: rados put test-object-1 ~/cephcheck.sh --pool=mypool
+  when: inventory_hostname == "{{ admin_node.addr }}"
+
+- name: second check
+  shell: ~/cephcheck.sh > tee ~/log.check2 2>&1
+  when: inventory_hostname == "{{ admin_node.addr }}"

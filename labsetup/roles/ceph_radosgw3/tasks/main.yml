@@ -1,0 +1,36 @@
+---
+
+- name: copy ceph.conf.append
+  template: src=ceph.conf.append.j2 dest=/tmp/ceph.conf.append.{{ item.name }}
+  when: inventory_hostname == "{{ admin_node.addr }}"
+  with_items: "{{ gateway_nodes }}"
+
+- name: backup ceph.conf
+  sudo: true
+  shell: cp /etc/ceph/ceph.conf /tmp/ceph.conf.backup
+  when: inventory_hostname == "{{ admin_node.addr }}"
+
+- name: update ceph.conf
+  sudo: true
+  shell: cat /tmp/ceph.conf.append.{{ item.name }} >> /etc/ceph/ceph.conf
+  when: inventory_hostname == "{{ admin_node.addr }}"
+  with_items: "{{ gateway_nodes }}"
+
+- name: pull ceph.conf
+  shell: ceph-deploy --overwrite-conf config pull {{ admin_node.name }} chdir=~ori/ceph-config
+  when: inventory_hostname == "{{ admin_node.addr }}"
+
+- name: make args for nodes
+  set_fact:
+    opt_str: '{{ item.name }}'
+  register: opts
+  when: inventory_hostname == "{{ admin_node.addr }}"
+  with_items:
+    - "{{ mon_nodes }}"
+    - "{{ osd_nodes }}"
+    - "{{ gateway_nodes }}"
+
+- name: distribute ceph.conf
+  shell: ceph-deploy --overwrite-conf config push {{ opts.results | join(' ', attribute='ansible_facts.opt_str') }} chdir=~ori/ceph-config
+  when: inventory_hostname == "{{ admin_node.addr }}"
+

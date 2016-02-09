@@ -1,0 +1,75 @@
+---
+
+- name: tmp chmod
+  sudo: true
+  shell: chown ori /etc/ceph/ceph.client.admin.keyring
+  when: inventory_hostname == "{{ admin_node.addr }}"
+  
+#- name: copy ceph.client.admin.keyring
+#  sudo: true
+#  copy: src=ceph.client.admin.keyring dest=/etc/ceph/ceph.client.admin.keyring
+#  when: inventory_hostname == "{{ item.addr }}"
+#  with_items: "{{ gateway_nodes }}"
+
+- name: scp ceph.client.admin.keyring
+  shell: "scp /etc/ceph/ceph.client.admin.keyring {{ item.name }}:"
+  when: inventory_hostname == "{{ admin_node.addr }}"
+  with_items: "{{ gateway_nodes }}"
+
+- name: revert chmod
+  sudo: true
+  shell: chown root /etc/ceph/ceph.client.admin.keyring
+  when: inventory_hostname == "{{ admin_node.addr }}"
+  
+- name: mv ceph.client.admin.keyring
+  sudo: true
+  shell: mv ~ori/ceph.client.admin.keyring /etc/ceph/ceph.client.admin.keyring
+  when: inventory_hostname == "{{ item.addr }}"
+  with_items: "{{ gateway_nodes }}"
+
+- name: revert chmod
+  sudo: true
+  shell: chown root /etc/ceph/ceph.client.admin.keyring
+  when: inventory_hostname == "{{ item.addr }}"
+  with_items: "{{ gateway_nodes }}"
+
+- name: copy s3gw.fcgi
+  sudo: true
+  copy: src=s3gw.fcgi dest=/var/www/html/s3gw.fcgi mode=0755
+  when: inventory_hostname == "{{ item.addr }}"
+  with_items: "{{ gateway_nodes }}"
+
+- name: make directory
+  sudo: true
+  file: path=/var/lib/ceph/radosgw/ceph-radosgw.gateway state=directory
+  when: inventory_hostname == "{{ item.addr }}"
+  with_items: "{{ gateway_nodes }}"
+
+- name: radosgw start
+  sudo: true
+  shell: /etc/init.d/radosgw start
+  when: inventory_hostname == "{{ item.addr }}"
+  with_items: "{{ gateway_nodes }}"
+
+- name: copy rgw.conf
+  sudo: true
+  copy: src=rgw.conf dest=/etc/apache2/sites-available/rgw.conf
+  when: inventory_hostname == "{{ item.addr }}"
+  with_items: "{{ gateway_nodes }}"
+
+- name: dissite
+  sudo: true
+  shell: a2dissite 000-default
+  when: inventory_hostname == "{{ item.addr }}"
+  with_items: "{{ gateway_nodes }}"
+
+- name: ensite
+  sudo: true
+  shell: a2ensite rgw.conf
+  when: inventory_hostname == "{{ item.addr }}"
+  with_items: "{{ gateway_nodes }}"
+
+- name: apache2 start
+  service: name=apache2 enabled=true state=restarted
+  when: inventory_hostname == "{{ item.addr }}"
+  with_items: "{{ gateway_nodes }}"

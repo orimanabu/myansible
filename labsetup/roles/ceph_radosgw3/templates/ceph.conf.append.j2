@@ -1,0 +1,5 @@
+[client.radosgw.gateway]
+host = {{ item.name }}
+keyring = /etc/ceph/ceph.client.radosgw.keyring
+rgw socket path = /var/run/ceph/ceph.radosgw.gateway.fastcgi.sock
+log file = /var/log/radosgw/client.radosgw.gateway.log

@@ -1,0 +1,43 @@
+---
+
+#- name: check mount iso
+#  sudo: true
+#  shell: mount | grep {{ iso_path }}
+#  ignore_errors: true
+#  always_run: true
+#  changed_when: false
+#  register: result
+#  when: inventory_hostname == "{{ admin_node.addr }}"
+#
+#- name: mount iso
+#  sudo: true
+#  shell: mount {{ iso_path }} {{ mount_point }}
+#  changed_when: false
+#  ignore_errors: true
+#  when: result.rc != 0 and inventory_hostname == "{{ admin_node.addr }}"
+
+- name: mount
+  sudo: true
+  mount: name={{ mount_point }} src={{ iso_path }} fstype=iso9660 opts=ro state=mounted
+  when: inventory_hostname == "{{ admin_node.addr }}"
+
+- name: deb filename ice_setup
+  shell: ls {{ mount_point }}/ice-setup*.deb
+  always_run: true
+  changed_when: false
+  register: result
+  when: inventory_hostname == "{{ admin_node.addr }}"
+
+- name: install ice_setup
+  sudo: true
+  apt: deb={{ result.stdout }} state=present
+  when: inventory_hostname == "{{ admin_node.addr }}"
+
+- name: mkdir ceph-config
+  file: path=~ori/ceph-config state=directory
+  when: inventory_hostname == "{{ admin_node.addr }}"
+
+- name: repository
+  sudo: true
+  shell: sed -i -e 's/jp.archive.ubuntu.com/ftp.jaist.ac.jp\/pub\/Linux/g' /etc/apt/sources.list
+  when: inventory_hostname == "{{ admin_node.addr }}"

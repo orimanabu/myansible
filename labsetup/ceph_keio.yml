@@ -1,0 +1,23 @@
+---
+
+- hosts: ceph_keio
+  vars_files:
+    - "env_vars/ceph_keio.yml"
+  roles:
+#   - ceph_prepare
+#   - ceph_admin
+
+#   - ceph_ice_setup
+#   - ceph_calamari_initialize
+
+#   - ceph_install1
+#   - ceph_install2
+#   - ceph_osd
+
+#   - ceph_check
+
+#   - ceph_radosgw1
+#   - ceph_radosgw2
+#   - ceph_radosgw3
+#   - ceph_radosgw4
+   - ceph_radosgw5

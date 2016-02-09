@@ -1,0 +1,11 @@
+---
+
+#- name: uptime
+#  shell: uptime
+#  changed_when: false
+
+- name: sysctl
+  copy: src=ceph.conf dest=/etc/sysctl.d/ceph.conf
+- name: sysctl reload
+  shell: sysctl -p /etc/sysctl.d/ceph.conf
+  changed_when: false

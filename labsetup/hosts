@@ -63,11 +63,12 @@ env_name=osp7ceph_interfaces
 10.0.1.233	ansible_host_key_checking=no ansible_ssh_user=root hostname=storage03.osp7test.local mgmt_last_octet=233
 
 [osp7ps-mgmt:vars]
-env_name=osp7ps_interfaces
+env_name=osp7ps
 
 [osp7ps-mgmt]
 10.0.1.111	ansible_host_key_checking=no ansible_ssh_user=root hostname=osp7ps-controller01.test.local mgmt_last_octet=111
-10.0.1.121	ansible_host_key_checking=no ansible_ssh_user=root hostname=osp7ps-compute01.test.local mgmt_last_octet=121
+10.0.1.121	ansible_host_key_checking=no ansible_ssh_user=root hostname=osp7ps-network01.test.local mgmt_last_octet=121
+10.0.1.131	ansible_host_key_checking=no ansible_ssh_user=root hostname=osp7ps-compute01.test.local mgmt_last_octet=131
 
 [test-mgmt:vars]
 env_name=test_interfaces
@@ -95,3 +96,11 @@ env_name=centos_kilo_interfaces
 
 [vm:vars]
 repo_server=10.64.193.148
+
+[ceph_keio]
+10.0.0.130	ansible_host_key_checking=no ansible_ssh_user=ori
+10.0.0.131	ansible_host_key_checking=no ansible_ssh_user=ori
+10.0.0.132	ansible_host_key_checking=no ansible_ssh_user=ori
+10.0.0.133	ansible_host_key_checking=no ansible_ssh_user=ori
+10.0.0.134	ansible_host_key_checking=no ansible_ssh_user=ori
+10.0.0.135	ansible_host_key_checking=no ansible_ssh_user=ori
