@@ -1,6 +1,12 @@
 ---
 
 osp_deploy_images:
-  - deploy-ramdisk-ironic-7.0.0-32.tar
-  - discovery-ramdisk-7.0.0-32.tar
-  - overcloud-full-7.0.0-32.tar
+#  - deploy-ramdisk-ironic-7.0.0-32.tar
+#  - deploy-ramdisk-ironic-7.1.0-39.tar
+  - deploy-ramdisk-ironic-7.2.0-46.tar
+#  - discovery-ramdisk-7.0.0-32.tar
+#  - discovery-ramdisk-7.1.0-39.tar
+  - discovery-ramdisk-7.2.0-46.tar
+#  - overcloud-full-7.0.0-32.tar
+#  - overcloud-full-7.1.0-39.tar
+  - overcloud-full-7.2.0-46.tar

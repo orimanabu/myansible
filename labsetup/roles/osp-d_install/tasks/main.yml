@@ -8,6 +8,8 @@
     - "/home/stack/images"
     - "/home/stack/templates"
     - "/home/stack/templates/overcloud-plan"
+    - "/home/stack/templates/tht"
+    - "/home/stack/scripts"
 
 - name: /etc/hosts
   shell: sed -i -e "s/^127.0.0.1.*$/& $(hostname -f) $(hostname -s)/" /etc/hosts
@@ -47,11 +49,11 @@
   copy: src={{ item }} dest=/home/stack/{{ item }} owner=stack group=wheel
   with_items:
     - undercloud.conf
-    - uc_prepare.sh
 
 - name: copy files 2
-  copy: src={{ item }} dest=/home/stack/{{ item }} owner=stack group=wheel mode=0755
+  copy: src={{ item }} dest=/home/stack/scripts/{{ item }} owner=stack group=wheel mode=0755
   with_items:
+    - uc_prepare.sh
     - heat_sub.sh
     - heat_log.sh
     - deploy.sh

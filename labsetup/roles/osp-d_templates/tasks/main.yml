@@ -3,7 +3,7 @@
 - name: copy files
   sudo: yes
   sudo_user: stack
-  shell: cp -rf /usr/share/openstack-tripleo-heat-templates ~/my_templates
+  shell: cp -rf /usr/share/openstack-tripleo-heat-templates ~/templates/tht
 
 - name: custom yaml
   sudo: yes

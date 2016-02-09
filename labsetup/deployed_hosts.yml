@@ -1,13 +1,16 @@
 ---
 
 #- hosts: osp
-- hosts: deployd_hosts
+- hosts: deployed_hosts
+  vars_files:
+#    - "env_vars/{{ env_name }}.yml"
+    - "env_vars/osp7.yml"
   roles:
-    - ntp
+#    - ntp
     - timezone
-#    - test
-#    - repository
+    - repository
 #    - packages
     - user
     - grub_console
-    - git_clone
+#    - git_clone
+    - osp-d_tools_for_deployed_nodes
