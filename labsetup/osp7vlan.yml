@@ -1,0 +1,37 @@
+---
+
+#- hosts: osp7ceph-mgmt
+#- hosts: osp7ceph-director
+- hosts: osp7vlan-director
+  vars_files:
+#    - "env_vars/{{ env_name }}.yml"
+    - "env_vars/osp7vlan.yml"
+  roles:
+#    - nic_ifcfg
+#    - nic_ifcfg_manual
+#    - nic_noNM
+#    - hostname
+#    - disable_NetworkManager
+
+#    - repository
+#    - packages
+#    - user
+#    - ntp
+#    - no_firewalld
+#
+#    - grub_console
+#    - git_clone
+##    - rdo
+##    - devstack
+#
+#    - osp-d_install
+#    - osp-d_prepare
+#
+#    - osp-d_undercloud
+#
+    - osp-d_flavor
+#    - osp-d_discover
+#    - ahc
+
+#    - osp-d_templates
+#    - osp-d_deploy

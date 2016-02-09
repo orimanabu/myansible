@@ -1,0 +1,21 @@
+---
+
+network_info:
+  - { interface: eth1, prefix: 10.0.1 }
+  - { interface: eth2, prefix: 10.0.2 }
+  - { interface: eth3, prefix: 10.0.0 }
+  - { interface: eth4, prefix: 10.0.9 }
+  - { interface: eth5, prefix: 172.16.99 }
+gateway_interface: eth1
+
+flavors:
+  - { name: control, vcpus: 2, ram: 5120, disk: 39, swap: 512, scale: 1 }
+  - { name: compute, vcpus: 1, ram: 2048, disk: 39, swap: 512, scale: 1 }
+  - { name: storage, vcpus: 1, ram: 2560, disk: 39, swap: 256, scale: 1 }
+
+controller_external_interface: eth4
+
+ntp_server1: 10.5.26.10
+ntp_server2: 10.5.27.10
+
+dns_nameserver: 10.64.255.25
