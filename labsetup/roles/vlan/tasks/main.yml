@@ -1,0 +1,21 @@
+---
+
+- name: ifcfg
+  copy: src=ifcfg-{{ item }} dest=/etc/sysconfig/network-scripts/ifcfg-{{ item }}
+  with_items:
+    - vlan100
+    - vlan201
+    - vlan202
+    - vlan203
+    - vlan204
+
+- name: ifup
+  shell: ifup {{ item }}
+  always_run: yes
+  changed_when: false
+  with_items:
+    - vlan100
+    - vlan201
+    - vlan202
+    - vlan203
+    - vlan204

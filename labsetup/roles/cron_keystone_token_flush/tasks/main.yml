@@ -1,0 +1,4 @@
+---
+
+- name: crontab install
+  copy: src=keystone dest=/var/spool/cron/keystone
