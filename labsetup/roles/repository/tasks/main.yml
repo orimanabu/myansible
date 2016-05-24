@@ -17,10 +17,6 @@
 #- name: repo pkg
 #  yum: name=http://debugs.nrt.redhat.com/reposync/RHEL7/repos/bootstrap/Packages/reposyncer-gps-nrt-rhel7-1-2.noarch.rpm state=present
 
-- name: EPEL repo for CentOS
-  yum: name=http://download.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm state=installed
-  when: ansible_os_family == "RedHat" and ansible_distribution == "CentOS"
-
 - name: metadata clean
   shell: yum clean all
 

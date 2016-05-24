@@ -20,3 +20,4 @@
 
 - name: restart ntp
   service: name=ntpd enabled=yes state=restarted
+  changed_when: false

@@ -32,3 +32,5 @@ system_packages:
   - xterm
   - perl-XML-XPath
   - yum-plugin-priorities
+  - bash-completion
+#  - bash-completion-extras

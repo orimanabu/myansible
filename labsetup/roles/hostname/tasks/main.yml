@@ -2,3 +2,9 @@
 
 - name: hostname
   shell: hostnamectl set-hostname {{ hostname }}
+  always_run: true
+- debug: var=hostname
+
+- name: hostname2
+  shell: hostnamectl --transient set-hostname {{ hostname }}
+  always_run: true

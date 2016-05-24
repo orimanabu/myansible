@@ -38,8 +38,14 @@ firegoby.nrt.redhat.com ansible_ssh_user=root
 [centos-br0:vars]
 env_name=centos_kilo_interfaces
 
-[osp7vlan-director]
-10.0.2.200	ansible_host_key_checking=no ansible_ssh_user=root hostname=osp7vlan-director.osp7test.local mgmt_last_octet=200
+[tripleo-undercloud]
+10.64.193.104	ansible_host_key_checking=no ansible_ssh_user=root hostname=undercloud.rdotest.local mgmt_last_octet=10
+
+[osp8-director]
+10.0.2.200	ansible_host_key_checking=no ansible_ssh_user=root hostname=osp8-director.osptest.local mgmt_last_octet=200
+
+#[osp7vlan-director]
+#10.0.2.200	ansible_host_key_checking=no ansible_ssh_user=root hostname=osp7vlan-director.osp7test.local mgmt_last_octet=200
 
 [osp7ceph-director:vars]
 env_name=osp7ceph_interfaces

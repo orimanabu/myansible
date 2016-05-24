@@ -6,19 +6,19 @@
     - "/home/stack"
     - "/home/stack/Downloads"
     - "/home/stack/images"
-    - "/home/stack/templates"
-    - "/home/stack/templates/overcloud-plan"
-    - "/home/stack/templates/tht"
-    - "/home/stack/scripts"
+#    - "/home/stack/templates"
+#    - "/home/stack/templates/overcloud-plan"
+#    - "/home/stack/templates/tht"
+#    - "/home/stack/scripts"
 
 - name: /etc/hosts
   shell: sed -i -e "s/^127.0.0.1.*$/& $(hostname -f) $(hostname -s)/" /etc/hosts
 
-- name: sysctl conf
-  copy: src=ip_forward.conf dest=/etc/sysctl.d/ip_forward.conf
-- name: sysctl
-  shell: systemctl restart systemd-sysctl
-  changed_when: false
+#- name: sysctl conf
+#  copy: src=ip_forward.conf dest=/etc/sysctl.d/ip_forward.conf
+#- name: sysctl
+#  shell: systemctl restart systemd-sysctl
+#  changed_when: false
 
 - name: install openssl policycoreutils-python
   yum: name={{ item }} state=latest
@@ -30,7 +30,7 @@
   shell: openssl genrsa -out /root/privkey.pem 2048
 
 - name: openssl req
-  shell: openssl req -new -x509 -key /root/privkey.pem -out /root/cacert.pem -days 365 -subj "/C=JP/ST=Tokyo/localName=Ebisu/O=Red Hat Japan/organizationName=GPS/emailAddress=ori@redhat.com/commonName=10.0.9.201"
+  shell: openssl req -new -x509 -key /root/privkey.pem -out /root/cacert.pem -days 365 -subj "/C=JP/ST=Tokyo/localityName=Ebisu/O=Red Hat Japan/organizationalName=GPS/emailAddress=ori@redhat.com/commonName=10.0.9.201"
 
 - name: directory
   file: path={{ item }} state=directory 
@@ -50,21 +50,21 @@
   with_items:
     - undercloud.conf
 
-- name: copy files 2
-  copy: src={{ item }} dest=/home/stack/scripts/{{ item }} owner=stack group=wheel mode=0755
-  with_items:
-    - uc_prepare.sh
-    - heat_sub.sh
-    - heat_log.sh
-    - deploy.sh
-    - heat_status.sh
-    - ironic_show.sh
-    - taillog_undercloud.sh
+#- name: copy files 2
+#  copy: src={{ item }} dest=/home/stack/scripts/{{ item }} owner=stack group=wheel mode=0755
+#  with_items:
+#    - uc_prepare.sh
+#    - heat_sub.sh
+#    - heat_log.sh
+#    - deploy.sh
+#    - heat_status.sh
+#    - ironic_show.sh
+#    - taillog_undercloud.sh
 
-- name: copy files 3
-  copy: src={{ item }} dest=/home/stack/templates/{{ item }} owner=stack group=wheel
-  with_items:
-    - network-environment.yaml
+#- name: copy files 3
+#  copy: src={{ item }} dest=/home/stack/templates/{{ item }} owner=stack group=wheel
+#  with_items:
+#    - network-environment.yaml
 
 - name: install python-rdomanager-oscplugin
   yum: name={{ item }} state=latest

@@ -5,17 +5,17 @@
   sudo_user: stack
   copy: src=instackenv.json dest=~/instackenv.json
 
-- name: copy instackenv-validator.py
-  sudo: yes
-  sudo_user: stack
-  copy: src=instackenv-validator.py dest=~/instackenv-validator.py mode=0755
-
-- name: instackenv validation
-  sudo: yes
-  sudo_user: stack
-  shell: ~/instackenv-validator.py -f ~/instackenv.json
-  register: result
-- debug: var=result
+#- name: copy instackenv-validator.py
+#  sudo: yes
+#  sudo_user: stack
+#  copy: src=instackenv-validator.py dest=~/instackenv-validator.py mode=0755
+#
+#- name: instackenv validation
+#  sudo: yes
+#  sudo_user: stack
+#  shell: ~/instackenv-validator.py -f ~/instackenv.json
+#  register: result
+#- debug: var=result
 
 - name: baremetal import
   sudo: yes
@@ -34,9 +34,9 @@
   shell: . ~/stackrc && ironic node-list
 - debug: var=result
 
-- name: baremetal introspection
-  sudo: yes
-  sudo_user: stack
-  shell: . ~/stackrc && time openstack baremetal introspection bulk start && touch .done_flavor_set creates=.done_baremetal_introspection
-  register: result
-- debug: var=result
+#- name: baremetal introspection
+#  sudo: yes
+#  sudo_user: stack
+#  shell: . ~/stackrc && time openstack baremetal introspection bulk start && touch .done_flavor_set creates=.done_baremetal_introspection
+#  register: result
+#- debug: var=result

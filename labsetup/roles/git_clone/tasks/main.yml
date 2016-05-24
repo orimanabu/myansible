@@ -1,4 +1,16 @@
 ---
 
 - name: setup_openstack
-  git: repo=git@github.com:orimanabu/setup_openstack.git dest=/root/setup_openstack accept_hostkey=yes
+  become: yes
+  become_user: stack
+  git: repo=git@github.com:orimanabu/setup_openstack.git dest=~/setup_openstack accept_hostkey=yes
+
+- name: rdomanager_templates
+  become: yes
+  become_user: stack
+  git: repo=git@github.com:orimanabu/rdomanager_templates.git dest=~/rdomanager_templates accept_hostkey=yes
+  
+- name: tripleo_templates
+  become: yes
+  become_user: stack
+  git: repo=git@github.com:orimanabu/tripleo_templates.git dest=~/tripleo_templates accept_hostkey=yes
