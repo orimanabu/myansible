@@ -1,0 +1,123 @@
+---
+
+- name: copy files 1
+  shell: cp /usr/share/instack-undercloud/undercloud.conf.sample {{ item }} creates={{ item }}
+  with_items:
+    - /home/stack/undercloud.conf
+
+- name: customize undercloud.conf - local_ip
+  become: yes
+  become_user: stack
+  lineinfile: >-
+    dest=/home/stack/undercloud.conf
+    state=present
+    regexp="^#?\s*local_ip\s*=\s*"
+    line="local_ip = {{ provisioning_addr }}/{{ provisioning_prefixlen }}"
+
+- name: customize undercloud.conf - network_gateway
+  become: yes
+  become_user: stack
+  lineinfile: >-
+    dest=/home/stack/undercloud.conf
+    state=present
+    regexp="^#?\s*network_gateway\s*=\s*"
+    line="network_gateway = {{ provisioning_addr }}"
+
+- name: customize undercloud.conf - undercloud_public_vip
+  become: yes
+  become_user: stack
+  lineinfile: >-
+    dest=/home/stack/undercloud.conf
+    state=present
+    regexp="^#?\s*undercloud_public_vip\s*=\s*"
+    line="undercloud_public_vip = {{ provisioning_public_vip }}"
+
+- name: customize undercloud.conf - undercloud_admin_vip
+  become: yes
+  become_user: stack
+  lineinfile: >-
+    dest=/home/stack/undercloud.conf
+    state=present
+    regexp="^#?\s*undercloud_admin_vip\s*=\s*"
+    line="undercloud_admin_vip = {{ provisioning_admin_vip }}"
+
+#- name: customize undercloud.conf - undercloud_service_certificate
+#  become: yes
+#  become_user: stack
+#  lineinfile: >-
+#    dest=/home/stack/undercloud.conf
+#    state=present
+#    regexp="^#?\s*undercloud_service_certificate\s*=\s*"
+#    line="undercloud_service_certificate = /etc/pki/instack-certs/undercloud.pem"
+
+- name: customize undercloud.conf - local_interface
+  become: yes
+  become_user: stack
+  lineinfile: >-
+    dest=/home/stack/undercloud.conf
+    state=present
+    regexp="^#?\s*local_interface\s*=\s*"
+    line="local_interface = {{ provisioning_interface }}"
+
+- name: customize undercloud.conf - network_cidr
+  become: yes
+  become_user: stack
+  lineinfile: >-
+    dest=/home/stack/undercloud.conf
+    state=present
+    regexp="^#?\s*network_cidr\s*=\s*"
+    line="network_cidr = {{ provisioning_cidr }}"
+
+- name: customize undercloud.conf - masquerade_network
+  become: yes
+  become_user: stack
+  lineinfile: >-
+    dest=/home/stack/undercloud.conf
+    state=present
+    regexp="^#?\s*masquerade_network\s*=\s*"
+    line="masquerade_network = {{ provisioning_cidr }}"
+
+- name: customize undercloud.conf - dhcp_start
+  become: yes
+  become_user: stack
+  lineinfile: >-
+    dest=/home/stack/undercloud.conf
+    state=present
+    regexp="^#?\s*dhcp_start\s*=\s*"
+    line="dhcp_start = {{ provisioning_dhcp_start }}"
+
+- name: customize undercloud.conf - dhcp_end
+  become: yes
+  become_user: stack
+  lineinfile: >-
+    dest=/home/stack/undercloud.conf
+    state=present
+    regexp="^#?\s*dhcp_end\s*=\s*"
+    line="dhcp_end = {{ provisioning_dhcp_end }}"
+
+- name: customize undercloud.conf - inspection_iprange
+  become: yes
+  become_user: stack
+  lineinfile: >-
+    dest=/home/stack/undercloud.conf
+    state=present
+    regexp="^#?\s*inspection_iprange\s*=\s*"
+    line="inspection_iprange = {{ discovery_dhcp_start }},{{ discovery_dhcp_end }}"
+
+- name: undercloud install
+  become: yes
+  become_user: stack
+  shell: openstack undercloud install 2>&1 | tee log.undercloud.install creates=stackrc
+
+- name: neutron dns
+  become: yes
+  become_user: stack
+  shell: . ~/stackrc && neutron subnet-update $(neutron subnet-list | awk '/start.*end/ {print $2}') --dns-nameserver {{ dns_nameserver }} && touch .done_neutron_dns executable=/bin/bash creates=.done_neutron_dns
+
+- name: neutron subnet show
+  become: yes
+  become_user: stack
+  shell: . ~/stackrc && neutron subnet-show $(neutron subnet-list | awk '/start.*end/ {print $2}') executable=/bin/bash
+  register: result
+- debug: var=result
+

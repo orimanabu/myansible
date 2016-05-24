@@ -1,0 +1,33 @@
+---
+
+- name: image install
+  yum: name={{ item }} state=installed
+  with_items:
+    - rhosp-director-images
+    - rhosp-director-images-ipa
+
+- name: image copy
+  become: yes
+  become_user: stack
+  shell: cp /usr/share/rhosp-director-images/{{ item }} /home/stack/images/. creates=/home/stack/images/{{ item }}
+  with_items:
+    - overcloud-full-latest-8.0.tar
+    - ironic-python-agent-latest-8.0.tar
+
+- name: image extract
+  become: yes
+  become_user: stack
+  shell: 
+    cmd: tar xf {{ item }}
+    chdir: /home/stack/images
+    creates: /home/stack/images/overcloud-full.qcow2
+  with_items:
+    - overcloud-full-latest-8.0.tar
+    - ironic-python-agent-latest-8.0.tar
+
+- name: image upload
+  become: yes
+  become_user: stack
+  shell: . ~/stackrc && openstack overcloud image upload --image-path /home/stack/images
+  register: result
+- debug: var=result

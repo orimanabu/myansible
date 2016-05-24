@@ -1,0 +1,28 @@
+---
+
+- hosts: osp8-director
+  vars_files:
+    - "env_vars/osp8.yml"
+  roles:
+#    - hostname
+#    - disable_NetworkManager
+#    - packages
+#    - user
+#    - ntp
+#    - no_firewalld
+#    - git_clone
+
+#    - osp8_install
+#    - osp8_undercloud
+
+#    - vlan
+#    - cron_keystone_token_flush
+#    - osp8_image
+    - osp8_discover
+
+#    - osp-d_flavor
+#    - osp-d_discover
+#    - ahc
+#
+#    - osp-d_templates
+#    - osp-d_deploy
