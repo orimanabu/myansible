@@ -1,0 +1,36 @@
+---
+
+network_info:
+  - { interface: eth1, prefix: 10.0.1 }
+  - { interface: eth2, prefix: 10.0.2 }
+  - { interface: eth3, prefix: 10.0.0 }
+  - { interface: eth4, prefix: 10.0.9 }
+  - { interface: eth5, prefix: 172.16.99 }
+gateway_interface: eth1
+provisioning_interface: eth4
+provisioning_addr: 10.0.9.10
+provisioning_prefixlen: 24
+provisioning_cidr: 10.0.9.0/24
+provisioning_public_vip: 10.0.9.11
+provisioning_admin_vip: 10.0.9.12
+provisioning_dhcp_start: 10.0.9.51
+provisioning_dhcp_end: 10.0.9.59
+discovery_dhcp_start: 10.0.9.13
+discovery_dhcp_end: 10.0.9.19
+
+tripleo_flavors:
+#  - { name: control, vcpus: 2, ram: 6144, disk: 39, swap: 512, scale: 1 }
+#  - { name: compute, vcpus: 1, ram: 3072, disk: 39, swap: 512, scale: 1 }
+#  - { name: ceph-storage, vcpus: 1, ram: 2048, disk: 39, swap: 256, scale: 1 }
+#  - { name: baremetal, vcpus: 1, ram: 1024, disk: 10, swap: 256, scale: 1 }
+  - { name: control, vcpus: 2, ram: 6143, disk: 38, swap: 512, scale: 1 }
+  - { name: compute, vcpus: 1, ram: 3071, disk: 38, swap: 512, scale: 1 }
+  - { name: ceph-storage, vcpus: 1, ram: 2047, disk: 38, swap: 256, scale: 1 }
+  - { name: baremetal, vcpus: 1, ram: 1023, disk: 10, swap: 256, scale: 1 }
+
+controller_external_interface: eth4
+
+ntp_server1: 10.5.26.10
+ntp_server2: 10.5.27.10
+
+dns_nameserver: 10.64.255.25

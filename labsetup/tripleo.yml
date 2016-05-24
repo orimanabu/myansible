@@ -1,0 +1,35 @@
+---
+
+- hosts: tripleo-undercloud
+  vars_files:
+    - "env_vars/tripleo.yml"
+  roles:
+    - hostname
+#    - disable_NetworkManager
+
+#    - repository
+    - epel
+    - packages
+    - user
+    - ntp
+#    - no_firewalld
+#    - grub_console
+    - rdo
+    - vlan
+#
+#    - osp-d_install
+#    - osp-d_prepare
+#    - osp-d_undercloud
+#    - osp-d_flavor
+#    - osp-d_discover
+#    - ahc
+#    - osp-d_templates
+#    - osp-d_deploy
+
+    - tripleo_install
+    - tripleo_undercloud
+
+    - git_clone
+
+#     - tripleo_discover
+#     - tripleo_flavor

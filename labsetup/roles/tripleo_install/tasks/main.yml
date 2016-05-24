@@ -1,0 +1,109 @@
+---
+
+#- name: directory
+#  file: path={{ item }} state=directory owner=stack group=wheel
+#  with_items:
+#    - "/home/stack"
+#    - "/home/stack/Downloads"
+#    - "/home/stack/images"
+#    - "/home/stack/templates"
+#    - "/home/stack/templates/overcloud-plan"
+#    - "/home/stack/templates/tht"
+#    - "/home/stack/scripts"
+
+- name: fqdn hostname
+  shell: hostname -f
+  always_run: yes
+  changed_when: false
+  register: fqdn_hostname
+
+- name: short hostname
+  shell: hostname -s
+  always_run: yes
+  changed_when: false
+  register: short_hostname
+
+- name: /etc/hosts
+#  shell: sed -i -e "s/^127.0.0.1.*$/& $(hostname -f) $(hostname -s)/" /etc/hosts
+  lineinfile: >-
+    dest=/etc/hosts
+    state=present
+    regexp="^127\.0\.0\.1.*{{ fqdn_hostname.stdout }} {{ short_hostname.stdout }}"
+    line="127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4 {{ fqdn_hostname.stdout }} {{ short_hostname.stdout }}"
+
+#- name: sysctl conf
+#  copy: src=ip_forward.conf dest=/etc/sysctl.d/ip_forward.conf
+#- name: sysctl
+#  shell: systemctl restart systemd-sysctl
+#  changed_when: false
+
+- name: install openssl policycoreutils-python
+  yum: name={{ item }} state=latest
+  with_items:
+    - openssl
+    - policycoreutils-python
+
+- name: openssl genrsa
+  shell: openssl genrsa -out {{ item }} 2048 creates={{ item }}
+  with_items:
+    - /root/privkey.pem
+
+- name: openssl req
+  shell: openssl req -new -x509 -key /root/privkey.pem -out {{ item }} -days 365 -subj "/C=JP/ST=Tokyo/localityName=Ebisu/O=Red Hat Japan/organizationUnitName=GPS/emailAddress=ori@redhat.com/commonName={{ provisioning_public_vip }}" creates={{ item }}
+  with_items:
+    - /root/cacert.pem
+
+#- name: prepare for openssl req with subjectAltName 1
+#  template: src=openssl-san.cnf.append.j2 dest=/root/openssl-san.cnf.append
+#
+#- name: prepare for openssl req with subjectAltName 2
+#  shell: cat /etc/pki/tls/openssl.cnf openssl-san.cnf.append > {{ item }} creates={{ item }}
+#  with_items:
+#    - /root/openssl-san.cnf
+#
+#- name: openssl req with subjectAltName
+#  shell: openssl req -new -x509 -extensions v3_req -key /root/privkey.pem -out {{ item }} -days 365 -config /root/openssl-san.cnf -subj "/C=JP/ST=Tokyo/localityName=Ebisu/O=Red Hat Japan/organizationUnitName=GPS/emailAddress=ori@redhat.com/commonName={{ provisioning_public_vip }}" creates={{ item }}
+#  with_items:
+#    - /root/cacert.pem
+#
+#- name: confirm openssl req with subjectAltName
+#  shell: openssl x509 -extensions v3_req -in cacert.pem -text | grep DNS
+#  always_run: yes
+#  changed_when: false
+#  register: x509verify
+#- debug: var=x509verify
+
+- name: directory
+  file: path={{ item }} state=directory 
+  with_items:
+    - "/etc/pki/instack-certs"
+
+- name: undercloud.pem create
+  shell: cat /root/cacert.pem /root/privkey.pem > {{ item }} creates={{ item }}
+  with_items:
+    - /etc/pki/instack-certs/undercloud.pem
+
+- name: undercloud.pem selinux
+  shell: |
+    semanage fcontext -a -t etc_t "/etc/pki/instack-certs(/.*)?"
+    restorecon -R /etc/pki/instack-certs/
+  always_run: yes
+  changed_when: false
+
+- name: add the certificate to the systems's trusted certificate store 1
+  shell: |
+    cp cacert.pem /etc/pki/ca-trust/source/anchors/
+    update-ca-trust extract
+  always_run: yes
+  changed_when: false
+
+- name: install python-tripleoclient
+  yum: name={{ item }} state=latest
+  with_items:
+    - python-tripleoclient
+
+- name: copy files 1
+  shell: cp /usr/share/instack-undercloud/undercloud.conf.sample {{ item }} creates={{ item }}
+  with_items:
+    - /home/stack/undercloud.conf
+

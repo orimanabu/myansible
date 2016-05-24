@@ -1,0 +1,57 @@
+---
+
+- name: copy instackenv.json
+  become: yes
+  become_user: stack
+  copy: src=instackenv.json dest=~/instackenv.json
+
+#- name: copy instackenv-validator.py
+#  sudo: yes
+#  sudo_user: stack
+#  copy: src=instackenv-validator.py dest=~/instackenv-validator.py mode=0755
+#
+#- name: instackenv validation
+#  sudo: yes
+#  sudo_user: stack
+#  shell: ~/instackenv-validator.py -f ~/instackenv.json
+#  register: result
+#- debug: var=result
+
+- name: baremetal import
+  become: yes
+  become_user: stack
+  shell: . ~/stackrc && openstack baremetal import --json ~/instackenv.json && touch {{ item }} creates={{ item }}
+  with_items:
+    - .done_baremetal_import
+
+- name: baremetal configure boot
+  become: yes
+  become_user: stack
+  shell: . ~/stackrc && openstack baremetal configure boot && touch {{ item }} creates={{ item }}
+  with_items:
+    - .done_baremetal_configure_boot
+
+- name: ironic node-list
+  become: yes
+  become_user: stack
+  register: result
+  shell: . ~/stackrc && ironic node-list
+  always_run: yes
+  changed_when: false
+- debug: var=result
+
+- name: baremetal introspection
+  become: yes
+  become_user: stack
+  shell: . ~/stackrc && time openstack baremetal introspection bulk start && touch {{ item }} creates={{ item }}
+  with_items:
+    - .done_baremetal_introspection_bulk_start
+  register: result
+- debug: var=result
+
+- name: check introspection
+  become: yes
+  become_user: stack
+  shell: . ~/stackrc && openstack baremetal list -f csv --quote none -c UUID | grep -v UUID | while read id; do echo "=> ${id}"; ironic node-show ${id} | grep -A1 properties; done
+  register: result
+- debug: var=result
